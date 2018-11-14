@@ -23,39 +23,74 @@ class CazadorDeDatos():
         la data de una nueva página, chequear que no haya sido adquirida
         antes.
     """
-    def __init__(self, language='en', fmt='json', cmlimit=500):
+    def __init__(self, language='en', fmt='json', limit=500):
         self.language = language
         self.format = fmt
-        self.cmlimit = cmlimit
+        self.limit = limit
 
-    def query(self, pedido):
-        pedido['action'] = 'query'
-        pedido['format'] = self.format
-        pedido['cmlimit'] = self.cmlimit
-        lastContinue = {}
-        query_results = {}
-        while True:
-            # Clone original request
-            pedido2 = pedido.copy()
-            # Modify it with the values returned in the 'continue' section of the last result.
-            pedido2.update(lastContinue)
-            # Call API
+    def query(self, pedido, continuar=True):
+        pedido = pedido.copy()
+        pedido.update({'action': 'query', 'format': self.format, 'redirects': ''})
+        
+        # Para que el formato sea el correcto
+        if pedido['format'] in ['json', 'php']:
+            pedido['formatversion'] = '2'
+        # Seteamos los límites de elementos a sus valores máximos
+        if 'cmtitle' in pedido.keys():
+            pedido['cmlimit'] = self.limit
+        if 'prop' in pedido.keys():
+            if 'links' in pedido['prop']:
+                pedido['pllimit'] = self.limit
+            if 'categories' in pedido['prop']:
+                pedido['cllimit'] = self.limit
+        # Comenzamos las llamadas a la API
+        if continuar:
+            lastContinue = {}
+            query_results = {}
+            while True:
+                # Clone original request
+                pedido2 = pedido.copy()
+                # Modify it with the values returned in the 'continue' section of the last result.
+                pedido2.update(lastContinue)
+                # Call API
+                result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
+                                    params=pedido2).json()
+                if 'error' in result:
+                    raise Exception(result['error'])
+                if 'warnings' in result:
+                    print(result['warnings'])
+                if 'query' in result:
+                    query_results.update(result['query'])
+                if 'continue' not in result:
+                    break
+                lastContinue = result['continue']
+        else:
             result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
-                                  params=pedido2).json()
+                                    params=pedido).json()
             if 'error' in result:
                 raise Exception(result['error'])
             if 'warnings' in result:
                 print(result['warnings'])
             if 'query' in result:
-                query_results.update(result['query'])
-            if 'continue' not in result:
-                break
-            lastContinue = result['continue']
+                query_results = result['query']
         return query_results
-    
-
 
 if __name__ == '__main__':
     caza = CazadorDeDatos()
-    pedido = {'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'}
-    resultado = caza.query(pedido)
+    # res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
+    # res2 = caza.query({'titles': 'Main page'})
+
+    # res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
+    # links_res3 = res3['pages'][0]['links']
+    # nombres_links = [links_res3[i]['title'] for i in range(len(links_res3))]
+
+    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
+    
+    # pedido = {'action':'query',
+    #           'titles': 'Category:Physics',              
+    #           'generator': 'links',
+    #           'prop':'links|categories',
+    #           'pllimit': '500',
+    #           'redirects': '',
+    #           }
+    # resu = caza.query(pedido)
