@@ -2,7 +2,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 plt.ion()
-from cazador import CazadorDeDatos
+from cazador import CazadorDeDatos, curate_links
+import numpy as np
 
 def nestdict_to_edgelist(nestdict):
     """
@@ -24,6 +25,23 @@ def nestdict_to_edgelist(nestdict):
     return edgelist
 
 
+
+def lista_de_enlaces(data):
+    pares_nodos = []
+    nodos_1 = list(data.keys())
+    for nodos in nodos_1:
+        
+        nodos_2 = data[nodos]['links']
+        
+        for nodoss in nodos_2:
+            par = []
+            par.append(nodos)
+            par.append(nodoss)
+            pares_nodos.append(par)
+    return pares_nodos
+
+
+
 if __name__ == '__main__':
     # Inicializamos objeto
     caza = CazadorDeDatos()
@@ -40,3 +58,13 @@ if __name__ == '__main__':
     # Qué categorías pertenecen a más de una categoría madre?
     # Estas categorías rompen la estructura de árbol
     especiales = [cat for cat, in_deg in g.in_degree if in_deg >= 2]
+    
+#%%  
+    data, cats = caza.get_data_pagesincat('Category:Interaction')
+    data = curate_links(data)
+    a = lista_de_enlaces(data)
+    b = nx.Graph()
+    b.add_edges_from(a)
+    nx.draw(b, node_size=6)
+    
+    
