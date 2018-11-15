@@ -38,15 +38,20 @@ class CazadorDeDatos():
         # Seteamos los límites de elementos a sus valores máximos
         if 'cmtitle' in pedido.keys():
             pedido['cmlimit'] = self.limit
+        if 'generator' in pedido.keys():
+            if pedido['generator'] == 'links':
+                pedido['gpllimit'] = self.limit
+            if pedido['generator'] == 'categorymembers':
+                pedido['gcmlimit'] = self.limit
         if 'prop' in pedido.keys():
             if 'links' in pedido['prop']:
                 pedido['pllimit'] = self.limit
             if 'categories' in pedido['prop']:
                 pedido['cllimit'] = self.limit
         # Comenzamos las llamadas a la API
+        query_results = {}
         if continuar:
             lastContinue = {}
-            query_results = {}
             while True:
                 # Clone original request
                 pedido2 = pedido.copy()
@@ -55,6 +60,9 @@ class CazadorDeDatos():
                 # Call API
                 result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
                                     params=pedido2).json()
+                if 'batchcomplete' in result and result['batchcomplete']==True:
+                    # hacer algo
+                    pass
                 if 'error' in result:
                     raise Exception(result['error'])
                 if 'warnings' in result:
@@ -67,6 +75,9 @@ class CazadorDeDatos():
         else:
             result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
                                     params=pedido).json()
+            if 'batchcomplete' in result and result['batchcomplete']==True:
+                # hacer algo
+                pass
             if 'error' in result:
                 raise Exception(result['error'])
             if 'warnings' in result:
@@ -84,8 +95,20 @@ if __name__ == '__main__':
     # links_res3 = res3['pages'][0]['links']
     # nombres_links = [links_res3[i]['title'] for i in range(len(links_res3))]
 
-    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
+    # res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
+
+    res5 = caza.query({'gcmtitle': 'Category:Physics',
+                       'prop': 'links',
+                       'generator': 'categorymembers',
+                       'gcmtype': 'page'
+                       }, continuar=False)
     
+    res6 = caza.query({'gcmtitle': 'Category:Physics',
+                       'generator': 'categorymembers',
+                       'gcmtype': 'subcat'
+                       }, continuar=False)
+
+
     # pedido = {'action':'query',
     #           'titles': 'Category:Physics',              
     #           'generator': 'links',
