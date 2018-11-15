@@ -1,5 +1,7 @@
 import requests
-
+import numpy as np
+import networkx as nx
+#%%
 class CazadorDeDatos():
     """
     COSAS IMPORTANTES A IMPLEMENTAR
@@ -171,6 +173,23 @@ def curate_links(data):
     print('# de links malos eliminados:', n_eliminated)
     return data
 
+
+
+def lista_de_enlaces(data):
+    a = []
+    nodos_1 = list(data.keys())
+    for nodos in nodos_1:
+        
+        nodos_2 = data[nodos]['links']
+        
+        for nodoss in nodos_2:
+            pares = []
+            pares.append(nodos)
+            pares.append(nodoss)
+            a.append(pares)
+            
+    return a
+#%%
 if __name__ == '__main__':
     caza = CazadorDeDatos()
     # res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
@@ -204,3 +223,12 @@ if __name__ == '__main__':
 
     data, cats = caza.get_data_pagesincat('Category:Interaction')
     data = curate_links(data)
+    
+
+
+a = lista_de_enlaces(data)
+
+
+b = nx.Graph()
+b.add_edges_from(a)
+nx.draw(b, node_size=6)
