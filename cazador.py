@@ -107,39 +107,71 @@ class CazadorDeDatos():
             if verbose and 'batchcomplete' in result and result['batchcomplete']==True:
                 print('Batch completo!')
     
-    def get_data_pagesincat(self, category_name):
+    def get_data_pagesincat(self, category_name, data=None):
         """Obtiene todos los links y categorías correspondientes
-        a todas las páginas que pertenecen a la categoría `category_name`.
+        a todas las páginas que pertenecen a la categoría `category_name`,
+        y los agrega a la información provista con el input data.
+
+        El input data permite evitar guardar dos veces los mismos datos.
+
         No obtiene nada relacionado con las subcategorías.
         """
         pedido = {'generator': 'categorymembers',
                   'gcmtitle': category_name,
                   'gcmtype': 'page',
                   'prop': 'links|categories'}
-        data = {}
+        # Si se provee el parámetro data, queremos copiar la info
+        # para no modificar el input inplace.
+        if data is None:
+            data = {}
+        else:
+            data = data.copy()
+        # Set de todas las categorías encontradas
         set_of_cats = set()
+
+        # Comienza el pedido de datos
         for result in self.query(pedido):
             pages = result['pages']
             n_pages_temp = len(pages)
             for i in range(n_pages_temp):
                 title = pages[i]['title']
+                # Si la página ya fue visitada antes, entonces
+                # no queremos volver a guardar esa información
                 if title not in data.keys():
-                    # Si nunca pasamos por esta página, le creo
-                    # un dict para que guarde allí los links luego
+                    # dict para que guarde allí la info
                     data[title] = {'links': [], 'categories': []}
-                if 'links' in pages[i].keys():
-                    # Si hay links para agregar, los agrego
-                    linknames = [d['title'] for d in pages[i]['links']]
-                    data[title]['links'] += linknames
-                if 'categories' in pages[i].keys():
-                    catnames = [d['title'] for d in pages[i]['categories']]
-                    data[title]['categories'] += catnames
-                    set_of_cats.update(set(catnames))
+                    if 'links' in pages[i].keys():
+                        # Si hay links para agregar, los agrego
+                        linknames = [d['title'] for d in pages[i]['links']]
+                        data[title]['links'] += linknames
+                    if 'categories' in pages[i].keys():
+                        catnames = [d['title'] for d in pages[i]['categories']]
+                        data[title]['categories'] += catnames
+                        set_of_cats.update(set(catnames))
         print('# de páginas visitadas:', len(data.keys()))
         n_links = sum(len(data[title]['links']) for title in data.keys())
         print('# de links obtenidos en total:', n_links)
         return data, set_of_cats
-    
+
+    def get_cat_data(self, category_name, data=None):
+        pedido_subcats = {'generator': 'categorymembers',
+                          'gcmtitle': category_name,
+                          'gcmtype': 'subcat'}
+        
+        # Guardamos la info de las páginas que están en category_name
+        data, set_of_cats = self.get_data_pagesincat(category_name, data=data)
+
+        # Ahora hacemos la llamada recursiva, pidiendo que se aplique
+        # esta misma función sobre cada subcategoría de category_name
+        for result in self.query(pedido_subcats, verbose=False):
+            pages = result['pages']
+            for i in range(len(pages)):
+                subcat = pages[i]['title']
+                data_rec, set_rec = self.get_cat_data(subcat, data=data)
+                data.update(data_rec)
+                set_of_cats.update(set_rec)
+        return data, set_of_cats
+
     def get_cat_tree(self, category_name, verbose=True):
         """
         Función recursiva que intenta obtener el árbol de categorías
@@ -155,11 +187,11 @@ class CazadorDeDatos():
         n_l : int
             Número de llamadas realizadas a la función get_cat_tree
         """
+        print('Comienza una llamada')
         pedido = {'generator': 'categorymembers',
                   'gcmtitle': category_name,
                   'gcmtype': 'subcat'}
         tree = {category_name: {}}
-        print('Comienza una llamada')
         n_l = 1
         for result in self.query(pedido, verbose=False):
             pages = result['pages']
@@ -173,10 +205,6 @@ class CazadorDeDatos():
                     n_l += n_l_rec
         print('Termina una llamada. # subcats:', len(tree[category_name].keys()))
         return tree, n_l
-
-
-    def get_data_cat(self, category_name):
-        pass
                 
 #######
 def count_items(query_result):
@@ -210,25 +238,6 @@ def curate_links(data):
     print('# de links malos eliminados:', n_eliminated)
     return data
 
-def nestdict_to_edgelist(nestdict):
-    """
-    Función recursiva.
-    Dada una estructura de diccionarios anidados, devolver la lista de enlaces
-    dirigidos que señalan qué nodos son hijos de quién.
-    """
-    edgelist = []
-    # Debería haber un solo nodo en nestdict, pero aún así la sintaxis del loop
-    # me resulta cómoda
-    assert len(nestdict) == 1
-    root = list(nestdict.keys())[0]
-    children = nestdict[root].keys()
-    child_dicts = nestdict[root].values()
-    edgelist += [(root, child) for child in children]
-    subtrees = [{child: child_dict} for child, child_dict in zip(children, child_dicts)]
-    for subtree in subtrees:
-        edgelist += nestdict_to_edgelist(subtree)
-    return edgelist
-
 if __name__ == '__main__':
     # Inicializamos objeto
     caza = CazadorDeDatos()
@@ -255,6 +264,10 @@ if __name__ == '__main__':
     # data, cats = caza.get_data_pagesincat('Category:Interaction')
     # data = curate_links(data)
     
+    ### Prueba de get_cat_data
+    data, cats = caza.get_cat_data('Category:Zwitterions')
+    # data = curate_links(data)
+
     # ### Árbol súper chico de categorías
     # arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
     # ### Árbol no tan chico
