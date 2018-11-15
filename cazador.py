@@ -58,7 +58,7 @@ class CazadorDeDatos():
                 pedido['cllimit'] = self.data_limit
         return pedido
 
-    def query(self, pedido, continuar=True):
+    def query(self, pedido, continuar=True, verbose=True):
         pedido = pedido.copy()
         pedido.update(self.actiondict)
         # Seteamos los límites
@@ -85,16 +85,17 @@ class CazadorDeDatos():
                     print(result['warnings'])
                 if 'query' in result:
                     r = result['query']
-                    if 'pages' in r.keys():
+                    if verbose and 'pages' in r.keys():
                         print('# de páginas adquiridas: ', len(r['pages']))
                         print('# de links adquiridos:', count_items(r)[1])
                     yield r
-                if 'batchcomplete' in result and result['batchcomplete']==True:
+                if verbose and 'batchcomplete' in result and result['batchcomplete']==True:
                     print('Batch completo!')
                 if 'continue' not in result:
                     break
                 lastContinue = result['continue']
-            print('# de llamadas a la API:', acc)
+            if verbose:
+                print('# de llamadas a la API:', acc)
         else:
             result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
                                     params=pedido).json()
@@ -105,7 +106,7 @@ class CazadorDeDatos():
                 print(result['warnings'])
             if 'query' in result:
                 return result['query']
-            if 'batchcomplete' in result and result['batchcomplete']==True:
+            if verbose and 'batchcomplete' in result and result['batchcomplete']==True:
                 print('Batch completo!')
     
     def get_data_pagesincat(self, category_name):
@@ -140,8 +141,46 @@ class CazadorDeDatos():
         n_links = sum(len(data[title]['links']) for title in data.keys())
         print('# de links obtenidos en total:', n_links)
         return data, set_of_cats
-                
+    
+    def get_cat_tree(self, category_name, verbose=True):
+        """
+        Función recursiva que intenta obtener el árbol de categorías
+        partiendo de una categoría raíz. Las categorías de Wikipedia
+        no conforman un árbol. Esto quiere decir que puede haber
+        nodos repetidos y podría llegar a fallar la ejecución debido
+        a un loop infinito.
 
+        Returns
+        -------
+        tree : dict
+            Diccionarios anidados con la estructura de las categorías
+        n_l : int
+            Número de llamadas realizadas a la función get_cat_tree
+        """
+        pedido = {'generator': 'categorymembers',
+                  'gcmtitle': category_name,
+                  'gcmtype': 'subcat'}
+        tree = {category_name: {}}
+        print('Comienza una llamada')
+        n_l = 1
+        for result in self.query(pedido, verbose=False):
+            pages = result['pages']
+            for i in range(len(pages)):
+                subcat = pages[i]['title']
+                # Si ya pasamos por esta categoría en este nivel
+                # del árbol, entonces no hacemos nada.
+                if subcat not in tree.keys():
+                    subtree, n_l_rec = self.get_cat_tree(subcat, verbose=verbose)
+                    tree[category_name].update(subtree)
+                    n_l += n_l_rec
+        print('Termina una llamada. # subcats:', len(tree[category_name].keys()))
+        return tree, n_l
+
+
+    def get_data_cat(self, category_name):
+        pass
+                
+####### Funciones por fuera de la clase
 def count_items(query_result):
     """
     Función auxiliar que te tira cuántas páginas y cuántos links hay
@@ -173,8 +212,6 @@ def curate_links(data):
     print('# de links malos eliminados:', n_eliminated)
     return data
 
-
-
 def lista_de_enlaces(data):
     a = []
     nodos_1 = list(data.keys())
@@ -189,46 +226,69 @@ def lista_de_enlaces(data):
             a.append(pares)
             
     return a
+
+def nestdict_to_edgelist(nestdict):
+    """
+    Función recursiva.
+    Dada una estructura de diccionarios anidados, devolver la lista de enlaces
+    dirigidos que señalan qué nodos son hijos de quién.
+    """
+    edgelist = []
+    # Debería haber un solo nodo en nestdict, pero aún así la sintaxis del loop
+    # me resulta cómoda
+    assert len(nestdict) == 1
+    root = list(nestdict.keys())[0]
+    children = nestdict[root].keys()
+    child_dicts = nestdict[root].values()
+    edgelist += [(root, child) for child in children]
+    subtrees = [{child: child_dict} for child, child_dict in zip(children, child_dicts)]
+    for subtree in subtrees:
+        edgelist += nestdict_to_edgelist(subtree)
+    return edgelist
 #%%
 if __name__ == '__main__':
+    # Inicializamos objeto
     caza = CazadorDeDatos()
-    # res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
-    # res2 = caza.query({'titles': 'Main page'})
 
-    # res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
-    # links_res3 = res3['pages'][0]['links']
-    # nombres_links = [links_res3[i]['title'] for i in range(len(links_res3))]
+    # Ejemplos de búsquedas que se pueden realizar mediante el método query
+    # Los objetos resultantes son generadores, i.e. al ejecutar este código,
+    # no se realiza ninguna llamada a la API sino que eso se posterga hasta
+    # que se itere sobre alguno de los objetos.
+    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
+    res2 = caza.query({'titles': 'Main page'})
+    res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
+    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
+    res5 = caza.query({'gcmtitle': 'Category:Physics',
+                       'prop': 'links',
+                       'generator': 'categorymembers',
+                       'gcmtype': 'page'
+                       }, continuar=True)
+    res6 = caza.query({'gcmtitle': 'Category:Physics',
+                       'generator': 'categorymembers',
+                       'gcmtype': 'subcat'
+                       }, continuar=False)
 
-    # res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
-
-    # res5 = caza.query({'gcmtitle': 'Category:Physics',
-    #                    'prop': 'links',
-    #                    'generator': 'categorymembers',
-    #                    'gcmtype': 'page'
-    #                    }, continuar=True)
+    # ### Prueba de get_data_pagesincat
+    # data, cats = caza.get_data_pagesincat('Category:Interaction')
+    # data = curate_links(data)
     
-    # res6 = caza.query({'gcmtitle': 'Category:Physics',
-    #                    'generator': 'categorymembers',
-    #                    'gcmtype': 'subcat'
-    #                    }, continuar=False)
 
-    # pedido = {'action':'query',
-    #           'titles': 'Category:Physics',              
-    #           'generator': 'links',
-    #           'prop':'links|categories',
-    #           'pllimit': '500',
-    #           'redirects': '',
-    #           }
-    # resu = caza.query(pedido)
 
     data, cats = caza.get_data_pagesincat('Category:Interaction')
     data = curate_links(data)
     
 
 
-a = lista_de_enlaces(data)
-
-
-b = nx.Graph()
-b.add_edges_from(a)
-nx.draw(b, node_size=6)
+    a = lista_de_enlaces(data)
+    
+    
+    b = nx.Graph()
+    b.add_edges_from(a)
+    nx.draw(b, node_size=6)
+#%%
+    ### Árbol súper chico de categorías
+    arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
+    ### Árbol no tan chico
+    arbol, n_l = caza.get_cat_tree('Category:Ions')
+    ### Árbol más grande
+    arbol, n_l = caza.get_cat_tree('Category:Interaction')
