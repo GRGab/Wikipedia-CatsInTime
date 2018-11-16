@@ -62,9 +62,12 @@ if __name__ == '__main__':
 #%%  
     data, cats = caza.get_data_pagesincat('Category:Interaction')
     data = curate_links(data)
+    
+    #%%
     a = lista_de_enlaces(data)
     b = nx.Graph()
     b.add_edges_from(a)
-    nx.draw(b, node_size=6)
-    
+#    nx.draw(b, node_size=6)
+    nx.write_gexf(b,'Grafos_guardados/test_z.gexf')
+
     
