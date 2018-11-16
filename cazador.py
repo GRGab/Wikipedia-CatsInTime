@@ -25,8 +25,8 @@ class CazadorDeDatos():
         la data de una nueva página, chequear que no haya sido adquirida
         antes.
     """
-    def __init__(self, language='en', fmt='json', data_limit='max',
-                 generator_limit=50):
+    def __init__(self, language='en', fmt='json', data_limit=500,
+                 generator_limit=5):
         self.language = language
         self.format = fmt
         self.data_limit = data_limit
@@ -156,6 +156,15 @@ class CazadorDeDatos():
         return data, set_of_cats
 
     def get_cat_data(self, category_name, data=None):
+        """
+        Dada una categoria, devuelve un diccionario anidado y un set de categorias.
+        El diccionario continene como keys todas las paginas dentro de la
+        categoria y las paginas dentro de las subcategorias que yacen en la 
+        categoria en cuestion (category_name). Dentro de cada key existe otro
+        diccionario que contiene las categorias a las que pertenece cada
+        articulo y los links de las paginas a las que
+        direcciona el articulo. El set de categorias lo utilizaremos 
+        como atributos de los nodos en el futuro. """
         pedido_subcats = {'generator': 'categorymembers',
                           'gcmtitle': category_name,
                           'gcmtype': 'subcat'}
@@ -173,6 +182,8 @@ class CazadorDeDatos():
                 data.update(data_rec)
                 set_of_cats.update(set_rec)
         return data, set_of_cats
+    
+   
 
     def get_cat_tree(self, category_name, verbose=True):
         """
@@ -207,6 +218,39 @@ class CazadorDeDatos():
                     n_l += n_l_rec
         print('Termina una llamada. # subcats:', len(tree[category_name].keys()))
         return tree, n_l
+    
+            
+            
+    def tree2list(self, arbol):
+        '''
+        OJO: Falta hacer!
+        A partir del diccionario anillado de Categorias, creo una lista
+        de todas las categorias que aparecen para iterarlas posteriormente.
+        '''
+        pass
+    
+    def get_tree_data(self, category_name, data=None):
+        '''
+        OJO: Antes de usarla tiene que estar andando la funcion tree2list!
+        Vamos a utlizar el arbol de categorias como semillero para las funciones
+        buscadoras de datos. Devuelve una lista donde cada elemento es el
+        diccionario de data para una categoria diferente.
+        '''
+        pedido_subcats = {'generator': 'categorymembers',
+                          'gcmtitle': category_name,
+                          'gcmtype': 'subcat'}
+        
+        arbol, _ = self.get_cat_tree(pedido_subcats)
+        lista= self.tree2list(arbol)
+        # Ahora hacemos la llamada recursiva, pidiendo que se aplique
+        # esta misma función sobre cada subcategoría de category_name
+        lista_de_pasadas = []
+        for i in lista:
+            data = self.get_cat_data(i)
+            lista_de_pasadas.append(data)
+        return lista_de_pasadas
+    
+    
                 
 ####### Funciones por fuera de la clase
 def count_items(query_result):
@@ -263,37 +307,56 @@ def curate_links(data):
 if __name__ == '__main__':
     # Inicializamos objeto
     caza = CazadorDeDatos()
-
-    # Ejemplos de búsquedas que se pueden realizar mediante el método query
-    # Los objetos resultantes son generadores, i.e. al ejecutar este código,
-    # no se realiza ninguna llamada a la API sino que eso se posterga hasta
-    # que se itere sobre alguno de los objetos.
-    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
-    res2 = caza.query({'titles': 'Main page'})
-    res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
-    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
-    res5 = caza.query({'gcmtitle': 'Category:Physics',
-                       'prop': 'links',
-                       'generator': 'categorymembers',
-                       'gcmtype': 'page'
-                       }, continuar=True)
-    res6 = caza.query({'gcmtitle': 'Category:Physics',
-                       'generator': 'categorymembers',
-                       'gcmtype': 'subcat'
-                       }, continuar=False)
-
-    # ### Prueba de get_data_pagesincat
-    # data, cats = caza.get_data_pagesincat('Category:Interaction')
-    # data = curate_links(data)
+    #%%
+    ### Prueba de get_data_pagesincat
+    data_1, cats = caza.get_data_pagesincat(
+        'Category:Zwitterions'
+#        'Category:Ions'
+#        'Category:Interaction'
+#        'Category:Physics'
+            )
+    data_1 = curate_links(data_1)
+    #%%
     
-
     ### Prueba de get_cat_data
-    data, cats = caza.get_cat_data('Category:Zwitterions')
-    # data = curate_links(data)
+    data, cats = caza.get_cat_data(
+        'Category:Zwitterions'
+#         'Category:Ions'
+#        'Category:Interaction'
+#        'Category:Physics'
+        )
+    data = curate_links(data)
 
     # ### Árbol súper chico de categorías
-    # arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
+#    arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
     # ### Árbol no tan chico
-    # arbol, n_l = caza.get_cat_tree('Category:Ions')
+    arbol, n_l = caza.get_cat_tree('Category:Ions')
     # ### Árbol más grande
     # arbol, n_l = caza.get_cat_tree('Category:Interaction')
+    #%%
+    lista = caza.get_tree_data(
+        'Category:Zwitterions'
+#         'Category:Ions'
+#        'Category:Interaction'
+#        'Category:Physics'
+        )
+    
+
+#%%
+#    # Ejemplos de búsquedas que se pueden realizar mediante el método query
+#    # Los objetos resultantes son generadores, i.e. al ejecutar este código,
+#    # no se realiza ninguna llamada a la API sino que eso se posterga hasta
+#    # que se itere sobre alguno de los objetos.
+    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
+#    res2 = caza.query({'titles': 'Main page'})
+#    res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
+#    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
+#    res5 = caza.query({'gcmtitle': 'Category:Physics',
+#                       'prop': 'links',
+#                       'generator': 'categorymembers',
+#                       'gcmtype': 'page'
+#                       }, continuar=True)
+#    res6 = caza.query({'gcmtitle': 'Category:Physics',
+#                       'generator': 'categorymembers',
+#                       'gcmtype': 'subcat'
+#                       }, continuar=False)
