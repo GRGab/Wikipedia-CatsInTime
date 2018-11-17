@@ -1,7 +1,6 @@
 import requests
-import numpy as np
-import networkx as nx
-#%%
+import json
+
 class CazadorDeDatos():
     """
     COSAS IMPORTANTES A IMPLEMENTAR
@@ -58,71 +57,55 @@ class CazadorDeDatos():
                 pedido['cllimit'] = self.data_limit
         return pedido
 
-    def query(self, pedido, continuar=True, verbose=True):
+    def query(self, pedido, verbose=True):
         pedido = pedido.copy()
         pedido.update(self.actiondict)
         # Seteamos los límites
         pedido = self.set_limits(pedido)
         # Comenzamos las llamadas a la API
-        if continuar:
-            lastContinue = {}
-            acc = 0
-            while True:
-                acc += 1
-                # Clone original request
-                pedido2 = pedido.copy()
-                # Modify it with the values returned in the 'continue' section of the last result.
-                pedido2.update(lastContinue)
-                # Call API
-                result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
-                                    params=pedido2).json()
-                if 'error' in result:
-                    # Mepa que no queremos que se eleve un error porque eso
-                    # interrumpe la ejecución
-                    # raise Exception(result['error'])
-                    print('ERROR:', result['error'])
-                if 'warnings' in result:
-                    print(result['warnings'])
-                if 'query' in result:
-                    r = result['query']
-                    if verbose and 'pages' in r.keys():
-                        print('# de páginas adquiridas: ', len(r['pages']))
-                        print('# de links adquiridos:', count_items(r)[1])
-                    yield r
-                if verbose and 'batchcomplete' in result and result['batchcomplete']==True:
-                    print('Batch completo!')
-                if 'continue' not in result:
-                    break
-                lastContinue = result['continue']
-            if verbose:
-                print('# de llamadas a la API:', acc)
-        else:
+        lastContinue = {}
+        acc = 0
+        while True:
+            acc += 1
+            # Clone original request
+            pedido2 = pedido.copy()
+            # Modify it with the values returned in the 'continue' section of the last result.
+            pedido2.update(lastContinue)
+            # Call API
             result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
-                                    params=pedido).json()
+                                params=pedido2).json()
             if 'error' in result:
+                # Mepa que no queremos que se eleve un error porque eso
+                # interrumpe la ejecución
                 # raise Exception(result['error'])
                 print('ERROR:', result['error'])
             if 'warnings' in result:
                 print(result['warnings'])
             if 'query' in result:
-                return result['query']
+                r = result['query']
+                if verbose and 'pages' in r.keys():
+                    print('# de páginas adquiridas: ', len(r['pages']))
+                    print('# de links adquiridos:', count_items(r)[1])
             if verbose and 'batchcomplete' in result and result['batchcomplete']==True:
                 print('Batch completo!')
+            if 'query' in result:
+                yield r
+            if 'continue' not in result:
+                break
+            lastContinue = result['continue']
+        if verbose:
+            print('# de llamadas a la API:', acc)
     
     def get_data_pagesincat(self, category_name, data=None):
         """Obtiene todos los links y categorías correspondientes
         a todas las páginas que pertenecen a la categoría `category_name`,
-        y los agrega a la información provista con el input data.
-
-        El input data permite evitar guardar dos veces los mismos datos.
-
-        No obtiene nada relacionado con las subcategorías.
+        y los agrega a la información contenida en 'data'.
         """
         pedido = {'generator': 'categorymembers',
                   'gcmtitle': category_name,
                   'gcmtype': 'page',
                   'prop': 'links|categories'}
-        # Si se provee el parámetro data, queremos copiar la info
+        # Si se provee el dict 'data', queremos copiarlo
         # para no modificar el input inplace.
         if data is None:
             data = {}
@@ -130,30 +113,46 @@ class CazadorDeDatos():
             data = data.copy()
         # Set de todas las categorías encontradas
         set_of_cats = set()
-
-        # Comienza el pedido de datos
+        # Llamadas a la API, guardamos los resultados
         for result in self.query(pedido):
-            pages = result['pages']
-            n_pages_temp = len(pages)
-            for i in range(n_pages_temp):
-                title = pages[i]['title']
-                # Si la página ya fue visitada antes, entonces
-                # no queremos volver a guardar esa información
-                if title not in data.keys():
-                    # dict para que guarde allí la info
-                    data[title] = {'links': [], 'categories': []}
-                    if 'links' in pages[i].keys():
-                        # Si hay links para agregar, los agrego
-                        linknames = [d['title'] for d in pages[i]['links']]
-                        data[title]['links'] += linknames
-                    if 'categories' in pages[i].keys():
-                        catnames = [d['title'] for d in pages[i]['categories']]
-                        data[title]['categories'] += catnames
-                        set_of_cats.update(set(catnames))
+            self.update_data(result, data, set_of_cats)
         print('# de páginas visitadas:', len(data.keys()))
         n_links = sum(len(data[title]['links']) for title in data.keys())
         print('# de links obtenidos en total:', n_links)
         return data, set_of_cats
+
+    def update_data(self, result, prop, data, set_of_cats=None):
+        """
+        Guarda los datos correspondientes a las propiedades 'prop' que
+        resultan de una llamada a la API dentro de un diccionario 'data'
+        definido previamente, sin sobreescribir lo que ya estaba.
+        Opcionalmente, si se le da un conjunto 'set_of_cats', guarda allí
+        los nombres de todas las categorías encontradas en dicha llamada.
+        """
+        pages = result['pages']
+        n_pages_temp = len(pages)
+        for i in range(n_pages_temp):
+            title = pages[i]['title']
+            # Si la página ya fue visitada antes, entonces
+            # no queremos volver a guardar esa información
+            if title not in data.keys():
+                # dict para que guarde allí la info
+                data[title] = {'links': [], 'categories': []}
+            if 'links' in pages[i].keys():
+                if 'links' not in data[title].keys():
+                    data[title]['links'] = []
+                linknames = [d['title'] for d in pages[i]['links']]
+                data[title]['links'] += linknames
+            if 'categories' in pages[i].keys():
+                if 'categories' not in data[title].keys():
+                    data[title]['categories'] = []
+                catnames = [d['title'] for d in pages[i]['categories']]
+                data[title]['categories'] += catnames
+                if set_of_cats is not None:
+                    set_of_cats.update(set(catnames))
+            if 'text' in pages[i].keys():
+                if 'text' not in data[title].keys():
+                    pass
 
     def get_cat_data(self, category_name, data=None):
         """
@@ -329,14 +328,14 @@ if __name__ == '__main__':
 #    # que se itere sobre alguno de los objetos.
 #    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
 #    res2 = caza.query({'titles': 'Main page'})
-#    res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
-#    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
+#    res3 = caza.query({'titles': 'Physics', 'prop': 'links'})
+#    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'})
 #    res5 = caza.query({'gcmtitle': 'Category:Physics',
 #                       'prop': 'links',
 #                       'generator': 'categorymembers',
 #                       'gcmtype': 'page'
-#                       }, continuar=True)
+#                       })
 #    res6 = caza.query({'gcmtitle': 'Category:Physics',
 #                       'generator': 'categorymembers',
 #                       'gcmtype': 'subcat'
-#                       }, continuar=False)
+#                       })
