@@ -284,25 +284,6 @@ def curate_links(data):
     print('# de links malos eliminados:', n_eliminated)
     return data
 
-#Quiza borrarlo, Gabo ya lo borro
-#def nestdict_to_edgelist(nestdict):
-#    """
-#    Función recursiva.
-#    Dada una estructura de diccionarios anidados, devolver la lista de enlaces
-#    dirigidos que señalan qué nodos son hijos de quién.
-#    """
-#    edgelist = []
-#    # Debería haber un solo nodo en nestdict, pero aún así la sintaxis del loop
-#    # me resulta cómoda
-#    assert len(nestdict) == 1
-#    root = list(nestdict.keys())[0]
-#    children = nestdict[root].keys()
-#    child_dicts = nestdict[root].values()
-#    edgelist += [(root, child) for child in children]
-#    subtrees = [{child: child_dict} for child, child_dict in zip(children, child_dicts)]
-#    for subtree in subtrees:
-#        edgelist += nestdict_to_edgelist(subtree)
-#    return edgelist
 #%%
 if __name__ == '__main__':
     # Inicializamos objeto
@@ -340,14 +321,13 @@ if __name__ == '__main__':
 #        'Category:Interaction'
 #        'Category:Physics'
         )
-    
 
 #%%
 #    # Ejemplos de búsquedas que se pueden realizar mediante el método query
 #    # Los objetos resultantes son generadores, i.e. al ejecutar este código,
 #    # no se realiza ninguna llamada a la API sino que eso se posterga hasta
 #    # que se itere sobre alguno de los objetos.
-    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
+#    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
 #    res2 = caza.query({'titles': 'Main page'})
 #    res3 = caza.query({'titles': 'Physics', 'prop': 'links'}, continuar=False)
 #    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'}, continuar=False)
