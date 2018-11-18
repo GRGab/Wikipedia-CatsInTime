@@ -1,6 +1,5 @@
 # Adquisición
 
-- Hacer que get_cat_data adquiera el árbol de categorías
 - Modificar update_data y get_pages_incat para que puedan levantar revids y timestamps de distintas
 revisiones para cada página
 - Hacer función que, partiendo de una lista de revids, obtenga links|categories|text para cada uno.
