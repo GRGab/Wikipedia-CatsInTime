@@ -186,18 +186,31 @@ class CazadorDeDatos():
 
         # Inicializamos
         queue.append(root_category)
+        queue.append('<<END_OF_LEVEL>>')
         data = {}
         set_of_cats = set()
         ncats_visited = 0
+        nlevels = 0
 
-        while len(queue) > 0:
-            if verbose:
-                print(ncats_visited)
+        # Usamos un mecanismo de contdaores "end of level" en la cola para saber cuándo
+        # cambiamos de nivel del árbol. Cuando termine el recorrido, quedará un contador
+        # en la cola y se verificará len(queue) == 1.
+
+        while len(queue) > 1:
 
             # Extraemos la primera categoría de la cola
             subtree_root = queue.popleft()
+            # Si es un marcador de "end of level", sumamos 1 al contador,
+            # agregamos un marcador "end of level" a la cola y sacamos
+            # un ítem más
+            if subtree_root == '<<END_OF_LEVEL>>':
+                if verbose: print('END OF LEVEL')
+                nlevels += 1
+                queue.append('<<END_OF_LEVEL>>')
+                subtree_root = queue.popleft()
 
             # La 'visitamos'
+            if verbose: print(ncats_visited)
             data_t, set_of_cats_t = self.get_pagesincat(subtree_root, props,
                                                              data=data,
                                                              verbose=verbose)
@@ -224,8 +237,9 @@ class CazadorDeDatos():
 
         if verbose:
             print('------------------------------')
-            print('# total de categorías visitadas:', ncats_visited)
-            print('# total de páginas visitadas:', len(data.keys()))
+            print('# categorías visitadas:', ncats_visited)
+            print('# páginas visitadas:', len(data.keys()))
+            print('# niveles recorridos:', nlevels)
         return data, set_of_cats
     
    
