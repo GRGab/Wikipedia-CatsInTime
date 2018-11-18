@@ -215,6 +215,9 @@ class CazadorDeDatos():
                     subcat = pages[i]['title']
                     queue.append(subcat)
             
+            # PENDIENTE: Acá faltaría guardar las subcats en una estructura extra,
+            # De forma tal de levantar la estructura de categorías y subcategorías
+
             # Si ya visitamos suficientes páginas, nos detenemos
             if maxpages > 0 and len(data.keys()) > maxpages:
                 break
