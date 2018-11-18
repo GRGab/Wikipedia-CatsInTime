@@ -5,6 +5,26 @@ plt.ion()
 from cazador import CazadorDeDatos, curate_links
 import numpy as np
 
+
+def childrendict_to_edgelist(childrendict):
+    """
+    INPUT
+        childrendict : dict
+            Contiene pares padre : hijos, donde padre es un string
+            e hijos es una lista de strings
+    OUTPUT
+        edgelist : list
+            Contiene duplas (padre, hijo)
+    """
+    edgelist = []
+    for parent, children in childrendict.items():
+        partial_edgelist = [(parent, child) for child in children]
+        edgelist.append(partial_edgelist)
+    return edgelist
+
+
+
+# DEPRECATED
 def nestdict_to_edgelist(nestdict):
     """
     Función recursiva.
@@ -24,8 +44,7 @@ def nestdict_to_edgelist(nestdict):
         edgelist += nestdict_to_edgelist(subtree)
     return edgelist
 
-
-
+# DEPRECATED ???
 def lista_de_enlaces(data):
     pares_nodos = []
     nodos_1 = list(data.keys())
