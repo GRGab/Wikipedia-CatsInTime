@@ -260,56 +260,6 @@ class CazadorDeDatos():
                     n_l += n_l_rec
         print('Termina una llamada. # subcats:', len(tree[category_name].keys()))
         return tree, n_l
-    
-    # DEPRECATED ???
-    def get_tree_data(self, category_name, data=None):
-        '''
-        OJO: Antes de usarla tiene que estar andando la funcion tree2list!
-        Vamos a utlizar el arbol de categorias como semillero para las funciones
-        buscadoras de datos. Devuelve una lista donde cada elemento es el
-        diccionario de data para una categoria diferente.
-        '''
-        pedido_subcats = {'generator': 'categorymembers',
-                          'gcmtitle': category_name,
-                          'gcmtype': 'subcat'}
-        
-        arbol, _ = self.get_cat_tree(pedido_subcats)
-        lista= self.tree2list(arbol)
-        # Ahora hacemos la llamada recursiva, pidiendo que se aplique
-        # esta misma función sobre cada subcategoría de category_name
-        lista_de_pasadas = []
-        for i in lista:
-            data = self.get_cat_data(i)
-            lista_de_pasadas.append(data)
-        return lista_de_pasadas
-
-    # DEPRECATED
-    def get_cat_data_DFS(self, category_name, props, data=None):
-        """
-        Dada la categoría 'root_category' de Wikipedia, extrae las propiedades
-        de la lista 'props' para todas las páginas que pertenecen a la misma.
-
-        Método deprecado dado que implementa una búsqueda de tipo DFS, mientras
-        que lo que necesitamos es BFS.
-        """
-        pedido_subcats = {'generator': 'categorymembers',
-                          'gcmtitle': category_name,
-                          'gcmtype': 'subcat'}
-        
-        # Guardamos la info de las páginas que están en category_name
-        data, set_of_cats = self.get_pagesincat(category_name, props, data=data)
-
-        # Ahora hacemos la llamada recursiva, pidiendo que se aplique
-        # esta misma función sobre cada subcategoría de category_name
-        for result in self.query(pedido_subcats, verbose=False):
-            pages = result['pages']
-            for i in range(len(pages)):
-                subcat = pages[i]['title']
-                data_rec, set_rec = self.get_cat_data(subcat, data=data)
-                data.update(data_rec)
-                set_of_cats.update(set_rec)
-        return data, set_of_cats
-    
                 
 ####################################
 # Funciones por fuera de la clase
