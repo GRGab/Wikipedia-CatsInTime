@@ -1,5 +1,6 @@
 import requests
 import json
+from collections import deque
 
 class CazadorDeDatos():
     """
@@ -96,15 +97,21 @@ class CazadorDeDatos():
         if verbose:
             print('# de llamadas a la API:', acc)
     
-    def get_data_pagesincat(self, category_name, data=None):
-        """Obtiene todos los links y categorías correspondientes
-        a todas las páginas que pertenecen a la categoría `category_name`,
-        y los agrega a la información contenida en 'data'.
+    def get_pagesincat(self, category_name, props, data=None,
+                            verbose=True, query_verbose=False):
         """
+        Para cada página perteneciente a la categoría `category_name`, obtiene
+        las propiedades dadas por la lista 'props' y las agrega a la información
+        contenida en el diccionario 'data'. Si data == None, se parte de un dict
+        vacío.
+
+        Propiedades implementadas: links, categories.
+        """
+        prop = '|'.join(props)
         pedido = {'generator': 'categorymembers',
                   'gcmtitle': category_name,
                   'gcmtype': 'page',
-                  'prop': 'links|categories'}
+                  'prop': prop}
         # Si se provee el dict 'data', queremos copiarlo
         # para no modificar el input inplace.
         if data is None:
@@ -114,20 +121,23 @@ class CazadorDeDatos():
         # Set de todas las categorías encontradas
         set_of_cats = set()
         # Llamadas a la API, guardamos los resultados
-        for result in self.query(pedido):
+        for result in self.query(pedido, verbose=query_verbose):
             self.update_data(result, data, set_of_cats)
-        print('# de páginas visitadas:', len(data.keys()))
-        n_links = sum(len(data[title]['links']) for title in data.keys())
-        print('# de links obtenidos en total:', n_links)
+        if verbose:
+            print('# de páginas en la categoría:', len(data.keys()))
+            n_links = sum(len(data[title]['links']) for title in data.keys())
+            print('# de links obtenidos en total:', n_links)
         return data, set_of_cats
 
-    def update_data(self, result, prop, data, set_of_cats=None):
+    def update_data(self, result, data, set_of_cats=None):
         """
-        Guarda los datos correspondientes a las propiedades 'prop' que
+        Guarda los datos correspondientes a las propiedades que
         resultan de una llamada a la API dentro de un diccionario 'data'
         definido previamente, sin sobreescribir lo que ya estaba.
         Opcionalmente, si se le da un conjunto 'set_of_cats', guarda allí
         los nombres de todas las categorías encontradas en dicha llamada.
+
+        Propiedades implementadas: links, categories.
         """
         pages = result['pages']
         n_pages_temp = len(pages)
@@ -151,35 +161,68 @@ class CazadorDeDatos():
                 if set_of_cats is not None:
                     set_of_cats.update(set(catnames))
             if 'text' in pages[i].keys():
+                ### NO IMPLEMENTADO AÚN ###
                 if 'text' not in data[title].keys():
                     pass
 
-    def get_cat_data(self, category_name, data=None):
+    def get_cat_data(self, root_category, props, maxpages=0, verbose=True):
         """
-        Dada una categoria, devuelve un diccionario anidado y un set de categorias.
-        El diccionario continene como keys todas las paginas dentro de la
-        categoria y las paginas dentro de las subcategorias que yacen en la 
-        categoria en cuestion (category_name). Dentro de cada key existe otro
-        diccionario que contiene las categorias a las que pertenece cada
-        articulo y los links de las paginas a las que
-        direcciona el articulo. El set de categorias lo utilizaremos 
-        como atributos de los nodos en el futuro. """
-        pedido_subcats = {'generator': 'categorymembers',
-                          'gcmtitle': category_name,
-                          'gcmtype': 'subcat'}
-        
-        # Guardamos la info de las páginas que están en category_name
-        data, set_of_cats = self.get_data_pagesincat(category_name, data=data)
+        Dada la categoría 'root_category' de Wikipedia, extrae las propiedades
+        de la lista 'props' para todas las páginas que pertenecen a la misma.
+        'maxpages' es el nro. máximo de páginas a obtener; si vale 0 o menos
+        entonces no hay máximo.
+        Output:
+            data : dict
+                Diccionario de pares página : información.
+            set_of_cats : set
+                Conjunto de nombres de categorías que aparecen en todas las
+                páginas visitadas.
 
-        # Ahora hacemos la llamada recursiva, pidiendo que se aplique
-        # esta misma función sobre cada subcategoría de category_name
-        for result in self.query(pedido_subcats, verbose=False):
-            pages = result['pages']
-            for i in range(len(pages)):
-                subcat = pages[i]['title']
-                data_rec, set_rec = self.get_cat_data(subcat, data=data)
-                data.update(data_rec)
-                set_of_cats.update(set_rec)
+        Propiedades implementadas: links, categories.
+        """
+        # Para implementar el BFS (Breadth-First Search), empleamos una lista
+        # de espera o 'queue' en la que guardar ordenadamente las categorías a visitar
+        queue = deque()
+
+        # Inicializamos
+        queue.append(root_category)
+        data = {}
+        set_of_cats = set()
+        ncats_visited = 0
+
+        while len(queue) > 0:
+            if verbose:
+                print(ncats_visited)
+
+            # Extraemos la primera categoría de la cola
+            subtree_root = queue.popleft()
+
+            # La 'visitamos'
+            data_t, set_of_cats_t = self.get_pagesincat(subtree_root, props,
+                                                             data=data,
+                                                             verbose=verbose)
+            data.update(data_t)
+            set_of_cats.update(set_of_cats_t)
+            ncats_visited += 1
+
+            # Agregamos todas las subcategorías de la categoría actual a la cola
+            pedido_subcats = {'generator': 'categorymembers',
+                              'gcmtitle': subtree_root,
+                              'gcmtype': 'subcat'}
+            for result in self.query(pedido_subcats, verbose=False):
+                pages = result['pages']
+                for i in range(len(pages)):
+                    subcat = pages[i]['title']
+                    queue.append(subcat)
+            
+            # Si ya visitamos suficientes páginas, nos detenemos
+            if maxpages > 0 and len(data.keys()) > maxpages:
+                break
+
+        if verbose:
+            print('------------------------------')
+            print('# total de categorías visitadas:', ncats_visited)
+            print('# total de páginas visitadas:', len(data.keys()))
         return data, set_of_cats
     
    
@@ -218,16 +261,7 @@ class CazadorDeDatos():
         print('Termina una llamada. # subcats:', len(tree[category_name].keys()))
         return tree, n_l
     
-            
-            
-    def tree2list(self, arbol):
-        '''
-        OJO: Falta hacer!
-        A partir del diccionario anillado de Categorias, creo una lista
-        de todas las categorias que aparecen para iterarlas posteriormente.
-        '''
-        pass
-    
+    # DEPRECATED ???
     def get_tree_data(self, category_name, data=None):
         '''
         OJO: Antes de usarla tiene que estar andando la funcion tree2list!
@@ -248,10 +282,39 @@ class CazadorDeDatos():
             data = self.get_cat_data(i)
             lista_de_pasadas.append(data)
         return lista_de_pasadas
-    
+
+    # DEPRECATED
+    def get_cat_data_DFS(self, category_name, props, data=None):
+        """
+        Dada la categoría 'root_category' de Wikipedia, extrae las propiedades
+        de la lista 'props' para todas las páginas que pertenecen a la misma.
+
+        Método deprecado dado que implementa una búsqueda de tipo DFS, mientras
+        que lo que necesitamos es BFS.
+        """
+        pedido_subcats = {'generator': 'categorymembers',
+                          'gcmtitle': category_name,
+                          'gcmtype': 'subcat'}
+        
+        # Guardamos la info de las páginas que están en category_name
+        data, set_of_cats = self.get_pagesincat(category_name, props, data=data)
+
+        # Ahora hacemos la llamada recursiva, pidiendo que se aplique
+        # esta misma función sobre cada subcategoría de category_name
+        for result in self.query(pedido_subcats, verbose=False):
+            pages = result['pages']
+            for i in range(len(pages)):
+                subcat = pages[i]['title']
+                data_rec, set_rec = self.get_cat_data(subcat, data=data)
+                data.update(data_rec)
+                set_of_cats.update(set_rec)
+        return data, set_of_cats
     
                 
-####### Funciones por fuera de la clase
+####################################
+# Funciones por fuera de la clase
+####################################
+
 def count_items(query_result):
     """
     Función auxiliar que te tira cuántas páginas y cuántos links hay
@@ -287,33 +350,40 @@ def curate_links(data):
 if __name__ == '__main__':
     # Inicializamos objeto
     caza = CazadorDeDatos()
+
     #%%
-    ### Prueba de get_data_pagesincat
-    data_1, cats = caza.get_data_pagesincat(
-        'Category:Zwitterions'
-#        'Category:Ions'
-#        'Category:Interaction'
-#        'Category:Physics'
+    ######## Pruebas de get_pagesincat
+    data_1, cats = caza.get_pagesincat(
+        'Category:Zwitterions',
+#        'Category:Ions',
+#        'Category:Interaction',
+#        'Category:Physics',
+         ['links', 'categories']
             )
     data_1 = curate_links(data_1)
     #%%
     
-    ### Prueba de get_cat_data
+    ######## Pruebas de get_cat_data
     data, cats = caza.get_cat_data(
-        'Category:Zwitterions'
-#         'Category:Ions'
-#        'Category:Interaction'
-#        'Category:Physics'
+        # 'Category:Zwitterions',
+        'Category:Ions',
+#        'Category:Interaction',
+#        'Category:Physics',
+         ['links', 'categories'],
+         maxpages=100
         )
     data = curate_links(data)
 
+    ######## Pruebas de get_cat_tree
+
     # ### Árbol súper chico de categorías
 #    arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
-    # ### Árbol no tan chico
+    ### Árbol no tan chico
     arbol, n_l = caza.get_cat_tree('Category:Ions')
-    # ### Árbol más grande
-    # arbol, n_l = caza.get_cat_tree('Category:Interaction')
-    #%%
+    ### Árbol más grande
+#    arbol, n_l = caza.get_cat_tree('Category:Interaction')
+
+    ######## Pruebas de get_tree_data
     lista = caza.get_tree_data(
         'Category:Zwitterions'
 #         'Category:Ions'
