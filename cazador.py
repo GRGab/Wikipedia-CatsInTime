@@ -180,56 +180,69 @@ class CazadorDeDatos():
 
         Propiedades implementadas: links, categories.
         """
-        # Para implementar el BFS (Breadth-First Search), empleamos una lista
-        # de espera o 'queue' en la que guardar ordenadamente las categorías a visitar
+        ### Estructuras auxiliares
+        # Cola de espera o 'queue' para implementar el BFS (Breadth-First Search)
         queue = deque()
+        # Conjunto de categorías ya visitadas
+        visited = set()
+        # Diccionario de pares categoría : lista de subcategorías
+        children = {}
 
-        # Inicializamos
+        ### Inicialización
         queue.append(root_category)
         queue.append('<<END_OF_LEVEL>>')
+        # Estructuras que acumulan la información
         data = {}
         set_of_cats = set()
+        cat_tree = {}
+        # Contadores
         ncats_visited = 0
         nlevels = 0
 
         # Usamos un mecanismo de contdaores "end of level" en la cola para saber cuándo
-        # cambiamos de nivel del árbol. Cuando termine el recorrido, quedará un contador
+        # cambiamos de nivel de búsqueda. Cuando termine el recorrido, quedará un contador
         # en la cola y se verificará len(queue) == 1.
 
         while len(queue) > 1:
 
             # Extraemos la primera categoría de la cola
-            subtree_root = queue.popleft()
+            cat_actual = queue.popleft()
             # Si es un marcador de "end of level", sumamos 1 al contador,
             # agregamos un marcador "end of level" a la cola y sacamos
             # un ítem más
-            if subtree_root == '<<END_OF_LEVEL>>':
+            if cat_actual == '<<END_OF_LEVEL>>':
                 if verbose: print('END OF LEVEL')
                 nlevels += 1
                 queue.append('<<END_OF_LEVEL>>')
-                subtree_root = queue.popleft()
+                cat_actual = queue.popleft()
 
             # La 'visitamos'
             if verbose: print(ncats_visited)
-            data_t, set_of_cats_t = self.get_pagesincat(subtree_root, props,
+            data_t, set_of_cats_t = self.get_pagesincat(cat_actual, props,
                                                              data=data,
                                                              verbose=verbose)
             data.update(data_t)
             set_of_cats.update(set_of_cats_t)
             ncats_visited += 1
 
-            # Agregamos todas las subcategorías de la categoría actual a la cola
+            # Agregamos las subcategorías de la categoría actual a la cola
+            # y a children[cat_actual] como una lista.
             pedido_subcats = {'generator': 'categorymembers',
-                              'gcmtitle': subtree_root,
+                              'gcmtitle': cat_actual,
                               'gcmtype': 'subcat'}
+            children[cat_actual] = []
             for result in self.query(pedido_subcats, verbose=False):
                 pages = result['pages']
                 for i in range(len(pages)):
                     subcat = pages[i]['title']
-                    queue.append(subcat)
+                    children[cat_actual].append(subcat)
+                    # Solo agregamos la subcat si no está en la cola aún
+                    # ni fue procesada ya.
+                    if subcat not in visited and subcat not in queue:
+                        queue.append(subcat)
             
-            # PENDIENTE: Acá faltaría guardar las subcats en una estructura extra,
-            # De forma tal de levantar la estructura de categorías y subcategorías
+            # Terminamos de procesar la categoría actual
+            visited.add(cat_actual)
 
             # Si ya visitamos suficientes páginas, nos detenemos
             if maxpages > 0 and len(data.keys()) > maxpages:
@@ -240,7 +253,7 @@ class CazadorDeDatos():
             print('# categorías visitadas:', ncats_visited)
             print('# páginas visitadas:', len(data.keys()))
             print('# niveles recorridos:', nlevels)
-        return data, set_of_cats
+        return data, set_of_cats, children
     
    
 
@@ -320,18 +333,18 @@ if __name__ == '__main__':
 
     #%%
     ######## Pruebas de get_pagesincat
-    data_1, cats = caza.get_pagesincat(
-        'Category:Zwitterions',
+#    data_1, cats = caza.get_pagesincat(
+#        'Category:Zwitterions',
 #        'Category:Ions',
 #        'Category:Interaction',
 #        'Category:Physics',
-         ['links', 'categories']
-            )
-    data_1 = curate_links(data_1)
+#         ['links', 'categories']
+#            )
+#    data_1 = curate_links(data_1)
     #%%
     
     ######## Pruebas de get_cat_data
-    data, cats = caza.get_cat_data(
+    data, cats, children = caza.get_cat_data(
         # 'Category:Zwitterions',
         'Category:Ions',
 #        'Category:Interaction',
@@ -339,6 +352,8 @@ if __name__ == '__main__':
          ['links', 'categories'],
          maxpages=100
         )
+ 
+ 
     data = curate_links(data)
 
     ######## Pruebas de get_cat_tree
