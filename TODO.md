@@ -2,10 +2,43 @@
 
 - Función que toma una lista de fechas 'fechas', los revids y los timestamps correspondientes a una única página y selecciona una cantidad len(fechas) de pares (revid, timestamp) sobre los cuales se harán posteriores llamadas a la API.
 
-- Mejoras en get_cat:
+- Mejoras en get_cat_data:
     - Separar procesamiento de cada nodo en un nuevo método
+        - Pseudocódigo
+
+        data = {}
+        children = {}
+        set_of_cats = set()
+        
+        queue = deque()
+        cats_visited = []
+        pags_visited = []
+
+        Para cada categoría:
+            Si categoría no en cats_visited:
+                Pido lista de subcats
+                Agrego subcats a la cola
+                Guardo lista en 'children'
+
+                Pido lista de páginas
+                Para cada página:
+                    Si página no en pags_visited:
+                        Pido timestamps/revids
+                        Filtro timestamps/revids
+                        Para cada revid:
+                            Pido links|categories|text
+                            Guardo nombre|timestamp|links|categories|text
+                            Agrego categories a set_of_cats
+            Guardar data, children
+                
+
     - Guardar periódicamente en un json, guardando allí un parámetro 'continue' que permite continuar con la ejecución de la búsqueda desde el último lote guardado luego de una interrupción cualquiera del código (ctrl+C o alguna otra excepción.)
     - El json debe tener nombre|timestamp|links|categories|text para cada revid de cada página. Y además los valores continue.
+
+- Archivos de output:
+    - paginas.json
+    - children.json
+    - categorias.txt
 
 # Análisis
 
