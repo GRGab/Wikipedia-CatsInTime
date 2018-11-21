@@ -3,28 +3,6 @@ import json
 from collections import deque
 
 class CazadorDeDatos():
-    """
-    COSAS IMPORTANTES A IMPLEMENTAR
-    -------------------------------
-        - Implementar función que agarra toda la data de una página dada
-            - Los hipervínculos
-            - El texto
-            - Las etiquetas
-            - Revisiones de distintas versiones
-                - Determinar si podemos agarrar hipervínculos y etiquetas
-                viejas además del texto.
-        - Implementar pedir data de varias páginas simultáneamente.
-        Esto es importante! Del manual de la API: 
-            Do not ask for one page at a time – this is very inefficient,
-            and consumes lots of extra resources and bandwidth. Instead
-            you should request information about multiple pages by
-            combining their titles or ids with the '|' pipe symbol:
-            titles=PageA|PageB|PageC
-        - Implementar función que realice el "crawl", agarrando
-        hipervínculos de páginas previas y siguiéndolos. Antes de pedir
-        la data de una nueva página, chequear que no haya sido adquirida
-        antes.
-    """
     def __init__(self, language='en', fmt='json', data_limit=500,
                  generator_limit=5):
         self.language = language
