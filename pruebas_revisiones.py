@@ -14,13 +14,14 @@ pedido_antiguos = {'action':'query',
                    'format':'json',
                    'formatversion':2,
                    'redirects':'',
-                   'generator': 'categorymembers',
-                   'gcmtitle': 'Category:Ions',
-                   'gcmtype': 'page',
-                   'prop':'revisions',
-                   'rvprop': 'ids|timestamp',
-                   'rvlimit':'100'
-                   }
+
+                #    'generator': 'categorymembers',
+                #    'gcmtitle': 'Category:Ions',
+                #    'gcmtype': 'page',
+
+                #    'prop':'revisions',
+                #    'rvprop': 'ids|timestamp',
+                #    'rvlimit':'100',
 
                     #   'list': 'categorymembers',
                     # 'cmtype': 'page', 
@@ -28,15 +29,17 @@ pedido_antiguos = {'action':'query',
                     # 'prop':'revisions',
                     # 'rvprop':'ids|timestamp',
 
-                    # 'titles': 'Machine learning',
-                    # 'prop':'revisions',
-                    # 'rvprop':'ids|timestamp',
+                    'titles': 'Machine learning',
+                    'prop':'revisions',
+                    'rvprop':'ids|timestamp',
+                    'rvlimit':'100'
 
                     # 'rvlimit':'100',
                     # 'rvstart':'2009-01-01T12:00:00Z',
                     # 'rvend':'2009-01-31T23:59:00Z',
                     # 'rvdir':'newer'
-                    # }
+                    }
+                    
 res_antiguos = query_simple(pedido_antiguos)
 print(res_antiguos)
 # res_antiguos = caza.query(pedido_antiguos)

@@ -9,7 +9,7 @@
         data = {}
         children = {}
         set_of_cats = set()
-        
+
         queue = deque()
         cats_visited = []
         pags_visited = []
@@ -36,9 +36,11 @@
     - El json debe tener nombre|timestamp|links|categories|text para cada revid de cada página. Y además los valores continue.
 
 - Archivos de output:
-    - paginas.json
+    - data.json
     - children.json
-    - categorias.txt
+    - queue.json
+    - cats_visited.json
+    - pags_visited.json
 
 # Análisis
 

@@ -1,5 +1,6 @@
 import requests
 import json
+from os.path import join as osjoin
 from collections import deque
 import numpy as np
 from matplotlib import pyplot as plt
@@ -38,6 +39,8 @@ class CazadorDeDatos():
                 pedido['pllimit'] = self.data_limit
             if 'categories' in pedido['prop']:
                 pedido['cllimit'] = self.data_limit
+        if 'rvprop' in pedido.keys():
+            pedido['rvlimit'] = self.data_limit
         return pedido
 
     def query(self, pedido, verbose=True):
@@ -79,6 +82,214 @@ class CazadorDeDatos():
         if verbose:
             print('# de llamadas a la API:', acc)
     
+    def update_data(self, result, data, set_of_cats=None):
+            """
+            Guarda los datos correspondientes a las propiedades que
+            resultan de una llamada a la API dentro de un diccionario 'data'
+            definido previamente, sin sobreescribir lo que ya estaba.
+            Opcionalmente, si se le da un conjunto 'set_of_cats', guarda allí
+            los nombres de todas las categorías encontradas en dicha llamada.
+
+            Propiedades implementadas: links, categories.
+            """
+            pages = result['pages']
+            n_pages_temp = len(pages)
+            for i in range(n_pages_temp):
+                title = pages[i]['title']
+                # Si la página ya fue visitada antes, entonces
+                # no queremos volver a guardar esa información
+                if title not in data.keys():
+                    # dict para que guarde allí la info
+                    data[title] = {'links': [], 'categories': []}
+                if 'links' in pages[i].keys():
+                    if 'links' not in data[title].keys():
+                        data[title]['links'] = []
+                    linknames = [d['title'] for d in pages[i]['links']]
+                    data[title]['links'] += linknames
+                if 'categories' in pages[i].keys():
+                    if 'categories' not in data[title].keys():
+                        data[title]['categories'] = []
+                    catnames = [d['title'] for d in pages[i]['categories']]
+                    data[title]['categories'] += catnames
+                    if set_of_cats is not None:
+                        set_of_cats.update(set(catnames))
+                if 'text' in pages[i].keys():
+                    ### NO IMPLEMENTADO AÚN ###
+                    if 'text' not in data[title].keys():
+                        pass
+
+    def get_cat_data(self, root_category, fechas=None, maxpages=0,
+                     retomar=None, save_folder=None, save_period=0, verbose=True):
+        """
+        Implementa una búsqueda de tipo BFS sobre las páginas de una categoría y
+        sus subcategorías anidadas.
+
+        Dada la categoría 'root_category' de Wikipedia y una lista de fechas,
+        extrae las propiedades nombre|timestamp|links|categories|text 
+        para todas las páginas que pertenecen a la categoría y para cada fecha
+        solicitada.
+
+        'maxpages' es el nro. máximo de páginas a obtener; si vale 0 o menos
+        entonces no hay máximo.
+
+        El parámetro opcional 'retomar' debe contener una instancia de las tres
+        estructuras usadas para llevar cuenta del estado actual dentro del proceso
+        de búsqueda.
+
+        'save_folder' es la carpeta en la que guardar los archivos de output:
+        'data.json', 'children.json', 'queue.json', 'cats_visited.json',
+        'pags_visited.json'. Si es None, no se guardan los datos en disco.
+
+        'save_period' es el nro. de categorías visitadas entre un guardado de datos
+        en disco y el siguiente. Si vale 1 se guarda luego de terminar cada categoría,
+        si vale 0 o menos no se guarda nunca.
+        """
+        # Estructuras auxiliares para implementar la BFS
+        # Determinan el estado actual de la búsqueda
+        if retomar is not None:
+            queue, cats_visited, pags_visited = retomar
+        else:
+            queue = deque()
+            cats_visited = []
+            pags_visited = []
+        # Estructuras output
+        data = {fecha : {'names' : [], 'links' : [],
+                         'texts' : [], 'categories' : [],
+                         'timestamps': [],
+                         'set_of_cats' : []} for fecha in fechas}
+        children: {}
+
+        # Inicialización de la cola de espera
+        queue.append(root_category)
+        queue.append('<<END_OF_LEVEL>>')
+        # Contadores
+        nlevels = 0
+        ncats_sincelastsave = 0
+
+        # Usamos un mecanismo de contadores "end of level" en la cola para saber cuándo
+        # cambiamos de nivel de búsqueda. Cuando termine el recorrido, quedará un contador
+        # en la cola y se verificará len(queue) == 1.
+
+        while len(queue) > 1:
+
+            # Extraemos la primera categoría de la cola
+            cat_actual = queue.popleft()
+            # Si es un marcador de "end of level", sumamos 1 al contador,
+            # agregamos un marcador "end of level" a la cola y sacamos
+            # un ítem más
+            if cat_actual == '<<END_OF_LEVEL>>':
+                if verbose: print('END OF LEVEL')
+                nlevels += 1
+                queue.append('<<END_OF_LEVEL>>')
+                cat_actual = queue.popleft()
+
+            # La 'visitamos'
+            if verbose: print('Visitando categoría', len(cats_visited) + 1)
+            data, pags_visited = self.visit_category(cat_actual, data,
+                                                     pags_visited, verbose=verbose)
+
+            # Agregamos las subcategorías de la categoría actual a la cola
+            # y a children[cat_actual] como una lista.
+            pedido_subcats = {'generator': 'categorymembers',
+                              'gcmtitle': cat_actual,
+                              'gcmtype': 'subcat'}
+            children[cat_actual] = []
+            for result in self.query(pedido_subcats, verbose=False):
+                pages = result['pages']
+                for i in range(len(pages)):
+                    subcat = pages[i]['title']
+                    children[cat_actual].append(subcat)
+                    # Solo agregamos la subcat si no está en la cola aún
+                    # ni fue procesada ya.
+                    if subcat not in cats_visited and subcat not in queue:
+                        queue.append(subcat)
+            
+            # Terminamos de procesar la categoría actual
+            ncats_sincelastsave += 1
+            if cat_actual not in cats_visited:
+                cats_visited.append(cat_actual)
+
+            # Guardamos a disco, cada cierta cantidad de categorías
+            if save_folder is not None and ncats_sincelastsave == save_period:
+                ncats_sincelastsave = 0
+                self.guardar_datos(data, children,
+                                   queue, cats_visited, pags_visited,
+                                   save_folder)
+                if verbose:
+                    print('Guardado completo.', '\n',
+                        '\t', 'Cantidad de categorías:', len(cats_visited),
+                        '\t', 'Cantidad de páginas:', len(pags_visited))
+
+            # Si ya visitamos suficientes páginas, nos detenemos
+            if maxpages > 0 and len(data.keys()) > maxpages:
+                break
+
+        if verbose:
+            print('------------------------------')
+            print('# categorías visitadas:', len(cats_visited))
+            print('# páginas visitadas:', len(pags_visited))
+            print('# niveles recorridos:', nlevels)
+        return data, children, queue, cats_visited, pags_visited
+
+    def visit_category(self, category_name, data, pags_visited, verbose=True):
+        # Obtengo lista de páginas en la categoría
+        pedido_pags = {'generator': 'categorymembers',
+                       'gcmtitle': category_name,
+                       'gcmtype': 'page'}
+        pages_incat = []
+        for result in self.query(pedido_pags, verbose=False):
+            pages = result['pages']
+            n_pages_temp = len(pages)
+            for i in range(n_pages_temp):
+                name = pages[i]['title']
+                if name not in pags_visited:
+                    pages_incat.append(name)
+        # Recorro las páginas pidiendo la info para cada revisión deseada
+        for name in pages_incat:
+            # Obtengo los revids y timestamps deseados
+            pedido_revids = {'titles': name,
+                             'prop':'revisions',
+                             'rvprop':'ids|timestamp'}
+            for result in self.query(pedido_revids, verbose=False):
+                pass
+        pags_visited += pages_incat
+        return data, pags_visited
+
+    @staticmethod
+    def guardar_datos(data, children,
+                      queue, cats_visited, pags_visited,
+                      folder):
+        # ATENCIÓN: esto sobreescribe por completo los archivos
+        # si es que existen
+
+        json.dump(data, open(osjoin(folder, 'data.json'),'w'))
+        json.dump(children, open(osjoin(folder, 'children.json'),'w'))
+        json.dump(list(queue), open(osjoin(folder, 'queue.json'),'w'))
+        json.dump(cats_visited, open(osjoin(folder, 'cats_visited.json'),'w'))
+        json.dump(pags_visited, open(osjoin(folder, 'pags_visited.json'),'w'))
+        # with open(osjoin(folder, 'cats_visited.txt'),'w') as textfile:
+        #     for cat in cats_visited:
+        #         textfile.write(cat)
+        #         textfile.write('\n')
+
+    @staticmethod
+    def cargar_datos(folder):
+        data = json.load(osjoin(folder, 'data.json'))
+        children = json.load(osjoin(folder, 'children.json'))
+        queue = deque(json.load(osjoin(folder, 'queue.json')))
+        cats_visited = json.load(osjoin(folder, 'cats_visited.json'))
+        pags_visited = json.load(osjoin(folder, 'pags_visited.json'))
+        return (data, children, queue, cats_visited, pags_visited)
+
+            
+
+
+    
+
+    ########################################################
+    #  Métodos viejos
+    ########################################################
+
     def get_pagesincat(self, category_name, props, data=None,
                             verbose=True, query_verbose=False):
         """
@@ -111,43 +322,7 @@ class CazadorDeDatos():
             print('# de links obtenidos en total:', n_links)
         return data, set_of_cats
 
-    def update_data(self, result, data, set_of_cats=None):
-        """
-        Guarda los datos correspondientes a las propiedades que
-        resultan de una llamada a la API dentro de un diccionario 'data'
-        definido previamente, sin sobreescribir lo que ya estaba.
-        Opcionalmente, si se le da un conjunto 'set_of_cats', guarda allí
-        los nombres de todas las categorías encontradas en dicha llamada.
-
-        Propiedades implementadas: links, categories.
-        """
-        pages = result['pages']
-        n_pages_temp = len(pages)
-        for i in range(n_pages_temp):
-            title = pages[i]['title']
-            # Si la página ya fue visitada antes, entonces
-            # no queremos volver a guardar esa información
-            if title not in data.keys():
-                # dict para que guarde allí la info
-                data[title] = {'links': [], 'categories': []}
-            if 'links' in pages[i].keys():
-                if 'links' not in data[title].keys():
-                    data[title]['links'] = []
-                linknames = [d['title'] for d in pages[i]['links']]
-                data[title]['links'] += linknames
-            if 'categories' in pages[i].keys():
-                if 'categories' not in data[title].keys():
-                    data[title]['categories'] = []
-                catnames = [d['title'] for d in pages[i]['categories']]
-                data[title]['categories'] += catnames
-                if set_of_cats is not None:
-                    set_of_cats.update(set(catnames))
-            if 'text' in pages[i].keys():
-                ### NO IMPLEMENTADO AÚN ###
-                if 'text' not in data[title].keys():
-                    pass
-
-    def get_cat_data(self, root_category, props, maxpages=0, verbose=True):
+    def get_cat_data_currentversion(self, root_category, props, maxpages=0, verbose=True):
         """
         Dada la categoría 'root_category' de Wikipedia, extrae las propiedades
         de la lista 'props' para todas las páginas que pertenecen a la misma.
@@ -236,8 +411,6 @@ class CazadorDeDatos():
             print('# páginas visitadas:', len(data.keys()))
             print('# niveles recorridos:', nlevels)
         return data, set_of_cats, children
-    
-   
 
     def get_cat_tree(self, category_name, verbose=True):
         """
