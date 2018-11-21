@@ -5,7 +5,7 @@ from collections import deque
 import numpy as np
 from matplotlib import pyplot as plt
 from datetime import datetime
-
+import time
 
 class CazadorDeDatos():
     def __init__(self, language='en', fmt='json', data_limit=500,
@@ -481,16 +481,44 @@ def curate_links(data):
     print('# de links malos eliminados:', n_eliminated)
     return data
 
-def hist_revisiones(pedido):
+    
+def lista_de_timestamps(pedido):
+    '''Para un pedido a la API en un intervalo de tiempos, me hago una lista
+    en los timestamps de las rewiews en formato UNIX.'''
     data =[]
     for i in pedido:
         data.append(i)
     lista =[]
     for j in range(len(data[0]['pages'][0]['revisions'])):
        a = data[0]['pages'][0]['revisions'][j]['timestamp']
-       b = datetime.strptime(a, '%Y-%m-%dT%XZ').day
+       b = time.mktime(datetime.strptime(a, '%Y-%m-%dT%XZ').timetuple())
        lista.append(b)
     return lista
+
+
+def elegir_timestamp(pedido, ref_time, delta_lim = 2592000):
+    '''Dado un timestamp de referencia en el formato que trabaja
+    la API, elige de una lista de timestamp el 
+    mas cercano y lo devuelve a la salida el tiempo mas cercano.
+    Si el timestamp mas cercano se encuentra a una distancia delta_lim del
+    tiempo pedido (por default 30 dias), la funcion arroja un None'''
+    
+    #Paso la fecha de referencia a sistema horario unix, mas facil.
+    #de manipular.
+    ref_time_unix = time.mktime(datetime.strptime(ref_time, '%Y-%m-%dT%XZ').timetuple())
+    
+    lista = lista_de_timestamps(pedido) 
+    valor_elegido_unix = min(lista, key=lambda x:abs(x-ref_time_unix))
+    
+    #Me fijo a que distancia esta el valor seleccionado del que pedi.
+    delta = abs(valor_elegido_unix - ref_time_unix)
+    if (delta < delta_lim):
+        valor_elegido = datetime.utcfromtimestamp(
+                valor_elegido_unix).strftime('%Y-%m-%dT%XZ')
+    else:
+        valor_elegido = None
+    return valor_elegido
+
 
 #%%
 if __name__ == '__main__':
@@ -536,25 +564,40 @@ if __name__ == '__main__':
 #    res2 = caza.query({'titles': 'Main page'})
 #    res3 = caza.query({'titles': 'Physics', 'prop': 'links'})
 #    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'})
-#    res5 = caza.query({'gcmtitle': 'Category:Physics',
-#                       'prop': 'links',
-#                       'generator': 'categorymembers',
-#                       'gcmtype': 'page'
-#                       })
+    res5 = caza.query({'gcmtitle': 'Category:Physics',
+                       'prop': 'links',
+                       'generator': 'categorymembers',
+                       'gcmtype': 'page'
+                       })
 #    res6 = caza.query({'gcmtitle': 'Category:Physics',
 #                       'generator': 'categorymembers',
 #                       'gcmtype': 'subcat'
 #                       })
 #%%  
+    
     res7 = caza.query({'titles': 'Higgs Boson',              
                           'prop':'revisions',
                           'rvprop':'timestamp',
                           'rvlimit':"max",
                           'rvstart':'2012-07-05T12:00:00Z',
-                          'rvend':'2012-07-25T23:59:00Z',
+                          'rvend':'2012-08-25T23:59:00Z',
                           'rvdir':'newer'
                           })
-    lista = hist_revisiones(res7)
-    print(len(lista))
-    plt.hist(lista)
+                
+    numero = elegir_timestamp(res7, '2012--25T23:59:00Z')
+    
+    
+#%%
+    pedido = res7
+    data =[]
+    for i in pedido:
+        data.append(i)
+    print (data)
+    
+        #%%
+    lista =[]
+    for j in range(len(data[0]['pages'][0]['revisions'])):
+       a = data[0]['pages'][0]['revisions'][j]['timestamp']
+       a = time.mktime(datetime.strptime(a, '%Y-%m-%dT%XZ').timetuple())
+       print(a)
 
