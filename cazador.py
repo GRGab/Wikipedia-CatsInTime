@@ -1,6 +1,10 @@
 import requests
 import json
 from collections import deque
+import numpy as np
+from matplotlib import pyplot as plt
+from datetime import datetime
+
 
 class CazadorDeDatos():
     """
@@ -199,7 +203,7 @@ class CazadorDeDatos():
         ncats_visited = 0
         nlevels = 0
 
-        # Usamos un mecanismo de contdaores "end of level" en la cola para saber cuándo
+        # Usamos un mecanismo de contadores "end of level" en la cola para saber cuándo
         # cambiamos de nivel de búsqueda. Cuando termine el recorrido, quedará un contador
         # en la cola y se verificará len(queue) == 1.
 
@@ -326,37 +330,44 @@ def curate_links(data):
     print('# de links malos eliminados:', n_eliminated)
     return data
 
+def hist_revisiones(pedido):
+    data =[]
+    for i in pedido:
+        data.append(i)
+    lista =[]
+    for j in range(len(data[0]['pages'][0]['revisions'])):
+       a = data[0]['pages'][0]['revisions'][j]['timestamp']
+       b = datetime.strptime(a, '%Y-%m-%dT%XZ').day
+       lista.append(b)
+    return lista
+
 #%%
 if __name__ == '__main__':
     # Inicializamos objeto
     caza = CazadorDeDatos()
 
-    #%%
-    ######## Pruebas de get_pagesincat
-#    data_1, cats = caza.get_pagesincat(
-#        'Category:Zwitterions',
+    #%% Pruebas de get_pagesincat
+    data_1, cats = caza.get_pagesincat(
+        'Category:Zwitterions',
 #        'Category:Ions',
 #        'Category:Interaction',
 #        'Category:Physics',
-#         ['links', 'categories']
-#            )
-#    data_1 = curate_links(data_1)
-    #%%
+         ['links', 'categories']
+            )
+    data_1 = curate_links(data_1)
     
-    ######## Pruebas de get_cat_data
+    #%% Pruebas de get_cat_data
     data, cats, children = caza.get_cat_data(
-        # 'Category:Zwitterions',
-        'Category:Ions',
+         'Category:Zwitterions',
+#        'Category:Ions',
 #        'Category:Interaction',
 #        'Category:Physics',
          ['links', 'categories'],
          maxpages=100
         )
- 
- 
     data = curate_links(data)
-
-    ######## Pruebas de get_cat_tree
+    
+    #%% Pruebas de get_cat_tree
 
     # ### Árbol súper chico de categorías
 #    arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
@@ -364,14 +375,6 @@ if __name__ == '__main__':
     arbol, n_l = caza.get_cat_tree('Category:Ions')
     ### Árbol más grande
 #    arbol, n_l = caza.get_cat_tree('Category:Interaction')
-
-    ######## Pruebas de get_tree_data
-    lista = caza.get_tree_data(
-        'Category:Zwitterions'
-#         'Category:Ions'
-#        'Category:Interaction'
-#        'Category:Physics'
-        )
 
 #%%
 #    # Ejemplos de búsquedas que se pueden realizar mediante el método query
@@ -391,3 +394,16 @@ if __name__ == '__main__':
 #                       'generator': 'categorymembers',
 #                       'gcmtype': 'subcat'
 #                       })
+#%%  
+    res7 = caza.query({'titles': 'Higgs Boson',              
+                          'prop':'revisions',
+                          'rvprop':'timestamp',
+                          'rvlimit':"max",
+                          'rvstart':'2012-07-05T12:00:00Z',
+                          'rvend':'2012-07-25T23:59:00Z',
+                          'rvdir':'newer'
+                          })
+    lista = hist_revisiones(res7)
+    print(len(lista))
+    plt.hist(lista)
+
