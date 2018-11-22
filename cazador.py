@@ -266,18 +266,23 @@ class CazadorDeDatos():
                     result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
                             params=pedido_oldid).json()
                     # import pdb; pdb.set_trace()
-                    text = result['parse']['text']
-                    n_links = len(result['parse']['links'])
-                    links = [result['parse']['links'][k]['title']
-                             for k in range(n_links) if result['parse']['links'][k]['exists']]
-                    n_categories = len(result['parse']['categories'])
-                    categories = [result['parse']['categories'][k]['category']
-                                  for k in range(n_categories)]
-                    data[fechas[i]]['names'].append(name)
-                    data[fechas[i]]['timestamps'].append(timestamp)
-                    data[fechas[i]]['links'].append(links)
-                    data[fechas[i]]['categories'].append(categories)
-                    data[fechas[i]]['texts'].append(text)
+                    if 'error' in result.keys():
+                        print('ERROR:', result['error'])
+                    if 'warnings' in result:
+                        print(result['warnings'])
+                    if 'parse' in result.keys():
+                        text = result['parse']['text']
+                        n_links = len(result['parse']['links'])
+                        links = [result['parse']['links'][k]['title']
+                                for k in range(n_links) if result['parse']['links'][k]['exists']]
+                        n_categories = len(result['parse']['categories'])
+                        categories = [result['parse']['categories'][k]['category']
+                                    for k in range(n_categories)]
+                        data[fechas[i]]['names'].append(name)
+                        data[fechas[i]]['timestamps'].append(timestamp)
+                        data[fechas[i]]['links'].append(links)
+                        data[fechas[i]]['categories'].append(categories)
+                        data[fechas[i]]['texts'].append(text)
             if verbose:
                 print('\t', 'Página', name, 'adquirida')
         pags_visited += pages_incat
