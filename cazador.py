@@ -155,8 +155,7 @@ class CazadorDeDatos():
         # Estructuras output
         data = {fecha : {'names' : [], 'links' : [],
                          'texts' : [], 'categories' : [],
-                         'timestamps': [],
-                         'set_of_cats' : []} for fecha in fechas}
+                         'timestamps': []} for fecha in fechas}
         children = {}
 
         # Inicialización de la cola de espera
