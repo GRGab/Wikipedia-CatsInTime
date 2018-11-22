@@ -184,7 +184,7 @@ class CazadorDeDatos():
                 cat_actual = queue.popleft()
 
             # La 'visitamos'
-            if verbose: print('Visitando categoría', len(cats_visited) + 1)
+            if verbose: print('Visitando categoría', cat_actual)
             data, pags_visited = self.visit_category(cat_actual, data,
                                                      pags_visited, verbose=verbose)
 
@@ -232,7 +232,7 @@ class CazadorDeDatos():
             print('Guardado completo.')
             print('# categorías visitadas:', len(cats_visited))
             print('# páginas visitadas:', len(pags_visited))
-            print('# niveles recorridos:', nlevels)
+            print('# niveles recorridos:', nlevels + 1)
         return data, children, queue, cats_visited, pags_visited
 
     def visit_category(self, category_name, data, pags_visited, verbose=True):
@@ -337,25 +337,37 @@ class CazadorDeDatos():
                        for fecha in fechas]
         
         timestamps, revids = self.listar_revisiones(page_name)
-        n_revisions = len(timestamps)
         timestamps_unix = [time.mktime(datetime.strptime(t, '%Y-%m-%dT%XZ').timetuple())
                            for t in timestamps]
         
         timestamps_f, revids_f = [], []
         for fecha in fechas_unix:
-            scores = [abs(x - fecha) for x in timestamps_unix]
-            indice = min(list(range(n_revisions)), key=lambda i: scores[i])
-            
-            # Me fijo a que distancia esta el valor seleccionado del que pedi.
-            delta = abs(timestamps_unix[indice] - fecha)
-            if (delta < delta_lim):
-                timestamp_elegido = timestamps[indice]
-                revid_elegido = revids[indice]
+            # Pedimos la última revisión previa a la fecha especificada
+            # Si no existe, devolvemos None
+            indices_previas = [i for i, x in enumerate(timestamps_unix) if x < fecha]
+            if len(indices_previas) == 0:
+                timestamps_f.append(None)
+                revids_f.append(None)
             else:
-                timestamp_elegido = None
-                revid_elegido = None
-            timestamps_f.append(timestamp_elegido)
-            revids_f.append(revid_elegido)
+                indice = sorted(indices_previas, key=lambda i: timestamps_unix[i])[-1]
+                timestamps_f.append(timestamps[indice])
+                revids_f.append(revids[indice])
+
+        # n_revisions = len(timestamps)
+        # for fecha in fechas_unix:
+        #     scores = [abs(x - fecha) for x in timestamps_unix]
+        #     indice = min(list(range(n_revisions)), key=lambda i: scores[i])
+            
+        #     # Me fijo a que distancia esta el valor seleccionado del que pedi.
+        #     delta = abs(timestamps_unix[indice] - fecha)
+        #     if (delta < delta_lim):
+        #         timestamp_elegido = timestamps[indice]
+        #         revid_elegido = revids[indice]
+        #     else:
+        #         timestamp_elegido = None
+        #         revid_elegido = None
+        #     timestamps_f.append(timestamp_elegido)
+        #     revids_f.append(revid_elegido)
 
         return timestamps_f, revids_f
     
