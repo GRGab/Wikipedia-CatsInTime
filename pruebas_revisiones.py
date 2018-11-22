@@ -3,7 +3,7 @@ from cazador import CazadorDeDatos
 
 def query_simple(pedido, language='en'):
     result = requests.get('https://{}.wikipedia.org/w/api.php'.format(language),
-                    params=pedido).json()
+                    params=pedido)
     return result
 
 # ### Pruebas sobre revisiones
@@ -39,7 +39,7 @@ pedido_antiguos = {'action':'query',
                     # 'rvend':'2009-01-31T23:59:00Z',
                     # 'rvdir':'newer'
                     }
-                    
+
 res_antiguos = query_simple(pedido_antiguos)
 print(res_antiguos)
 # res_antiguos = caza.query(pedido_antiguos)
@@ -47,7 +47,9 @@ print(res_antiguos)
 #     print(result)
 
 pedido_oldid = {'action': 'parse',
+                'format': 'json',
+                'formatversion': 2,
                 'oldid': 452653273,
                 'prop': 'links|categories|text'}
-res_oldid = query_simple(pedido_oldid)
+res_oldid = query_simple(pedido_oldid).json()
 print(res_oldid)
