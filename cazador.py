@@ -118,8 +118,8 @@ class CazadorDeDatos():
                     if 'text' not in data[title].keys():
                         pass
 
-    def get_cat_data(self, root_category, fechas=None, maxpages=0,
-                     retomar=None, save_folder=None, save_period=0, verbose=True):
+    def get_cat_data(self, root_category, fechas, maxpages=0,
+                     retomar=None, save_folder=None, save_period=1, verbose=True):
         """
         Implementa una búsqueda de tipo BFS sobre las páginas de una categoría y
         sus subcategorías anidadas.
@@ -157,7 +157,7 @@ class CazadorDeDatos():
                          'texts' : [], 'categories' : [],
                          'timestamps': [],
                          'set_of_cats' : []} for fecha in fechas}
-        children: {}
+        children = {}
 
         # Inicialización de la cola de espera
         queue.append(root_category)
@@ -221,11 +221,15 @@ class CazadorDeDatos():
                         '\t', 'Cantidad de páginas:', len(pags_visited))
 
             # Si ya visitamos suficientes páginas, nos detenemos
-            if maxpages > 0 and len(data.keys()) > maxpages:
+            if (maxpages > 0) and (len(pags_visited) > maxpages):
                 break
 
+        self.guardar_datos(data, children,
+                           queue, cats_visited, pags_visited,
+                           save_folder)
         if verbose:
             print('------------------------------')
+            print('Guardado completo.')
             print('# categorías visitadas:', len(cats_visited))
             print('# páginas visitadas:', len(pags_visited))
             print('# niveles recorridos:', nlevels)
@@ -244,14 +248,39 @@ class CazadorDeDatos():
                 name = pages[i]['title']
                 if name not in pags_visited:
                     pages_incat.append(name)
+
         # Recorro las páginas pidiendo la info para cada revisión deseada
+        fechas = list(data.keys())
         for name in pages_incat:
             # Obtengo los revids y timestamps deseados
-            pedido_revids = {'titles': name,
-                             'prop':'revisions',
-                             'rvprop':'ids|timestamp'}
-            for result in self.query(pedido_revids, verbose=False):
-                pass
+            timestamps, revids = self.elegir_revisiones(name, fechas)
+            # Para cada revisión pido los datos
+            for i in range(len(timestamps)):
+                timestamp = timestamps[i]
+                revid = revids[i]
+                if timestamp is not None:
+                    pedido_oldid = {'action': 'parse',
+                                    'format': 'json',
+                                    'formatversion': 2,
+                                    'oldid': revid,
+                                    'prop': 'links|categories|text'}
+                    result = requests.get('https://{}.wikipedia.org/w/api.php'.format(self.language),
+                            params=pedido_oldid).json()
+                    # import pdb; pdb.set_trace()
+                    text = result['parse']['text']
+                    n_links = len(result['parse']['links'])
+                    links = [result['parse']['links'][k]['title']
+                             for k in range(n_links) if result['parse']['links'][k]['exists']]
+                    n_categories = len(result['parse']['categories'])
+                    categories = [result['parse']['categories'][k]['category']
+                                  for k in range(n_categories)]
+                    data[fechas[i]]['names'].append(name)
+                    data[fechas[i]]['timestamps'].append(timestamp)
+                    data[fechas[i]]['links'].append(links)
+                    data[fechas[i]]['categories'].append(categories)
+                    data[fechas[i]]['texts'].append(text)
+            if verbose:
+                print('\t', 'Página', name, 'adquirida')
         pags_visited += pages_incat
         return data, pags_visited
 
@@ -281,9 +310,54 @@ class CazadorDeDatos():
         pags_visited = json.load(osjoin(folder, 'pags_visited.json'))
         return (data, children, queue, cats_visited, pags_visited)
 
+    def listar_revisiones(self, page_name):
+        '''Para un pedido a la API en un intervalo de tiempos, me hago una lista
+        en los timestamps de las rewiews en formato UNIX.'''
+        pedido = {'titles': page_name,
+                  'prop':'revisions',
+                  'rvprop':'ids|timestamp'}
+        timestamps = []
+        revids = []
+        for result in self.query(pedido, verbose=False):
+            revisions = result['pages'][0]['revisions']
+            timestamps += [revision['timestamp'] for revision in revisions]
+            revids += [revision['revid'] for revision in revisions]
+        return timestamps, revids
+
+    def elegir_revisiones(self, page_name, fechas, delta_lim = 2592000):
+        '''Dado un timestamp de referencia en el formato que trabaja
+        la API, elige de una lista de timestamp el 
+        mas cercano y lo devuelve a la salida el tiempo mas cercano.
+        Si el timestamp mas cercano se encuentra a una distancia delta_lim del
+        tiempo pedido (por default 30 dias), la funcion arroja un None'''
+        
+        # Paso la fecha de referencia a sistema horario unix, más facil
+        # de manipular.
+        fechas_unix = [time.mktime(datetime.strptime(fecha, '%Y-%m-%dT%XZ').timetuple())
+                       for fecha in fechas]
+        
+        timestamps, revids = self.listar_revisiones(page_name)
+        n_revisions = len(timestamps)
+        timestamps_unix = [time.mktime(datetime.strptime(t, '%Y-%m-%dT%XZ').timetuple())
+                           for t in timestamps]
+        
+        timestamps_f, revids_f = [], []
+        for fecha in fechas_unix:
+            scores = [abs(x - fecha) for x in timestamps_unix]
+            indice = min(list(range(n_revisions)), key=lambda i: scores[i])
             
+            # Me fijo a que distancia esta el valor seleccionado del que pedi.
+            delta = abs(timestamps_unix[indice] - fecha)
+            if (delta < delta_lim):
+                timestamp_elegido = timestamps[indice]
+                revid_elegido = revids[indice]
+            else:
+                timestamp_elegido = None
+                revid_elegido = None
+            timestamps_f.append(timestamp_elegido)
+            revids_f.append(revid_elegido)
 
-
+        return timestamps_f, revids_f
     
 
     ########################################################
@@ -402,7 +476,7 @@ class CazadorDeDatos():
             visited.add(cat_actual)
 
             # Si ya visitamos suficientes páginas, nos detenemos
-            if maxpages > 0 and len(data.keys()) > maxpages:
+            if (maxpages > 0) and (len(data.keys()) > maxpages):
                 break
 
         if verbose:
@@ -482,122 +556,75 @@ def curate_links(data):
     return data
 
     
-def lista_de_timestamps(pedido):
-    '''Para un pedido a la API en un intervalo de tiempos, me hago una lista
-    en los timestamps de las rewiews en formato UNIX.'''
-    data =[]
-    for i in pedido:
-        data.append(i)
-    lista =[]
-    for j in range(len(data[0]['pages'][0]['revisions'])):
-       a = data[0]['pages'][0]['revisions'][j]['timestamp']
-       b = time.mktime(datetime.strptime(a, '%Y-%m-%dT%XZ').timetuple())
-       lista.append(b)
-    return lista
 
 
-def elegir_timestamp(pedido, ref_time, delta_lim = 2592000):
-    '''Dado un timestamp de referencia en el formato que trabaja
-    la API, elige de una lista de timestamp el 
-    mas cercano y lo devuelve a la salida el tiempo mas cercano.
-    Si el timestamp mas cercano se encuentra a una distancia delta_lim del
-    tiempo pedido (por default 30 dias), la funcion arroja un None'''
-    
-    #Paso la fecha de referencia a sistema horario unix, mas facil.
-    #de manipular.
-    ref_time_unix = time.mktime(datetime.strptime(ref_time, '%Y-%m-%dT%XZ').timetuple())
-    
-    lista = lista_de_timestamps(pedido) 
-    valor_elegido_unix = min(lista, key=lambda x:abs(x-ref_time_unix))
-    
-    #Me fijo a que distancia esta el valor seleccionado del que pedi.
-    delta = abs(valor_elegido_unix - ref_time_unix)
-    if (delta < delta_lim):
-        valor_elegido = datetime.utcfromtimestamp(
-                valor_elegido_unix).strftime('%Y-%m-%dT%XZ')
-    else:
-        valor_elegido = None
-    return valor_elegido
+
+
 
 
 #%%
 if __name__ == '__main__':
     # Inicializamos objeto
     caza = CazadorDeDatos()
-
-    #%% Pruebas de get_pagesincat
-    data_1, cats = caza.get_pagesincat(
-        'Category:Zwitterions',
-#        'Category:Ions',
-#        'Category:Interaction',
-#        'Category:Physics',
-         ['links', 'categories']
-            )
-    data_1 = curate_links(data_1)
     
     #%% Pruebas de get_cat_data
-    data, cats, children = caza.get_cat_data(
-         'Category:Zwitterions',
+    out = caza.get_cat_data(
+        #  'Category:Zwitterions',
+         'Category:Zwitterionic surfactants',
 #        'Category:Ions',
 #        'Category:Interaction',
 #        'Category:Physics',
-         ['links', 'categories'],
-         maxpages=100
-        )
-    data = curate_links(data)
-    
-    #%% Pruebas de get_cat_tree
+         ['2017-01-01T12:00:00Z', '2018-01-01T12:00:00Z'],
+         save_folder=r'C:\Users\Gabo\Documents\Facultad\wikipedia-proyecto\LALA')
 
-    # ### Árbol súper chico de categorías
-#    arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
-    ### Árbol no tan chico
-    arbol, n_l = caza.get_cat_tree('Category:Ions')
-    ### Árbol más grande
-#    arbol, n_l = caza.get_cat_tree('Category:Interaction')
-
-#%%
-#    # Ejemplos de búsquedas que se pueden realizar mediante el método query
-#    # Los objetos resultantes son generadores, i.e. al ejecutar este código,
-#    # no se realiza ninguna llamada a la API sino que eso se posterga hasta
-#    # que se itere sobre alguno de los objetos.
-#    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
-#    res2 = caza.query({'titles': 'Main page'})
-#    res3 = caza.query({'titles': 'Physics', 'prop': 'links'})
-#    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'})
-    res5 = caza.query({'gcmtitle': 'Category:Physics',
-                       'prop': 'links',
-                       'generator': 'categorymembers',
-                       'gcmtype': 'page'
-                       })
-#    res6 = caza.query({'gcmtitle': 'Category:Physics',
-#                       'generator': 'categorymembers',
-#                       'gcmtype': 'subcat'
-#                       })
-#%%  
+#     data = curate_links(data)
     
-    res7 = caza.query({'titles': 'Higgs Boson',              
-                          'prop':'revisions',
-                          'rvprop':'timestamp',
-                          'rvlimit':"max",
-                          'rvstart':'2012-07-05T12:00:00Z',
-                          'rvend':'2012-08-25T23:59:00Z',
-                          'rvdir':'newer'
-                          })
+#     #%% Pruebas de get_pagesincat
+#     data_1, cats = caza.get_pagesincat(
+#         'Category:Zwitterions',
+# #        'Category:Ions',
+# #        'Category:Interaction',
+# #        'Category:Physics',
+#          ['links', 'categories']
+#             )
+#     data_1 = curate_links(data_1)
+
+#     #%% Pruebas de get_cat_tree
+
+#     # ### Árbol súper chico de categorías
+# #    arbol, n_l = caza.get_cat_tree('Category:Zwitterions')
+#     ### Árbol no tan chico
+#     arbol, n_l = caza.get_cat_tree('Category:Ions')
+#     ### Árbol más grande
+# #    arbol, n_l = caza.get_cat_tree('Category:Interaction')
+
+# #%%
+# #    # Ejemplos de búsquedas que se pueden realizar mediante el método query
+# #    # Los objetos resultantes son generadores, i.e. al ejecutar este código,
+# #    # no se realiza ninguna llamada a la API sino que eso se posterga hasta
+# #    # que se itere sobre alguno de los objetos.
+# #    res1 = caza.query({'list': 'categorymembers', 'cmtype': 'page', 'cmtitle': 'Category:Physics'})
+# #    res2 = caza.query({'titles': 'Main page'})
+# #    res3 = caza.query({'titles': 'Physics', 'prop': 'links'})
+# #    res4 = caza.query({'titles': 'Physics', 'prop': 'links', 'generator': 'links'})
+#     res5 = caza.query({'gcmtitle': 'Category:Physics',
+#                        'prop': 'links',
+#                        'generator': 'categorymembers',
+#                        'gcmtype': 'page'
+#                        })
+# #    res6 = caza.query({'gcmtitle': 'Category:Physics',
+# #                       'generator': 'categorymembers',
+# #                       'gcmtype': 'subcat'
+# #                       })
+# #%%  
+    
+#     res7 = caza.query({'titles': 'Higgs Boson',              
+#                           'prop':'revisions',
+#                           'rvprop':'timestamp',
+#                           'rvlimit':"max",
+#                           'rvstart':'2012-07-05T12:00:00Z',
+#                           'rvend':'2012-08-25T23:59:00Z',
+#                           'rvdir':'newer'
+#                           })
                 
-    numero = elegir_timestamp(res7, '2012--25T23:59:00Z')
-    
-    
-#%%
-    pedido = res7
-    data =[]
-    for i in pedido:
-        data.append(i)
-    print (data)
-    
-        #%%
-    lista =[]
-    for j in range(len(data[0]['pages'][0]['revisions'])):
-       a = data[0]['pages'][0]['revisions'][j]['timestamp']
-       a = time.mktime(datetime.strptime(a, '%Y-%m-%dT%XZ').timetuple())
-       print(a)
 
