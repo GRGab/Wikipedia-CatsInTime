@@ -2,8 +2,12 @@ from datetime import datetime
 import time
 
 def unixtime(dates):
-    unix_dates =  [time.mktime(datetime.strptime(date, '%Y-%m-%dT%XZ').timetuple())
-                   for date in dates]
+    if isinstance(dates, str):
+        unix_dates = time.mktime(datetime.strptime(dates, '%Y-%m-%dT%XZ').timetuple())
+    else:
+        unix_dates =  [time.mktime(datetime.strptime(date, '%Y-%m-%dT%XZ').timetuple())
+                       for date in dates]
+    return unix_dates
 
 def count_items(query_result):
     """
@@ -35,3 +39,9 @@ def curate_links(data):
         n_eliminated += n_i - n_f
     print('# de links malos eliminados:', n_eliminated)
     return data
+
+def summary(data):
+    """
+    Información sumaria sobre los datos recolectados
+    """
+    pass
