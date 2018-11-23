@@ -1,13 +1,17 @@
-
+import numpy as np
+from datetime import datetime
 import networkx as nx
 import matplotlib.pyplot as plt
 plt.ion()
-from cazador import CazadorDeDatos, curate_links
-import numpy as np
+
+from cazador import CazadorDeDatos
+from utilities import unixtime, curate_links
 
 
 def childrendict_to_edgelist(childrendict):
     """
+    Función apta para generar grafos dirigidos que representen relaciones
+    entre categorías.
     INPUT
         childrendict : dict
             Contiene pares padre : hijos, donde padre es un string
@@ -21,6 +25,66 @@ def childrendict_to_edgelist(childrendict):
         partial_edgelist = [(parent, child) for child in children]
         edgelist.append(partial_edgelist)
     return edgelist
+
+def links_to_edgelist(names, links):
+    """
+    Dadas listas 'names' y 'links' para un cierto snapshot, devuelve un edgelist
+    para networkx.
+    """
+    edgelist = []
+    for name, ls in zip(names, links):
+        for link in ls:
+            edgelist.append((name, link))
+    return edgelist
+
+def edgelists(data):
+    """
+    Generar una edgelist por snapshot para networkx a partir de la estructura generada por
+    CazadorDeDatos.
+    """
+    edges = {}
+    for fecha in data:
+        names = data[fecha]['names']
+        links = data[fecha]['links']
+        edges[fecha] = links_to_edgelist(names, links)
+    return edges
+
+def data_to_graphs(data, directed=True, title=None, savefolder=None):
+    graphs = {}
+    edges = edgelists(data)
+    # Creamos los grafos
+    for date in edges:
+        if directed:
+            graphs[date] = nx.DiGraph(edges[date])
+        else:
+            graphs[date] = nx.Graph(edges[date])
+    # Guardar los grafos en formato .gexf
+    if savefolder is not None:
+        assert title is not None
+        for date, g in graphs.items():
+            date = datetime.strptime(date, '%Y-%m-%dT%XZ')
+            date = '{}-{}-{}'.format(date.year, date.month, date.day)
+            nx.write_gexf(g,'{}_{}.gexf'.format(title, date))
+    return graphs
+
+def plot_graphs(graphs):
+    """
+    graphs debe ser un dict de pares fecha : grafo
+    """
+    # Elijo el posicionamiento según la red más reciente
+    dates = list(graphs.keys())
+    last_date = max(dates, key=lambda x: unixtime(x))
+    pos = nx.drawing.layout.spring_layout(graphs[last_date])
+    # Grafico
+    nrows = np.floor(np.sqrt(len(graphs)))
+    ncols = np.ceil(len(graphs) / nrows)
+    fig, axs = plt.subplots(nrows, ncols, figsize=(12, 8))
+    axs = np.ravel(axs)
+    for i, (date, g) in enumerate(graphs.items()):
+        nx.draw(g, pos=pos, ax=axs[i])
+        axs[i].annotate(date,
+                    (.8, .8), xycoords='axes fraction',
+                    backgroundcolor='w', fontsize=14)
 
 
 
@@ -62,31 +126,20 @@ def lista_de_enlaces(data):
 
 
 if __name__ == '__main__':
-    # Inicializamos objeto
-    caza = CazadorDeDatos()
-    # Estructura de categorías no tan chica
-    arbol, n_l = caza.get_cat_tree('Category:Ions')
+    test_get_cat_tree = False
+    if test_get_cat_tree:
+        # Inicializamos objeto
+        caza = CazadorDeDatos()
+        # Estructura de categorías no tan chica
+        arbol, n_l = caza.get_cat_tree('Category:Ions')
 
-    # Construimos el grafo
-    edges = nestdict_to_edgelist(arbol)
-    g = nx.DiGraph()
-    g.add_edges_from(edges)
-    plt.figure()
-    nx.draw(g, with_labels = False, node_size=20)
+        # Construimos el grafo
+        edges = nestdict_to_edgelist(arbol)
+        g = nx.DiGraph()
+        g.add_edges_from(edges)
+        plt.figure()
+        nx.draw(g, with_labels = False, node_size=20)
 
-    # Qué categorías pertenecen a más de una categoría madre?
-    # Estas categorías rompen la estructura de árbol
-    especiales = [cat for cat, in_deg in g.in_degree if in_deg >= 2]
-    
-#%%  
-    data, cats = caza.get_data_pagesincat('Category:Interaction')
-    data = curate_links(data)
-    
-    #%%
-    a = lista_de_enlaces(data)
-    b = nx.Graph()
-    b.add_edges_from(a)
-#    nx.draw(b, node_size=6)
-    nx.write_gexf(b,'Grafos_guardados/test_z.gexf')
-
-    
+        # Qué categorías pertenecen a más de una categoría madre?
+        # Estas categorías rompen la estructura de árbol
+        especiales = [cat for cat, in_deg in g.in_degree if in_deg >= 2]
