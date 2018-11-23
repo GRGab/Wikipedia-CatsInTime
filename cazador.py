@@ -307,12 +307,16 @@ class CazadorDeDatos():
 
     @staticmethod
     def cargar_datos(folder):
-        data = json.load(osjoin(folder, 'data.json'))
-        children = json.load(osjoin(folder, 'children.json'))
-        queue = deque(json.load(osjoin(folder, 'queue.json')))
-        cats_visited = json.load(osjoin(folder, 'cats_visited.json'))
-        pags_visited = json.load(osjoin(folder, 'pags_visited.json'))
-        return (data, children, queue, cats_visited, pags_visited)
+        data = json.load(open(osjoin(folder, 'data.json'), 'r'))
+        children = json.load(open(osjoin(folder, 'children.json'), 'r'))
+        return data, children
+
+    @staticmethod
+    def retomar(folder):
+        queue = deque(json.load(open(osjoin(folder, 'queue.json'), 'r')))
+        cats_visited = json.load(open(osjoin(folder, 'cats_visited.json'), 'r'))
+        pags_visited = json.load(open(osjoin(folder, 'pags_visited.json'), 'r'))
+        return queue, cats_visited, pags_visited
 
     def listar_revisiones(self, page_name):
         '''Para un pedido a la API en un intervalo de tiempos, me hago una lista
