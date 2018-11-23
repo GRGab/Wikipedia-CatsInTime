@@ -4,8 +4,7 @@ from os.path import join as osjoin
 from collections import deque
 import numpy as np
 from matplotlib import pyplot as plt
-from datetime import datetime
-import time
+from utilities import unixtime
 
 class CazadorDeDatos():
     def __init__(self, language='en', fmt='json', data_limit=500,
@@ -341,12 +340,10 @@ class CazadorDeDatos():
         
         # Paso la fecha de referencia a sistema horario unix, más facil
         # de manipular.
-        fechas_unix = [time.mktime(datetime.strptime(fecha, '%Y-%m-%dT%XZ').timetuple())
-                       for fecha in fechas]
-        
+
+        fechas_unix = unixtime(fechas)
         timestamps, revids = self.listar_revisiones(page_name)
-        timestamps_unix = [time.mktime(datetime.strptime(t, '%Y-%m-%dT%XZ').timetuple())
-                           for t in timestamps]
+        timestamps_unix = unixtime(timestamps)
         
         timestamps_f, revids_f = [], []
         for fecha in fechas_unix:
@@ -539,48 +536,6 @@ class CazadorDeDatos():
                     n_l += n_l_rec
         print('Termina una llamada. # subcats:', len(tree[category_name].keys()))
         return tree, n_l
-                
-####################################
-# Funciones por fuera de la clase
-####################################
-
-def count_items(query_result):
-    """
-    Función auxiliar que te tira cuántas páginas y cuántos links hay
-    en un dado result
-    """
-    pages = query_result['pages']
-    n_pages = len(pages)
-    get_links = lambda dic: dic['links'] if 'links' in dic.keys() else []
-    n_links_perpage = [len(get_links(pages[i])) for i in range(n_pages)]
-    n_links_tot = sum(n_links_perpage)
-    return n_pages, n_links_tot
-
-def curate_links(data):
-    data = data.copy()
-    n_eliminated = 0
-    for title in data.keys():
-        linklist = data[title]['links']
-        n_i = len(linklist)
-        # Los links no deben comenzar con uno de estos prefijos.
-        bad_prefixes = ["Wikipedia:", "Category:", "Template:",
-                        "Template talk:", "Help:", "Portal:", "Book:"] 
-        # Chequeamos dicha condición mediante una función
-        condition = lambda l: all(not l.startswith(pref) for pref in bad_prefixes)
-        # Aplicamos la función como filtro
-        linklist = [l for l in linklist if condition(l)]
-        n_f = len(linklist)
-        data[title]['links'] = linklist
-        n_eliminated += n_i - n_f
-    print('# de links malos eliminados:', n_eliminated)
-    return data
-
-    
-
-
-
-
-
 
 #%%
 if __name__ == '__main__':
