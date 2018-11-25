@@ -1,5 +1,4 @@
 import networkx as nx
-from utilities import get_visited_subcats
 
 #### Funciones sumario ####
 
@@ -94,3 +93,17 @@ def enrich_visitedcats_snapshot(g, snapshot_data, children):
 def enrich_visitedcats_history(graphs, data, children):
     for date, g in graphs.items():
         enrich_visitedcats_snapshot(g, data[date], children)
+
+#### Utilities
+
+def get_visited_subcats(children):
+    """
+    Toma el diccionario children generado por CazadorDeDatos y devuelve una lista
+    con los nombres de las categorías visitadas durante la adquisición, formateados
+    del mismo modo que las listas 'categories' para cada página.
+    """
+    subcats = list(children.keys())
+    for ls in children.values():
+        subcats += ls
+    subcats = [string[9:].replace(' ', '_') for string in set(subcats)]
+    return subcats

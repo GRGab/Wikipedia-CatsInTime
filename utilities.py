@@ -26,18 +26,6 @@ def get_setofcats(data):
         sets_of_cats[date] = set_of_cats
     return sets_of_cats
 
-def get_visited_subcats(children):
-    """
-    Toma el diccionario children generado por CazadorDeDatos y devuelve una lista
-    con los nombres de las categorías visitadas durante la adquisición, formateados
-    del mismo modo que las listas 'categories' para cada página.
-    """
-    subcats = list(children.keys())
-    for ls in children.values():
-        subcats += ls
-    subcats = [string[9:].replace(' ', '_') for string in set(subcats)]
-    return subcats
-
 #### Funciones para curación de links y categorías ####
 
 def curate_links(data):
