@@ -10,17 +10,35 @@ def unixtime(dates):
                        for date in dates]
     return unix_dates
 
-def count_items(query_result):
+#### Funciones para obtener estructuras a partir de 'data' y 'children' ####
+
+def get_setofcats(data):
     """
-    Función auxiliar que te tira cuántas páginas y cuántos links hay
-    en un dado result
+    Toma el diccionario data generado por CazadorDeDatos y devuelve el conjunto
+    de las categorías a las que pertence por lo menos una de las páginas visitadas.
     """
-    pages = query_result['pages']
-    n_pages = len(pages)
-    get_links = lambda dic: dic['links'] if 'links' in dic.keys() else []
-    n_links_perpage = [len(get_links(pages[i])) for i in range(n_pages)]
-    n_links_tot = sum(n_links_perpage)
-    return n_pages, n_links_tot
+    sets_of_cats = {}
+    for date in data:
+        set_of_cats = set()
+        for cats in data[date]['categories']:
+            set_of_cats.update(cats)
+        print('# de categorías:', len(set_of_cats))
+        sets_of_cats[date] = set_of_cats
+    return sets_of_cats
+
+def visited_subcats(children):
+    """
+    Toma el diccionario children generado por CazadorDeDatos y devuelve una lista
+    con los nombres de las categorías visitadas durante la adquisición, formateados
+    del mismo modo que las listas 'categories' para cada página.
+    """
+    subcats = list(children.keys())
+    for ls in children.values():
+        subcats += ls
+    subcats = [string[9:].replace(' ', '_') for string in set(subcats)]
+    return subcats
+
+#### Funciones para curación de links y categorías ####
 
 def curate_links(data):
     """
@@ -44,20 +62,6 @@ def curate_links(data):
         print('# links malos eliminados:', n_eliminated)
     return data
 
-def get_setofcats(data):
-    """
-    Toma el diccionario data generado por CazadorDeDatos y devuelve el conjunto
-    de las categorías a las que pertence por lo menos una de las páginas visitadas.
-    """
-    sets_of_cats = {}
-    for date in data:
-        set_of_cats = set()
-        for cats in data[date]['categories']:
-            set_of_cats.update(cats)
-        print('# de categorías:', len(set_of_cats))
-        sets_of_cats[date] = set_of_cats
-    return sets_of_cats
-
 def curate_categories(sets_of_cats):
     sets_of_cats = deepcopy(sets_of_cats)
     bad_substrings = ['Wikipedia', 'Articles', 'Pages', 'Orphaned', 'People',
@@ -67,3 +71,16 @@ def curate_categories(sets_of_cats):
         good_ones = [x for x in set_of_cats if condition(x)]
         sets_of_cats[date] = set(good_ones)
     return sets_of_cats
+
+# Deprecated
+def count_items(query_result):
+    """
+    Función auxiliar que te tira cuántas páginas y cuántos links hay
+    en un dado result
+    """
+    pages = query_result['pages']
+    n_pages = len(pages)
+    get_links = lambda dic: dic['links'] if 'links' in dic.keys() else []
+    n_links_perpage = [len(get_links(pages[i])) for i in range(n_pages)]
+    n_links_tot = sum(n_links_perpage)
+    return n_pages, n_links_tot
