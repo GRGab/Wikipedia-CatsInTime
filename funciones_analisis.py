@@ -1,4 +1,7 @@
 import networkx as nx
+from utilities import get_visited_subcats
+
+#### Funciones sumario ####
 
 def extremal_degrees(g, verbose=False):
     k_min = min(k for (nodo, k) in g.degree)
@@ -52,3 +55,42 @@ def directed_diameter_summary(g):
             nx.diameter(g_cg_undir))
         if nx.is_strongly_connected(g_cg):
             print('Además el grafo es fuertemente conexo! Su diámetro dirigido es', nx.diameter(g_cg))
+
+#### Funciones para manipular grafos de networkx ####
+
+def enrich_interestingcats_snapshot(g, snapshot_data, interesting_cats): 
+    names = snapshot_data['names']
+    categories = snapshot_data['categories']
+    cat_dict = {name : cat for name, cat in zip(names, categories)}
+    for nodo, dict_nodo in dict(g.nodes).items():
+        # Notar que no todos los nodos aparecen en names
+        for cat in interesting_cats:
+            if nodo in names:
+                dict_nodo[cat] = True if cat in cat_dict[nodo] else False
+                dict_nodo['<<EXTERNAL>>'] = False
+            else:
+                dict_nodo[cat] = False
+                dict_nodo['<<EXTERNAL>>'] = True
+
+def enrich_interestingcats_history(graphs, data, interesting_cats):
+    for date, g in graphs.items():
+        enrich_interestingcats_snapshot(g, data[date], interesting_cats)
+
+def enrich_visitedcats_snapshot(g, snapshot_data, children):
+    subcats = get_visited_subcats(children)
+    names = snapshot_data['names']
+    categories = snapshot_data['categories']
+    cat_dict = {name : cat for name, cat in zip(names, categories)}
+    for nodo, dict_nodo in dict(g.nodes).items():
+        # Notar que no todos los nodos aparecen en names
+        if nodo in names:
+            for cat in subcats:
+                if cat in cat_dict[nodo]:
+                    dict_nodo['category'] = cat
+                    break
+        else:
+            dict_nodo['category'] = '<<EXTERNAL>>'
+
+def enrich_visitedcats_history(graphs, data, children):
+    for date, g in graphs.items():
+        enrich_visitedcats_snapshot(g, data[date], children)
