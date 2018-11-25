@@ -1,4 +1,5 @@
 from datetime import datetime
+from copy import deepcopy
 import time
 
 def unixtime(dates):
@@ -22,26 +23,23 @@ def count_items(query_result):
     return n_pages, n_links_tot
 
 def curate_links(data):
-    data = data.copy()
-    n_eliminated = 0
-    for title in data.keys():
-        linklist = data[title]['links']
-        n_i = len(linklist)
-        # Los links no deben comenzar con uno de estos prefijos.
-        bad_prefixes = ["Wikipedia:", "Category:", "Template:",
-                        "Template talk:", "Help:", "Portal:", "Book:"] 
-        # Chequeamos dicha condición mediante una función
-        condition = lambda l: all(not l.startswith(pref) for pref in bad_prefixes)
-        # Aplicamos la función como filtro
-        linklist = [l for l in linklist if condition(l)]
-        n_f = len(linklist)
-        data[title]['links'] = linklist
-        n_eliminated += n_i - n_f
-    print('# de links malos eliminados:', n_eliminated)
+    """
+    Toma el diccionario data generado por CazadorDeDatos y elimina todos los
+    links malos encontrados en cada página visitada.
+    """
+    data = deepcopy(data)
+    # Los links no deben comenzar con uno de estos prefijos.
+    bad_prefixes = ["Wikipedia:", "Category:", "Template:",
+                    "Template talk:", "Help:", "Portal:", "Book:"]
+    # Chequeamos dicha condición mediante una función
+    condition = lambda l: all(not l.startswith(pref) for pref in bad_prefixes)                    
+    for date in data.keys():
+        n_eliminated = 0
+        for i, linklist in enumerate(data[date]['links']):
+            n_initial = len(linklist)
+            # Aplicamos la función como filtro
+            linklist = [l for l in linklist if condition(l)]
+            data[date]['links'][i] = linklist
+            n_eliminated += n_initial - len(linklist)
+        print('# links malos eliminados:', n_eliminated)
     return data
-
-def summary(data):
-    """
-    Información sumaria sobre los datos recolectados
-    """
-    pass
