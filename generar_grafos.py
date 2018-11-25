@@ -49,7 +49,7 @@ def edgelists(data):
         edges[fecha] = links_to_edgelist(names, links)
     return edges
 
-def data_to_graphs(data, directed=True, title=None, savefolder=None):
+def data_to_graphs(data, directed=True):
     graphs = {}
     edges = edgelists(data)
     # Creamos los grafos
@@ -58,14 +58,16 @@ def data_to_graphs(data, directed=True, title=None, savefolder=None):
             graphs[date] = nx.DiGraph(edges[date])
         else:
             graphs[date] = nx.Graph(edges[date])
-    # Guardar los grafos en formato .gexf
-    if savefolder is not None:
-        assert title is not None
-        for date, g in graphs.items():
-            date = datetime.strptime(date, '%Y-%m-%dT%XZ')
-            date = '{}-{}-{}'.format(date.year, date.month, date.day)
-            nx.write_gexf(g,'{}_{}.gexf'.format(title, date))
     return graphs
+
+def save_graphs(graphs, title, savefolder):
+    """Guardar los grafos en formato .gexf
+    Atención: el guardado falla si los nodos del grafo tienen guardados atributos
+    en forma de lista."""
+    for date, g in graphs.items():
+        date = datetime.strptime(date, '%Y-%m-%dT%XZ')
+        date = '{}-{}-{}'.format(date.year, date.month, date.day)
+        nx.write_gexf(g,'{}_{}.gexf'.format(title, date))
 
 
 # DEPRECATED
