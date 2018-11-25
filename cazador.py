@@ -4,7 +4,7 @@ from os.path import join as osjoin
 from collections import deque
 import numpy as np
 from matplotlib import pyplot as plt
-from utilities import unixtime
+from utilities import unixtime, count_items
 
 class CazadorDeDatos():
     def __init__(self, language='en', fmt='json', data_limit=500,
