@@ -1,5 +1,9 @@
 import numpy as np
+
 from datetime import datetime
+from os.path import join as osjoin
+import json
+
 import networkx as nx
 import matplotlib.pyplot as plt
 plt.ion()
@@ -67,7 +71,12 @@ def save_graphs(graphs, title, savefolder):
     for date, g in graphs.items():
         date = datetime.strptime(date, '%Y-%m-%dT%XZ')
         date = '{}-{}-{}'.format(date.year, date.month, date.day)
-        nx.write_gexf(g,'{}_{}.gexf'.format(title, date))
+        nx.write_gexf(g,osjoin(savefolder, '{}_{}.gexf'.format(title, date)))
+
+def save_setsofcats(sets_of_cats, filename):
+    sets_of_cats = {key : list(val) for key, val in sets_of_cats.items()}
+    json.dump(sets_of_cats, open('{}.json'.format(filename), 'w'),
+              indent=4, sort_keys=True)
 
 
 # DEPRECATED
