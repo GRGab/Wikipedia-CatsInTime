@@ -3,8 +3,6 @@ import networkx as nx
 def extremal_degrees(g, verbose=False):
     k_min = min(k for (nodo, k) in g.degree)
     k_max = max(k for (nodo, k) in g.degree)
-    if verbose:
-        print('kmin =', k_min, '| kmax =', k_max)
     if nx.is_directed(g):
         kin_min = min(k for (nodo, k) in g.in_degree)
         kin_max = max(k for (nodo, k) in g.in_degree)
@@ -15,6 +13,8 @@ def extremal_degrees(g, verbose=False):
             print('kout_min =', k_min, '| kout_max =', k_max)
         return k_min, k_max, kin_min, kin_max, kout_min, kout_max
     else:
+        if verbose:
+            print('kmin =', k_min, '| kmax =', k_max)
         return k_min, k_max
 
 def graph_summary(g):
