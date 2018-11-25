@@ -24,17 +24,25 @@ data = curate_links(data_raw)
 graphs = data_to_graphs(data)
 
 # Enriquecemos con información sobre las categorías:
+# Para poder exportar, seleccionamos un conjunto de categorías que nos
+# interesen y guardamos valores booleanos para cada una de ellas
+
+interesting_cats = ['Machine_learning', 'Statistics', 'Theorems',
+                    'Machine_learning_algorithms', 'Pop_music']
+
 for date, g in graphs.items():
     names = data[date]['names']
     categories = data[date]['categories']
     cat_dict = {name : cat for name, cat in zip(names, categories)}
     for nodo, dict_nodo in dict(g.nodes).items():
         # Notar que no todos los nodos aparecen en names
-        if nodo in names:
-            dict_nodo['categories'] = cat_dict[nodo]
-        else:
-            dict_nodo['categories'] = ['<<EXTERNAL>>']
-
+        for cat in interesting_cats:
+            if nodo in names:
+                dict_nodo[cat] = True if cat in cat_dict[nodo] else False
+                dict_nodo['<<EXTERNAL>>'] = False
+            else:
+                dict_nodo[cat] = False
+                dict_nodo['<<EXTERNAL>>'] = True
 
 # Subgrafos correspondientes a la categoría recorrida únicamente
 graphs_originalcat = {date : graphs[date].subgraph(data[date]['names'])
