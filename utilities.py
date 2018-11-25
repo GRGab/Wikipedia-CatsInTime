@@ -26,7 +26,7 @@ def get_setofcats(data):
         sets_of_cats[date] = set_of_cats
     return sets_of_cats
 
-def visited_subcats(children):
+def get_visited_subcats(children):
     """
     Toma el diccionario children generado por CazadorDeDatos y devuelve una lista
     con los nombres de las categorías visitadas durante la adquisición, formateados
