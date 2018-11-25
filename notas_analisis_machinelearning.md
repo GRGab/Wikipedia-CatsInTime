@@ -39,3 +39,17 @@ dirigidos?).
 - Ahora la diferencia entre el grafo total y la componente conexa es un poco
 más pronunciada, pero se va achicando con el tiempo. En 2018 es de 23 nodos
 mientras que en 2015 es de 67.
+
+## Elección de categorías de interés
+
+- Luego de mirar un rato las enormes listas de categorías presentes en el grafo,
+me di cuenta de que las categorías que probablemente nos interesen van a ser
+las que aparecieron en el árbol de categorías recorrido, es decir las que
+aparecen en la estructura 'children'. Siento que tal vez las otras no nos sirvan
+de demasiado, al menos en lo referido a las clusterizaciones...
+- Lo primero que hice fue asignarle a cada nodo su subcategoría, es decir
+la subcategoría en la cual fue encontrado al adquirir los datos de Wikipedia.
+Esto es súper interesante para explorar gráficamente con Gephi.
+- Una tercera forma, bastante interesante, sería fijar el nivel de profundidad
+en el árbol dado por 'children' y particionar a todas las páginas según las
+subcats presentes únicamente en ese nivel. Esto queda PENDIENTE.
