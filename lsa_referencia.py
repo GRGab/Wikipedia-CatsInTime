@@ -11,11 +11,9 @@ path_git, path_datos_global = definir_path()
 from os.path import join as osjoin
 from cazador import CazadorDeDatos
 from utilities import curate_links
-caza = CazadorDeDatos()
-carpeta = osjoin(path_datos_global, 'machine_learning')
-data_raw, children = caza.cargar_datos(carpeta)
-data = curate_links(data_raw)
-dates = list(data.keys())
+
+from bs4 import BeautifulSoup as bs
+from nltk import word_tokenize, sent_tokenize # útil para ver resultados intermedios
 
 # ??
 import warnings
@@ -25,7 +23,7 @@ warnings.filterwarnings("ignore")                     #Ignoring unnecessory warn
 # import nltk                                         #Natural language processing tool-kit
 # from nltk.corpus import stopwords                   #Stopwords corpus
 # from nltk.stem import PorterStemmer                 # Stemmer
-# from nltk import word_tokenize, sent_tokenize
+
 # from gensim import corpora, models, similarities, matutils
 # from gensim.models.word2vec import Word2Vec
 # from gensim.models import Word2Vec                                   #For Word2Vec
@@ -36,10 +34,18 @@ warnings.filterwarnings("ignore")                     #Ignoring unnecessory warn
 # from sklearn import manifold
 # from collections import defaultdict
 
+caza = CazadorDeDatos()
+carpeta = osjoin(path_datos_global, 'machine_learning')
+data_raw, children = caza.cargar_datos(carpeta)
+data = curate_links(data_raw)
+dates = list(data.keys())
 
 # Elegimos un snapshot para bosquejar el análisis
 data = data[dates[3]]
 corpus = data['texts']
+# Limpiamos todo lo que es HTML y nos quedamos con el texto (se podría hacer
+# algo mejor, eliminando secciones bizarras de la página, pero bueno)
+corpus = [bs(html_text).get_text().replace('\n', ' ') for html_text in corpus]
 
 # Convertir a vectores (esto puede tardar)
 # El resultado es una matriz esparsa
@@ -59,7 +65,7 @@ from mpl_toolkits.mplot3d import Axes3D
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 for i, punto in enumerate(lsa_data.components_.T):
-    ax.scatter(punto[0],punto[1],punto[10])
+    ax.scatter(punto[0],punto[1],punto[2])
 plt.show()
 
 # Funcion para calcular distancias
@@ -85,4 +91,4 @@ graph_lsa = nx.relabel_nodes(graph_lsa, label_mapping)
 from funciones_analisis import enrich_visitedcats_snapshot
 enrich_visitedcats_snapshot(graph_lsa, data, children)
 
-nx.write_gexf(graph_lsa, osjoin(path_git, 'Grafos_guardados', 'prueba_lsa.gexf'))
+nx.write_gexf(graph_lsa, osjoin(path_git, 'Grafos_guardados', 'prueba_lsa2.gexf'))
