@@ -43,3 +43,27 @@ def curate_links(data):
             n_eliminated += n_initial - len(linklist)
         print('# links malos eliminados:', n_eliminated)
     return data
+
+def get_setofcats(data):
+    """
+    Toma el diccionario data generado por CazadorDeDatos y devuelve el conjunto
+    de las categorías a las que pertence por lo menos una de las páginas visitadas.
+    """
+    sets_of_cats = {}
+    for date in data:
+        set_of_cats = set()
+        for cats in data[date]['categories']:
+            set_of_cats.update(cats)
+        print('# de categorías:', len(set_of_cats))
+        sets_of_cats[date] = set_of_cats
+    return sets_of_cats
+
+def curate_categories(sets_of_cats):
+    sets_of_cats = deepcopy(sets_of_cats)
+    bad_substrings = ['Wikipedia', 'Articles', 'Pages', 'Orphaned', 'People',
+                    'CS1', 'articles', 'pages']
+    condition = lambda l: all(not substr in l for substr in bad_substrings)
+    for date, set_of_cats in sets_of_cats.items():
+        good_ones = [x for x in set_of_cats if condition(x)]
+        sets_of_cats[date] = set(good_ones)
+    return sets_of_cats
