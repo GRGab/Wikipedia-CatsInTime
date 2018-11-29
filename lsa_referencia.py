@@ -78,8 +78,8 @@ matrix_distancias = squareform(distancias)
 
 # Elijo un umbral, mirando el hist de distancias entre páginas,
 # y obtengo la matriz de adyacencia
-umbral = 1.2
-adjacency_lsa = np.array(matrix_distancias >= umbral, dtype=int)
+umbral = 0.4
+adjacency_lsa = np.array(matrix_distancias <= umbral, dtype=int)
 
 # Genero grafo no dirigido
 import networkx as nx
@@ -91,4 +91,4 @@ graph_lsa = nx.relabel_nodes(graph_lsa, label_mapping)
 from funciones_analisis import enrich_visitedcats_snapshot
 enrich_visitedcats_snapshot(graph_lsa, data, children)
 
-nx.write_gexf(graph_lsa, osjoin(path_git, 'Grafos_guardados', 'prueba_lsa2.gexf'))
+nx.write_gexf(graph_lsa, osjoin(path_git, 'Grafos_guardados', 'prueba_lsa.gexf'))
