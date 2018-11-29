@@ -1,4 +1,5 @@
 import networkx as nx
+from collections import deque
 
 #### Funciones sumario ####
 
@@ -107,3 +108,29 @@ def get_visited_subcats(children):
         subcats += ls
     subcats = [string[9:].replace(' ', '_') for string in set(subcats)]
     return subcats
+
+def get_children_level(children, root, depth):
+    if depth == 0:
+        return root
+    
+    cats_visited = []
+    queue = deque()
+    queue.append(root)
+    queue.append('<<END_OF_LEVEL>>')
+    nlevels = 0
+
+    while len(queue) > 1 and nlevels <= depth:
+        cat_actual = queue.popleft()
+        cats_visited.append(cat_actual)
+        if cat_actual == '<<END_OF_LEVEL>>':
+            nlevels += 1
+            queue.append('<<END_OF_LEVEL>>')
+            cat_actual = queue.popleft()
+            cats_visited.append(cat_actual)
+        
+        for subcat in children[cat_actual]:
+            if subcat not in cats_visited and subcat not in queue:
+                queue.append(subcat)
+
+def get_ancestordict(children, root, depth):
+    pass
