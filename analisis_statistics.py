@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov 29 00:34:46 2018
+
+@author: Laura Gamboa
+"""
+
 from pc_path import definir_path
 path_git, path_datos_global = definir_path()
 from os.path import join as osjoin
@@ -6,7 +13,7 @@ import networkx as nx
 from cazador import CazadorDeDatos
 from funciones_analisis import (graph_summary, enrich_interestingcats_history,
                                 enrich_visitedcats_history, get_visited_subcats)
-from generar_grafos import data_to_graphs, save_graphs
+from generar_grafos import (data_to_graphs, save_graphs)
 from utilities import (curate_links, get_setofcats, curate_categories)
 
 import matplotlib.pyplot as plt
@@ -14,7 +21,7 @@ plt.ion()
 
 
 caza = CazadorDeDatos()
-carpeta = osjoin(path_datos_global, 'machine_learning')
+carpeta = osjoin(path_datos_global, 'statistics')
 data_raw, children = caza.cargar_datos(carpeta)
 graphs_raw = data_to_graphs(data_raw)
 dates = list(graphs_raw.keys())
@@ -44,28 +51,7 @@ enrich_visitedcats_history(graphs, data, children)
 # Subgrafos correspondientes a la categoría recorrida únicamente
 graphs_originalcat = {date : graphs[date].subgraph(data[date]['names'])
                       for date in dates}
-save_graphs(graphs, 'machine_learning', osjoin(path_datos_global, 'machine_learning'))
-save_graphs(graphs_originalcat, 'machine_learning_orcat', osjoin(path_datos_global, 'machine_learning'))
-#%%
-print('===========================================')
-print('Análisis de la categoría Machine Learning')
-print('===========================================')
-for date, g in graphs_originalcat.items():
-    print('===============================')
-    print('Red del', date)
-    print('===============================')
-    graph_summary(g)
-    assert nx.is_directed(g), "Asumimos que nuestros grafos de entrada son dirigidos"
-    g_undir = nx.Graph(g)
-    print('-------------------------------')
-    if nx.is_connected(g_undir):
-        print('El grafo es (débilmente) conexo')
-    else:
-        print('El grafo no es conexo. Analizando componente gigante.')
-        # Notar que nx.connected_component_subgraphs no está implementado
-        # para grafos dirigidos
-        # Consideramos como componente gigante la componente débilmente
-        # conexa más grande
-        g_cg_undir = max(nx.connected_component_subgraphs(g_undir), key=len)
-        g_cg = g.subgraph(g_cg_undir.nodes)
-        graph_summary(g_cg)
+
+#g = graphs['2018-10-01T12:00:00Z']
+save_graphs(graphs, 'statistics', osjoin(path_datos_global, 'statistics'))
+save_graphs(graphs_originalcat, 'statistics_orcat', osjoin(path_datos_global, 'statistics'))
