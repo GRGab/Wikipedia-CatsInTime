@@ -7,7 +7,9 @@ def definir_path():
         path_git = '/home/gabo/Documents/Facultad-local/wikipedia-proyecto/'
         path_datos_global = '/home/gabo/Documents/Facultad-local/datos_wikipedia'
     elif socket.gethostname() == 'matias-Satellite-A665':
-        pass
+        path_git = '/home/matias/Documentos/Facultad/Redes/wikipedia-proyecto/'
+        path_datos_global = '/home/matias/Documentos/Facultad/Redes/datos_wikipedia'
     elif socket.gethostname() == 'DESKTOP-URTP413':
-        pass
+        path_git = r'C:\Users\chagu\Desktop\Matias\Redes\wikipedia-proyecto'
+        path_datos_global = r'C:\Users\chagu\Desktop\Matias\Redes\datos_wikipedia'
     return path_git, path_datos_global
