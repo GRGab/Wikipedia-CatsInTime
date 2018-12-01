@@ -12,6 +12,7 @@ from category_enrichment import (get_visited_subcats,
                                 get_descendantsdict,
                                 print_common_descendants,
                                 enrich_history)
+from clustering import calculate_infomap
 
 import matplotlib.pyplot as plt
 plt.ion()
@@ -88,6 +89,12 @@ graphs_originalcat = {date : graphs[date].subgraph(data[date]['names'])
 # Exportamos
 save_graphs(graphs_originalcat, 'Machine_learning',
            osjoin(path_git, 'Grafos_guardados'))
+
+# Para importar
+g = nx.read_gexf(osjoin(path_git, 'Grafos_guardados', 'Machine_learning_2018-10-1.gexf'))
+g_cg = g.subgraph(max(nx.connected_components(nx.Graph(g)), key=len))
+infomap_communities = calculate_infomap(g_cg)
+nx.write_gexf(g_cg, osjoin(path_git, 'Grafos_guardados', 'Machine_learning_2018-10-1_infomap.gexf'))
 
 #%%
 print('===========================================')
