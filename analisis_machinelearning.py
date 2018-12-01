@@ -4,12 +4,6 @@ from os.path import join as osjoin
 
 import networkx as nx
 from cazador import CazadorDeDatos
-<<<<<<< HEAD
-from funciones_analisis import (graph_summary, enrich_interestingcats_history,
-                                enrich_visitedcats_history, get_visited_subcats)
-from generar_grafos import data_to_graphs, save_graphs
-from utilities import (curate_links, get_setofcats, curate_categories)
-=======
 from generar_grafos import data_to_graphs, save_graphs
 
 from utilities import (curate_links, get_setofcats, curate_categories)
@@ -18,8 +12,6 @@ from category_enrichment import (get_visited_subcats,
                                 get_descendantsdict,
                                 print_common_descendants,
                                 enrich_history)
-
->>>>>>> 58d1b9c001e5170453238d60cf8aed63317e8e62
 
 import matplotlib.pyplot as plt
 plt.ion()
