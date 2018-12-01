@@ -41,6 +41,21 @@ def links_to_edgelist(names, links):
             edgelist.append((name, link))
     return edgelist
 
+def snapshot_to_graph(snapshot_data, directed=True):
+    edges = links_to_edgelist(snapshot_data['names'], snapshot_data['links'])
+    if directed:
+        g = nx.DiGraph(edges)
+    else:
+        g = nx.Graph(edges)
+    return g
+
+def data_to_graphs(data, directed=True):
+    graphs = {}
+    for date in data:
+        graphs[date] = snapshot_to_graph(data[date], directed=directed)
+    return graphs
+
+# Deprecated
 def edgelists(data):
     """
     Generar una edgelist por snapshot para networkx a partir de la estructura generada por
@@ -52,17 +67,6 @@ def edgelists(data):
         links = data[fecha]['links']
         edges[fecha] = links_to_edgelist(names, links)
     return edges
-
-def data_to_graphs(data, directed=True):
-    graphs = {}
-    edges = edgelists(data)
-    # Creamos los grafos
-    for date in edges:
-        if directed:
-            graphs[date] = nx.DiGraph(edges[date])
-        else:
-            graphs[date] = nx.Graph(edges[date])
-    return graphs
 
 def save_graphs(graphs, title, savefolder):
     """Guardar los grafos en formato .gexf
