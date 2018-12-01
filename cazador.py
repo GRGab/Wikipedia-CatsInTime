@@ -131,8 +131,8 @@ class CazadorDeDatos():
         'maxpages' es el nro. máximo de páginas a obtener; si vale 0 o menos
         entonces no hay máximo.
 
-        El parámetro opcional 'retomar' debe contener una instancia de las tres
-        estructuras usadas para llevar cuenta del estado actual dentro del proceso
+        El parámetro opcional 'retomar' debe contener una instancia de las 5
+        estructuras que llevan cuenta del estado actual dentro del proceso
         de búsqueda.
 
         'save_folder' es la carpeta en la que guardar los archivos de output:
@@ -143,24 +143,23 @@ class CazadorDeDatos():
         en disco y el siguiente. Si vale 1 se guarda luego de terminar cada categoría,
         si vale 0 o menos no se guarda nunca.
         """
-        # Estructuras auxiliares para implementar la BFS
-        # Determinan el estado actual de la búsqueda
         if retomar is not None:
-            queue, cats_visited, pags_visited = retomar
+            data, children, queue, cats_visited, pags_visited = retomar
         else:
+            # Estructuras output
+            data = {fecha : {'names' : [], 'links' : [],
+                            'texts' : [], 'categories' : [],
+                            'timestamps': []} for fecha in fechas}
+            children = {}
+            # Estructuras auxiliares para implementar la BFS
             queue = deque()
             cats_visited = []
             pags_visited = []
-        # Estructuras output
-        data = {fecha : {'names' : [], 'links' : [],
-                         'texts' : [], 'categories' : [],
-                         'timestamps': []} for fecha in fechas}
-        children = {}
-
-        # Inicialización de la cola de espera
-        queue.append(root_category)
-        queue.append('<<END_OF_LEVEL>>')
-        # Contadores
+            # Inicialización de la cola de espera
+            queue.append(root_category)
+            queue.append('<<END_OF_LEVEL>>')
+        
+        # Contadores 
         nlevels = 0
         ncats_sincelastsave = 0
 
@@ -230,7 +229,7 @@ class CazadorDeDatos():
             print('Guardado completo.')
             print('# categorías visitadas:', len(cats_visited))
             print('# páginas visitadas:', len(pags_visited))
-            print('# niveles recorridos:', nlevels + 1)
+            print('# niveles recorridos (durante esta ejecución):', nlevels + 1)
         return data, children, queue, cats_visited, pags_visited
 
     def visit_category(self, category_name, data, pags_visited, verbose=True):
@@ -312,10 +311,12 @@ class CazadorDeDatos():
 
     @staticmethod
     def retomar(folder):
+        data = json.load(open(osjoin(folder, 'data.json'), 'r'))
+        children = json.load(open(osjoin(folder, 'children.json'), 'r'))
         queue = deque(json.load(open(osjoin(folder, 'queue.json'), 'r')))
         cats_visited = json.load(open(osjoin(folder, 'cats_visited.json'), 'r'))
         pags_visited = json.load(open(osjoin(folder, 'pags_visited.json'), 'r'))
-        return queue, cats_visited, pags_visited
+        return data, children, queue, cats_visited, pags_visited
 
     def listar_revisiones(self, page_name):
         '''Para un pedido a la API en un intervalo de tiempos, me hago una lista
