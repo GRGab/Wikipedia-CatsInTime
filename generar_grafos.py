@@ -27,7 +27,7 @@ def childrendict_to_edgelist(childrendict):
     edgelist = []
     for parent, children in childrendict.items():
         partial_edgelist = [(parent, child) for child in children]
-        edgelist.append(partial_edgelist)
+        edgelist += partial_edgelist
     return edgelist
 
 def links_to_edgelist(names, links):

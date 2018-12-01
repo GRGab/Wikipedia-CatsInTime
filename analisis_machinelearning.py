@@ -85,12 +85,9 @@ enrich_history(graphs, data, category_mapping, method='mapping')
 graphs_originalcat = {date : graphs[date].subgraph(data[date]['names'])
                       for date in dates}
 
-save_graphs(graphs, 'machine_learning', osjoin(path_datos_global, 'machine_learning'))
-save_graphs(graphs_originalcat, 'machine_learning_orcat', osjoin(path_datos_global, 'machine_learning'))
-#Mati :Esto es lo tuyo, lo comento
 # Exportamos
-#save_graphs(graphs_originalcat, 'Machine_learning',
-#            osjoin(path_git, 'Grafos_guardados'))
+save_graphs(graphs_originalcat, 'Machine_learning',
+           osjoin(path_git, 'Grafos_guardados'))
 
 #%%
 print('===========================================')
