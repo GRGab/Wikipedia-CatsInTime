@@ -1,3 +1,5 @@
+from collections import deque
+
 #### Utilities para asignación de categorías a los nodos
 
 def format_catstrings(catstrings):
@@ -29,31 +31,39 @@ def flatten_subtree(node, childrendict):
     # Como puede no ser un árbol posta, elimino repetidos antes de terminar
     return list(set(flattened))
 
-def get_root(childrendict):
+def get_roots(childrendict):
+    """Devuelve una lista con los nombres de los nodos raíz de la estructura.
+    Si no tiene ninguno tira un ValueError."""
     children_of_someone = [node for children in childrendict.values()
                                     for node in children]
+    roots = []
     for node in childrendict.keys():
         if node not in children_of_someone:
-            root = node
-            break
-    else: # No se encontró ningún nodo raíz
+            roots.append(node)
+    if len(roots) == 0:
         raise ValueError('El diccionario childrendict no corresponde a una \
                           estructura con un nodo raíz.')
-    return root
+    return roots
 
 def get_tree_level(childrendict, depth):
     """
     Devuelve el conjunto de nodos de un árbol que se encuentran en el nivel
-    dado por 'depth'. La raíz del árbol está en el nivel 0. El árbol se
+    dado por 'depth'. Las raíz del árbol están en el nivel 0. El árbol se
     representa por el diccionario childrendict y puede no ser realmente un árbol.
+
+    También funciona cuando no hay un solo nodo raíz (se trataría de un bosque
+    si la estructura mencionada anteriormente fuera realmente un árbol, pero
+    no es el caso). En ese caso, todas las raíces están en el nivel 0 y todos
+    los nodos hijos de cualquier raíz están en el nivel 1.
     """
-    # Determinamos cuál es el nodo raíz
-    root = get_root(childrendict)
+    # Determinamos cuáles son los nodos raíz
+    roots = get_roots(childrendict)
     # Comenzamos la búsqueda en anchura
     visited = []
     output = []
     queue = deque()
-    queue.append(root)
+    for root in roots:
+        queue.append(root)
     queue.append('<<END_OF_LEVEL>>')
     nlevels = 0
     while len(queue) > 1:
