@@ -17,6 +17,7 @@ from category_enrichment import (get_visited_subcats,
                                 get_ancestordict,
                                 category_mapping_helper,
                                 enrich_history)
+from clustering import calculate_infomap
 
 ########### Funciones secundarias #####################
 
@@ -81,7 +82,7 @@ def aglomerar_children(children_ml, children_st, save=False):
                              'w'), indent=4)
     return children
 
-############# Funciones primaria ###################
+############# Funciones primarias ###################
 
 # Ejecutamos esto una vez y ya está
 def aglomerar_crudo():
@@ -102,7 +103,7 @@ def aglomerar_crudo():
     print('Aglomeración terminada! Tiempo transcurrido:', int(time() - ti), 's')
 
 # Luego importamos con esto
-def importar_aglomerado():
+def importar_MLyStats():
     with open(osjoin(path_datos_global, 'names_ml.json'), 'r') as fp:
         names_ml = json.load(fp)
     with open(osjoin(path_datos_global, 'names_st.json'), 'r') as fp:
@@ -113,29 +114,40 @@ def importar_aglomerado():
         children = json.load(fp)
     return names_ml, names_st, data, children
 
-names_ml, names_st, data, children = importar_aglomerado()
 
-# Creamos graphs
-dates = list(data.keys())
-graphs = data_to_graphs(data)
-# Nos quedamos solo con los grafos de las categorías visitadas
-graphs = {date : graphs[date].subgraph(data[date]['names']) for date in dates}
+if __name__ == '__main__':
+    names_ml, names_st, data, children = importar_MLyStats()
 
-### Enriquecimiento por categorías
+    # Creamos graphs
+    dates = list(data.keys())
+    graphs = data_to_graphs(data)
+    # Nos quedamos solo con los grafos de las categorías visitadas
+    graphs = {date : graphs[date].subgraph(data[date]['names']) for date in dates}
 
-## Creación del category_mapping
-## Como es un proceso manual, se hace una vez y se guarda
-# category_mapping = get_descendantsdict(children, 1)
-# category_mapping = category_mapping_helper(category_mapping)
-# with open(osjoin(path_datos_global, 'category_mapping_MLyStats.json'), 'w') as fp:
-#     json.dump(cat_map_4, fp, indent=4)
-## Importamos
-with open(osjoin(path_datos_global, 'category_mapping_MLyStats.json'), 'r') as fp:
-    category_mapping = json.load(fp)
+    ### Enriquecimiento por categorías
 
-### Enriquecemos
-category_info = (category_mapping, names_ml, names_st)
-enrich_history(graphs, data, category_info, method='mapping_MLyStats')
+    ## Creación del category_mapping
+    ## Como es un proceso manual, se hace una vez y se guarda
+    # category_mapping = get_descendantsdict(children, 1)
+    # category_mapping = category_mapping_helper(category_mapping)
+    # with open(osjoin(path_datos_global, 'category_mapping_MLyStats.json'), 'w') as fp:
+    #     json.dump(cat_map_4, fp, indent=4)
+    ## Importamos
+    with open(osjoin(path_datos_global, 'category_mapping_MLyStats.json'), 'r') as fp:
+        category_mapping = json.load(fp)
 
-# Guardamos los grafos
-save_graphs(graphs, 'MLyStats', osjoin(path_git, 'Grafos_guardados'))
+    ### Enriquecemos
+    category_info = (category_mapping, names_ml, names_st)
+    enrich_history(graphs, data, category_info, method='mapping_MLyStats')
+
+    # Guardamos los grafos
+    save_graphs(graphs, 'MLyStats', osjoin(path_git, 'Grafos_guardados'))
+
+    ### Agregamos clustering por infomap
+    graphs_infomap = {}
+    for date, g in graphs:
+        h = g.subgraph(max(nx.connected_components(nx.Graph(g)), key=len))
+        calculate_infomap(h, directed=True)
+        graphs_infomap[date] = h
+
+    save_graphs(graphs_infomap, 'MLyStats_infomap_cg', osjoin(path_git, 'Grafos_guardados'))
