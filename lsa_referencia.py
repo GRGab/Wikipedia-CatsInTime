@@ -78,6 +78,7 @@ matrix_distancias = squareform(distancias)
 
 # Elijo un umbral, mirando el hist de distancias entre páginas,
 # y obtengo la matriz de adyacencia
+np.quantile(distancias, 0.2)
 umbral = 0.4
 adjacency_lsa = np.array(matrix_distancias <= umbral, dtype=int)
 
