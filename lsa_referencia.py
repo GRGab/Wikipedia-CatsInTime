@@ -76,10 +76,9 @@ distancias = pdist(embedding, metric = 'cosine')
 # distancias_3 = pdist(embedding, metric = 'euclidean')
 matrix_distancias = squareform(distancias)
 
-# Elijo un umbral, mirando el hist de distancias entre páginas,
+# Elijo un umbral según qué densidad quiero que tenga el grafo resultante
 # y obtengo la matriz de adyacencia
-np.quantile(distancias, 0.2)
-umbral = 0.4
+umbral = np.quantile(distancias, 0.15)
 adjacency_lsa = np.array(matrix_distancias <= umbral, dtype=int)
 
 # Genero grafo no dirigido
