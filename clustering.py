@@ -28,7 +28,7 @@ def calculate_infomap(G, directed=True, use_igraph=False, silent=True):
         myInfomap = infomap.Infomap(param_string)
 
         print("Building Infomap network from a NetworkX graph...")
-        g = nx.convert_node_labels_to_integers(G)
+        g = nx.convert_node_labels_to_integers(G, label_attribute='name')
         network = myInfomap.network()
         for e in g.edges():
             network.addLink(*e)
@@ -42,7 +42,7 @@ def calculate_infomap(G, directed=True, use_igraph=False, silent=True):
             if node.isLeaf():
                 communities[node.physicalId] = node.moduleIndex()
 
-        communities = {attrDict['label'] : communities[node] for node, attrDict
+        communities = {attrDict['name'] : communities[node] for node, attrDict
                        in dict(g.nodes()).items()}
     nx.set_node_attributes(G, name='infomap', values=communities)
     return communities
