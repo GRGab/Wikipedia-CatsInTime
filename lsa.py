@@ -25,6 +25,9 @@ from category_enrichment import enrich_mapping
 def semantic_analysis(snapshot_data, n_components=20, n_iter=10,
                                ngram_range=(1,2), metric='cosine', quantile=0.15):
     ti = time()
+
+    # SEPARAR TODO ESTO EN OTRA FUNCIÓN
+    ###########################################################################
     corpus = snapshot_data['texts']
     # Limpiamos todo lo que es HTML y nos quedamos con el texto (se podría hacer
     # algo mejor, eliminando secciones bizarras de la página, pero bueno)
@@ -39,6 +42,8 @@ def semantic_analysis(snapshot_data, n_components=20, n_iter=10,
     tfidf_transformer = TfidfTransformer(norm = 'l2')
     x_tfidf = tfidf_transformer.fit_transform(X)
     print('TF IDF:', int(time()-ti), 's'); ti = time()
+    ###########################################################################
+
     # Aplicar LSA
     lsa = LSA(n_components = n_components, n_iter = n_iter, random_state = 0)
     lsa_data = lsa.fit(x_tfidf.T)
