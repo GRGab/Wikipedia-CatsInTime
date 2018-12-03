@@ -13,6 +13,10 @@ from category_enrichment import (get_visited_subcats,
                                 print_common_descendants,
                                 enrich_history)
 
+from clustering import calculate_infomap
+from lsa import semantic_analysis, tune_LSA_dimension
+
+import numpy as np
 import matplotlib.pyplot as plt
 plt.ion()
 
@@ -88,6 +92,49 @@ graphs_originalcat = {date : graphs[date].subgraph(data[date]['names'])
 # Exportamos
 save_graphs(graphs_originalcat, 'Machine_learning',
            osjoin(path_git, 'Grafos_guardados'))
+
+# Para importar
+g = nx.read_gexf(osjoin(path_git, 'Grafos_guardados', 'Machine_learning_2018-10-1.gexf'))
+
+# Infomap para la componente gigante
+g_cg = g.subgraph(max(nx.connected_components(nx.Graph(g)), key=len))
+infomap_communities = calculate_infomap(g_cg)
+nx.write_gexf(g_cg, osjoin(path_git, 'Grafos_guardados', 'Machine_learning_2018-10-1_infomap.gexf'))
+
+# Afinar parámetro de LSA mediante comparación de clusterizaciones
+
+# CÓDIGO QUE CORRÍ PARA GENERAR LOS RESULTADOS
+# dimensions = np.arange(6, 32, 2)
+# scores = tune_LSA_dimension(data[dates[3]], dimensions)
+# dimensions_2 = np.array([13, 15, 17])
+# scores_2 = tune_LSA_dimension(data[dates[3]], dimensions_2)
+# xs, ys = [], []
+# for i in range(40):
+#     if i in dimensions:
+#         index = np.where(dimensions == i)[0][0]
+#         xs.append(i)
+#         ys.append(scores[index])
+#     if i in dimensions_2:
+#         index = np.where(dimensions_2 == i)[0][0]
+#         xs.append(i)
+#         ys.append(scores_2[index])
+
+# RESULTADOS OBTENIDOS
+xs = [6, 8, 10, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 26, 28, 30]
+ys = [0.07687256926517101, 0.13142089534393475, 0.14301108292376694, 0.15403164311384546,
+      0.15249932009546188, 0.1219241186506174, 0.1573626000536737, 0.16783365439202375,
+      0.13498181053171332, 0.11621528270202362, 0.06934339612671694, 0.06511799509882962,
+      0.05948172648134499, 0.05141303428985522, 0.06878146029203254, 0.0560939878096464]
+
+# Graficamos
+with plt.style.context(('seaborn')):
+    fig, ax = plt.subplots()
+ax.plot(xs, ys, '--.', color='deeppink', ms=20)
+ax.set_xlabel('Dimensión LSA', fontsize=18)
+ax.set_ylabel('Score', fontsize=18)
+ax.tick_params(labelsize=16)
+fig.tight_layout()
+
 
 #%%
 print('===========================================')

@@ -40,7 +40,7 @@ dirigidos?).
 más pronunciada, pero se va achicando con el tiempo. En 2018 es de 23 nodos
 mientras que en 2015 es de 67.
 
-## Elección de categorías de interés
+### Elección de categorías de interés
 
 - Luego de mirar un rato las enormes listas de categorías presentes en el grafo,
 me di cuenta de que las categorías que probablemente nos interesen van a ser
@@ -53,3 +53,36 @@ Esto es súper interesante para explorar gráficamente con Gephi.
 - Una tercera forma, bastante interesante, sería fijar el nivel de profundidad
 en el árbol dado por 'children' y particionar a todas las páginas según las
 subcats presentes únicamente en ese nivel. Esto queda PENDIENTE.
+
+## 2018-12-01
+
+- Lo de fijar el nivel de profundidad y eso ya está hecho, pero requiere un poco
+de ajustes manuales para obtener una partición propiamente dicha, debido a que
+la estructura no es un árbol.
+- Para aplicar Infomap, es necesario restringirse a la componente gigante de los
+grafos. Para Machine Learning solo (sin incorporar Statistics), los 23 nodos que
+quedan afuera son:
+
+ ['AI Now Institute',
+ 'Draft:GetData.IO',
+ 'International Conference on Intelligent Tutoring Systems',
+ 'Prior Scientific',
+ 'Ignorability',
+ 'Center for Biological and Computational Learning',
+ 'Neural network synchronization protocol',
+ 'Qualitative comparative analysis',
+ 'Paul Viola',
+ 'Synaptic transistor',
+ 'State transition algorithm',
+ 'Pulse-coupled networks',
+ 'Blinder–Oaxaca decomposition',
+ 'Textures: A Photographic Album for Artists and Designers',
+ 'International Conference on User Modeling, Adaptation, and Personalization',
+ 'Artificial Evolution Conference',
+ 'Graphical lasso',
+ 'AlterEgo',
+ 'Covariation model',
+ 'MoneyBee',
+ 'Rank condition',
+ 'Semantic neural network',
+ 'Event correlation']
