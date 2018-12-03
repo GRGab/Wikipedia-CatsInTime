@@ -139,15 +139,19 @@ if __name__ == '__main__':
     ### Enriquecemos
     category_info = (category_mapping, names_ml, names_st)
     enrich_history(graphs, data, category_info, method='mapping_MLyStats')
+    
+    ### Agregamos clustering por infomap
+    for date, g in graphs.items():
+        calculate_infomap(g, directed=True)
 
     # Guardamos los grafos
     save_graphs(graphs, 'MLyStats', osjoin(path_git, 'Grafos_guardados'))
 
-    ### Agregamos clustering por infomap
-    graphs_infomap = {}
-    for date, g in graphs:
-        h = g.subgraph(max(nx.connected_components(nx.Graph(g)), key=len))
-        calculate_infomap(h, directed=True)
-        graphs_infomap[date] = h
 
-    save_graphs(graphs_infomap, 'MLyStats_infomap_cg', osjoin(path_git, 'Grafos_guardados'))
+    ### Esto es si calculate_infomap requiere que le pase la compo gig
+    # graphs_infomap = {}
+    # for date, g in graphs.items():
+    #     h = g.subgraph(max(nx.connected_components(nx.Graph(g)), key=len))
+    #     calculate_infomap(h, directed=True)
+    #     graphs_infomap[date] = h
+    # save_graphs(graphs_infomap, 'MLyStats_infomap_cg', osjoin(path_git, 'Grafos_guardados'))
