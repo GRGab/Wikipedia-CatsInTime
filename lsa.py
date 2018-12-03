@@ -68,7 +68,7 @@ def semantic_analysis(snapshot_data, quantile, n_components, ngram_range=(1,2),
                       n_iter=10, metric='cosine'):
     # Limpieza de HTML + Vectorización + tf-idf
     x_tfidf = corpus_to_embedding(snapshot_data, ngram_range=ngram_range)
-    # LSA + Cálculo de distancias + 
+    # LSA + Cálculo de distancias + construcción del grafo
     graph_lsa = embedding_to_graph(x_tfidf, snapshot_data, quantile,
                                    n_components, n_iter=n_iter, metric=metric)
     return graph_lsa
@@ -78,16 +78,22 @@ def tune_LSA_dimension(snapshot_data, quantile, dimensions):
     # Se asume que snapshot_data ya ha sido curado y todo
     graph_ref = snapshot_to_graph(snapshot_data)
     graph_ref = graph_ref.subgraph(snapshot_data['names'])
+    # Por motivos comparativos, nos quedamos con la compo gigante
     graph_ref = graph_ref.subgraph(max(nx.connected_components(nx.Graph(graph_ref)),
                                key=len))
     # Clusterizamos la referencia
     clusters_ref = calculate_infomap(graph_ref)
-    # Comparamos esta clusterización con la realizada sobre grafos LSA
+    # Realizamos el embedding de los textos
+    embedding = corpus_to_embedding(snapshot_data)
+    # Comparamos la clusterización de ref. con la realizada sobre grafos LSA
     n_dimvalues = len(dimensions)
     scores = np.zeros(n_dimvalues)
     for i in range(n_dimvalues):
         print('dim =', dimensions[i])
-        graph_lsa = semantic_analysis(snapshot_data, quantile, dimensions[i])
+        # Construimos grafo LSA
+        graph_lsa = embedding_to_graph(embedding, snapshot_data, quantile,
+                                       dimensions[i])
+        # Por motivos comparativos, nos quedamos con la compo gigante
         graph_lsa = graph_lsa.subgraph(max(nx.connected_components(nx.Graph(graph_lsa)),
                                    key=len))
         # Clusterizar el grafo
