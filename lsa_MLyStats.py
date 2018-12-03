@@ -11,8 +11,8 @@ from os.path import join as osjoin
 from crear_grafos_MLyStats import importar_MLyStats
 from category_enrichment import enrich_history
 from generar_grafos import save_graphs
-from clustering import calculate_infomap
 
+from clustering import calculate_infomap
 from lsa import semantic_analysis, tune_LSA_dimension
 
 names_ml, names_st, data, children = importar_MLyStats()
@@ -119,9 +119,9 @@ def semantic_analysis_MLyStats(data, quantile, n_components,
         #     calculate_infomap(h, directed=True)
         #     graphs_infomap[date] = h
         for date, g in graphs.items():
-            calculate_infomap(g, directed=True)
+            calculate_infomap(g, directed=False)
     if save:
-        save_graphs(graphs, 'MLyStats_LSA_{}dim'.format(n_components),
+        save_graphs(graphs, 'MLyStats_LSA_{}dim_q{}'.format(n_components, quantile),
                     path_datos_global)
         # Esto es si calculate_infomap requiere que le pase la compo gig
         # if infomap:

@@ -19,8 +19,8 @@ from os.path import join as osjoin
 from cazador import CazadorDeDatos
 from utilities import curate_links
 from generar_grafos import snapshot_to_graph
-from clustering import calculate_infomap
 from category_enrichment import enrich_mapping
+from clustering import calculate_infomap
 
 
 def corpus_to_embedding(snapshot_data, ngram_range=(1,2)):
