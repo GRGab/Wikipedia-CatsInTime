@@ -7,7 +7,7 @@ plt.ion()
 
 def calculate_infomap(G, directed=True, use_igraph=False, silent=True):
     """
-    Esto falla si G no es conexo
+    Se supone que esto no falla si G no es conexo
     """
     if use_igraph:
         print("Building igraph network from a NetworkX graph...")
@@ -33,14 +33,20 @@ def calculate_infomap(G, directed=True, use_igraph=False, silent=True):
         for e in g.edges():
             network.addLink(*e)
             # myInfomap.addLink(*e)
-        print("Find communities with Infomap...")
+        print("Finding communities with Infomap...")
         myInfomap.run()
         print("Found {} modules with codelength: {}".format(myInfomap.numTopModules(), myInfomap.codelength()))
         communities = {}
 
+        # Infomap le asigna comunidades a los nodos de la C.G.
         for node in myInfomap.iterTree():
             if node.isLeaf():
                 communities[node.physicalId] = node.moduleIndex()
+
+        # A los nodos fuera de la C.G., les asignamos el valor infomap = 'notcg'
+        for node in g.nodes:
+            if node not in communities:
+                communities[node] = 'notCG'
 
         communities = {attrDict['name'] : communities[node] for node, attrDict
                        in dict(g.nodes()).items()}

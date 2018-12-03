@@ -1,24 +1,22 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 29 00:34:46 2018
-
-@author: Laura Gamboa
-"""
-
 from pc_path import definir_path
 path_git, path_datos_global = definir_path()
 from os.path import join as osjoin
 
 import networkx as nx
 from cazador import CazadorDeDatos
-from funciones_analisis import (graph_summary, enrich_interestingcats_history,
-                                enrich_visitedcats_history, get_visited_subcats)
-from generar_grafos import (data_to_graphs, save_graphs)
+from generar_grafos import data_to_graphs, save_graphs
+
 from utilities import (curate_links, get_setofcats, curate_categories)
+from funciones_analisis import graph_summary
+from category_enrichment import (get_visited_subcats,
+                                get_descendantsdict,
+                                print_common_descendants,
+                                enrich_history)
 
 import matplotlib.pyplot as plt
 plt.ion()
 
+#%%
 
 caza = CazadorDeDatos()
 carpeta = osjoin(path_datos_global, 'statistics')
@@ -42,7 +40,7 @@ graphs = data_to_graphs(data)
 # enrich_interestingcats_history(graphs, data, interesting_cats)
 
 ### A cada página le asignamos la subcat a la que pertenecía al ser adquirida
-enrich_visitedcats_history(graphs, data, children)
+#enrich_visitedcats_history(graphs, data, children)
 
 ### Una tercera forma, bastante interesante, sería fijar el nivel de profundidad
 ### en el árbol dado por 'children' y particionar a todas las páginas según las
