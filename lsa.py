@@ -22,29 +22,31 @@ from generar_grafos import snapshot_to_graph
 from clustering import calculate_infomap
 from category_enrichment import enrich_mapping
 
-def semantic_analysis(snapshot_data, n_components=20, n_iter=10,
-                               ngram_range=(1,2), metric='cosine', quantile=0.15):
-    ti = time()
 
-    # SEPARAR TODO ESTO EN OTRA FUNCIÓN
-    ###########################################################################
+def corpus_to_embedding(snapshot_data, ngram_range=(1,2)):
+    ti = time()
     corpus = snapshot_data['texts']
     # Limpiamos todo lo que es HTML y nos quedamos con el texto (se podría hacer
     # algo mejor, eliminando secciones bizarras de la página, pero bueno)
-    corpus = [bs(html_text, features="lxml").get_text().replace('\n', ' ') for html_text in corpus]
+    corpus = [bs(html_text, features="lxml").get_text().replace('\n', ' ')
+              for html_text in corpus]
     # Convertir a vectores (esto puede tardar)
     # El resultado es una matriz esparsa
     print('Preprocesamiento:', int(time()-ti), 's'); ti = time()
-    vectorizer = CountVectorizer(input='content', ngram_range=ngram_range, stop_words = "english")
+    vectorizer = CountVectorizer(input='content', ngram_range=ngram_range,
+                                 stop_words = "english")
     X = vectorizer.fit_transform(corpus)
     print('Vectorización:', int(time()-ti), 's'); ti = time()
     # Aplicar transformación TF IDF
     tfidf_transformer = TfidfTransformer(norm = 'l2')
     x_tfidf = tfidf_transformer.fit_transform(X)
-    print('TF IDF:', int(time()-ti), 's'); ti = time()
-    ###########################################################################
+    print('TF IDF:', int(time()-ti), 's')
+    return x_tfidf
 
+def embedding_to_graph(x_tfidf, snapshot_data, quantile, n_components,
+                       n_iter=10, metric='cosine'):
     # Aplicar LSA
+    ti = time()
     lsa = LSA(n_components = n_components, n_iter = n_iter, random_state = 0)
     lsa_data = lsa.fit(x_tfidf.T)
     print('LSA:', int(time()-ti), 's'); ti = time()
@@ -59,10 +61,20 @@ def semantic_analysis(snapshot_data, n_components=20, n_iter=10,
     graph_lsa = nx.from_numpy_matrix(adjacency_lsa, create_using=nx.Graph())
     label_mapping = {i : name for i, name in enumerate(snapshot_data['names'])}
     graph_lsa = nx.relabel_nodes(graph_lsa, label_mapping)
-    print('Grafo creado:', int(time()-ti), 's'); ti = time()
+    print('Grafo creado:', int(time()-ti), 's')
     return graph_lsa
 
-def tune_LSA_dimension(snapshot_data, dimensions):
+def semantic_analysis(snapshot_data, quantile, n_components, ngram_range=(1,2),
+                      n_iter=10, metric='cosine'):
+    # Limpieza de HTML + Vectorización + tf-idf
+    x_tfidf = corpus_to_embedding(snapshot_data, ngram_range=ngram_range)
+    # LSA + Cálculo de distancias + 
+    graph_lsa = embedding_to_graph(x_tfidf, snapshot_data, quantile,
+                                   n_components, n_iter=n_iter, metric=metric)
+    return graph_lsa
+
+
+def tune_LSA_dimension(snapshot_data, quantile, dimensions):
     # Se asume que snapshot_data ya ha sido curado y todo
     graph_ref = snapshot_to_graph(snapshot_data)
     graph_ref = graph_ref.subgraph(snapshot_data['names'])
@@ -75,7 +87,7 @@ def tune_LSA_dimension(snapshot_data, dimensions):
     scores = np.zeros(n_dimvalues)
     for i in range(n_dimvalues):
         print('dim =', dimensions[i])
-        graph_lsa = semantic_analysis(snapshot_data, n_components=dimensions[i])
+        graph_lsa = semantic_analysis(snapshot_data, quantile, dimensions[i])
         graph_lsa = graph_lsa.subgraph(max(nx.connected_components(nx.Graph(graph_lsa)),
                                    key=len))
         # Clusterizar el grafo
