@@ -46,7 +46,7 @@ def calculate_infomap(G, directed=True, use_igraph=False, silent=True):
         # A los nodos fuera de la C.G., les asignamos el valor infomap = 'notcg'
         for node in g.nodes:
             if node not in communities:
-                communities[node] = 'notCG'
+                communities[node] = -1
 
         communities = {attrDict['name'] : communities[node] for node, attrDict
                        in dict(g.nodes()).items()}

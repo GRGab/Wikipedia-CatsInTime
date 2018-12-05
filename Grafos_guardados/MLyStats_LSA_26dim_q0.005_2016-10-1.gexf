@@ -25,7 +25,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Portal:Machine learning" label="Portal:Machine learning">
@@ -57,7 +57,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Action model learning" label="Action model learning">
@@ -97,7 +97,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Base rate" label="Base rate">
@@ -193,7 +193,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bing Predicts" label="Bing Predicts">
@@ -289,7 +289,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Log-linear_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Concept learning" label="Concept learning">
@@ -305,7 +305,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Structured_prediction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cross-validation (statistics)" label="Cross-validation (statistics)">
@@ -313,7 +313,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Curse of dimensionality" label="Curse of dimensionality">
@@ -425,7 +425,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Empirical risk minimization" label="Empirical risk minimization">
@@ -497,7 +497,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Expectation propagation" label="Expectation propagation">
@@ -561,7 +561,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Feature learning" label="Feature learning">
@@ -673,7 +673,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Knowledge integration" label="Knowledge integration">
@@ -681,7 +681,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Journal of Machine Learning Research" label="Journal of Machine Learning Research">
@@ -697,7 +697,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Learning automaton" label="Learning automaton">
@@ -729,7 +729,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Learnable function class" label="Learnable function class">
@@ -745,7 +745,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Learning with errors" label="Learning with errors">
@@ -769,7 +769,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Linear predictor function" label="Linear predictor function">
@@ -793,7 +793,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Logic learning machine" label="Logic learning machine">
@@ -809,7 +809,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Log-linear_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Matthews correlation coefficient" label="Matthews correlation coefficient">
@@ -833,7 +833,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Manifold regularization" label="Manifold regularization">
@@ -849,7 +849,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multi-armed bandit" label="Multi-armed bandit">
@@ -857,7 +857,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Meta learning (computer science)" label="Meta learning (computer science)">
@@ -873,7 +873,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multi-task learning" label="Multi-task learning">
@@ -945,7 +945,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Neural modeling fields" label="Neural modeling fields">
@@ -953,7 +953,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Occam learning" label="Occam learning">
@@ -969,7 +969,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Parity learning" label="Parity learning">
@@ -977,7 +977,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="OpenNN" label="OpenNN">
@@ -1009,7 +1009,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Preference learning" label="Preference learning">
@@ -1041,7 +1041,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Proactive learning" label="Proactive learning">
@@ -1073,7 +1073,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Proximal gradient methods for learning" label="Proximal gradient methods for learning">
@@ -1129,7 +1129,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Random projection" label="Random projection">
@@ -1137,7 +1137,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Relational data mining" label="Relational data mining">
@@ -1265,7 +1265,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical relational learning" label="Statistical relational learning">
@@ -1273,7 +1273,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stability (learning theory)" label="Stability (learning theory)">
@@ -1305,7 +1305,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Subclass reachability" label="Subclass reachability">
@@ -1345,7 +1345,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Datasets_in_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Transfer learning" label="Transfer learning">
@@ -1385,7 +1385,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Uncertain data" label="Uncertain data">
@@ -1433,7 +1433,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bayesian network" label="Bayesian network">
@@ -1441,7 +1441,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Bayesian_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Causal Markov condition" label="Causal Markov condition">
@@ -1545,7 +1545,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Variable kernel density estimation" label="Variable kernel density estimation">
@@ -1553,7 +1553,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="(1+ε)-approximate nearest neighbor search" label="(1+ε)-approximate nearest neighbor search">
@@ -1561,7 +1561,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="AdaBoost" label="AdaBoost">
@@ -1585,7 +1585,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Alternating decision tree" label="Alternating decision tree">
@@ -1625,7 +1625,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="BrownBoost" label="BrownBoost">
@@ -1657,7 +1657,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Chi-square automatic interaction detection" label="Chi-square automatic interaction detection">
@@ -1665,7 +1665,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cascading classifiers" label="Cascading classifiers">
@@ -1673,7 +1673,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Classifier chains" label="Classifier chains">
@@ -1697,7 +1697,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Compositional pattern-producing network" label="Compositional pattern-producing network">
@@ -1761,7 +1761,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hierarchical classifier" label="Hierarchical classifier">
@@ -1777,7 +1777,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gesture Description Language" label="Gesture Description Language">
@@ -1833,7 +1833,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="K-nearest neighbors algorithm" label="K-nearest neighbors algorithm">
@@ -1865,7 +1865,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Linear classifier" label="Linear classifier">
@@ -1873,7 +1873,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Learning vector quantization" label="Learning vector quantization">
@@ -1881,7 +1881,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Linear discriminant analysis" label="Linear discriminant analysis">
@@ -1889,7 +1889,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Locality-sensitive hashing" label="Locality-sensitive hashing">
@@ -1913,7 +1913,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Margin classifier" label="Margin classifier">
@@ -1921,7 +1921,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="LogitBoost" label="LogitBoost">
@@ -1929,7 +1929,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Margin-infused relaxed algorithm" label="Margin-infused relaxed algorithm">
@@ -1937,7 +1937,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multilayer perceptron" label="Multilayer perceptron">
@@ -1985,7 +1985,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multispectral pattern recognition" label="Multispectral pattern recognition">
@@ -2065,7 +2065,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Support vector machine" label="Support vector machine">
@@ -2089,7 +2089,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Textual case-based reasoning" label="Textual case-based reasoning">
@@ -2105,7 +2105,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Winnow (algorithm)" label="Winnow (algorithm)">
@@ -2113,7 +2113,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cluster analysis" label="Cluster analysis">
@@ -2145,7 +2145,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Archetypal analysis" label="Archetypal analysis">
@@ -2153,7 +2153,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Clustering illusion" label="Clustering illusion">
@@ -2161,7 +2161,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Correlation clustering" label="Correlation clustering">
@@ -2257,7 +2257,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Applied_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="AlchemyAPI" label="AlchemyAPI">
@@ -2289,7 +2289,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="DARPA LAGR Program" label="DARPA LAGR Program">
@@ -2369,7 +2369,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Applied_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="ND4J (software)" label="ND4J (software)">
@@ -2441,7 +2441,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Applied_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="TD-Gammon" label="TD-Gammon">
@@ -2449,7 +2449,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Applied_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sense Networks" label="Sense Networks">
@@ -2505,7 +2505,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Adaptive resonance theory" label="Adaptive resonance theory">
@@ -2521,7 +2521,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Artificial neuron" label="Artificial neuron">
@@ -2537,7 +2537,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Autoencoder" label="Autoencoder">
@@ -2553,7 +2553,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Artisto" label="Artisto">
@@ -2609,7 +2609,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cellular neural network" label="Cellular neural network">
@@ -2705,7 +2705,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="DexNet" label="DexNet">
@@ -2769,7 +2769,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Evolutionary acquisition of neural topologies" label="Evolutionary acquisition of neural topologies">
@@ -2793,7 +2793,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Extreme learning machine" label="Extreme learning machine">
@@ -2841,7 +2841,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Grossberg network" label="Grossberg network">
@@ -2889,7 +2889,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hard sigmoid" label="Hard sigmoid">
@@ -2897,7 +2897,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hybrid neural network" label="Hybrid neural network">
@@ -2953,7 +2953,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Jpred" label="Jpred">
@@ -2961,7 +2961,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Linde–Buzo–Gray algorithm" label="Linde–Buzo–Gray algorithm">
@@ -2977,7 +2977,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Lernmatrix" label="Lernmatrix">
@@ -2993,7 +2993,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="MoneyBee" label="MoneyBee">
@@ -3121,7 +3121,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Neural network synchronization protocol" label="Neural network synchronization protocol">
@@ -3129,7 +3129,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Optical neural network" label="Optical neural network">
@@ -3161,7 +3161,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pulse-coupled networks" label="Pulse-coupled networks">
@@ -3225,7 +3225,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Recurrent neural network" label="Recurrent neural network">
@@ -3257,7 +3257,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Semantic neural network" label="Semantic neural network">
@@ -3273,7 +3273,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Restricted Boltzmann machine" label="Restricted Boltzmann machine">
@@ -3289,7 +3289,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stochastic neural network" label="Stochastic neural network">
@@ -3305,7 +3305,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Spiking neural network" label="Spiking neural network">
@@ -3425,7 +3425,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="ECML PKDD" label="ECML PKDD">
@@ -3481,7 +3481,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Artificial_intelligence_conferences" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="International Semantic Web Conference" label="International Semantic Web Conference">
@@ -3489,7 +3489,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Artificial_intelligence_conferences" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Mexican International Conference on Artificial Intelligence" label="Mexican International Conference on Artificial Intelligence">
@@ -3665,7 +3665,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Fluentd" label="Fluentd">
@@ -3705,7 +3705,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="H2O (software)" label="H2O (software)">
@@ -3713,7 +3713,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="KXEN Inc." label="KXEN Inc.">
@@ -3801,7 +3801,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Microsoft Cognitive Toolkit" label="Microsoft Cognitive Toolkit">
@@ -3809,7 +3809,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Mlpy" label="Mlpy">
@@ -3881,7 +3881,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Piranha (software)" label="Piranha (software)">
@@ -3889,7 +3889,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="R (programming language)" label="R (programming language)">
@@ -4073,7 +4073,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Yooreeka" label="Yooreeka">
@@ -4113,7 +4113,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Computational_learning_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Language identification in the limit" label="Language identification in the limit">
@@ -4153,7 +4153,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Computational_learning_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sample exclusion dimension" label="Sample exclusion dimension">
@@ -4169,7 +4169,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Computational_learning_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="VC dimension" label="VC dimension">
@@ -4177,7 +4177,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Computational_learning_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Unique negative dimension" label="Unique negative dimension">
@@ -4265,7 +4265,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Evolutionary_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Artificial development" label="Artificial development">
@@ -4369,7 +4369,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Evolutionary_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Evolutionary music" label="Evolutionary music">
@@ -4433,7 +4433,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Evolutionary_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Memetic algorithm" label="Memetic algorithm">
@@ -4569,7 +4569,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Evolutionary_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bootstrap aggregating" label="Bootstrap aggregating">
@@ -4625,7 +4625,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Inductive_logic_programming" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Golem (ILP)" label="Golem (ILP)">
@@ -4649,7 +4649,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Inductive_logic_programming" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Anti-unification (computer science)" label="Anti-unification (computer science)">
@@ -4665,7 +4665,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Detrended correspondence analysis" label="Detrended correspondence analysis">
@@ -4681,7 +4681,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Canonical correspondence analysis" label="Canonical correspondence analysis">
@@ -4697,7 +4697,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Independent component analysis" label="Independent component analysis">
@@ -4713,7 +4713,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Generalized canonical correlation" label="Generalized canonical correlation">
@@ -4809,7 +4809,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="NOMINATE (scaling method)" label="NOMINATE (scaling method)">
@@ -4841,7 +4841,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sammon mapping" label="Sammon mapping">
@@ -4857,7 +4857,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Robust principal component analysis" label="Robust principal component analysis">
@@ -4865,7 +4865,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stress majorization" label="Stress majorization">
@@ -4881,7 +4881,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Tucker decomposition" label="Tucker decomposition">
@@ -4929,7 +4929,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Kernel_methods_for_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Graph kernel" label="Graph kernel">
@@ -4945,7 +4945,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Kernel_methods_for_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kernel eigenvoice" label="Kernel eigenvoice">
@@ -4977,7 +4977,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Kernel_methods_for_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Polynomial kernel" label="Polynomial kernel">
@@ -5001,7 +5001,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Kernel_methods_for_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Constellation model" label="Constellation model">
@@ -5049,7 +5049,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Common-method variance" label="Common-method variance">
@@ -5057,7 +5057,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Factor analysis" label="Factor analysis">
@@ -5065,7 +5065,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Factor regression model" label="Factor regression model">
@@ -5089,7 +5089,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Dynamic unobserved effects model" label="Dynamic unobserved effects model">
@@ -5105,7 +5105,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Latent semantic analysis" label="Latent semantic analysis">
@@ -5121,7 +5121,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Local independence" label="Local independence">
@@ -5145,7 +5145,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pachinko allocation" label="Pachinko allocation">
@@ -5177,7 +5177,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Topic model" label="Topic model">
@@ -5241,7 +5241,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Loss_functions" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sum of absolute differences" label="Sum of absolute differences">
@@ -5249,7 +5249,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Loss_functions" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sum of absolute transformed differences" label="Sum of absolute transformed differences">
@@ -5281,7 +5281,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Log-linear_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pierre Baldi" label="Pierre Baldi">
@@ -5361,7 +5361,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_researchers" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ofer Dekel (researcher)" label="Ofer Dekel (researcher)">
@@ -5537,7 +5537,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_researchers" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ayanna Howard" label="Ayanna Howard">
@@ -5609,7 +5609,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_researchers" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="John D. Lafferty" label="John D. Lafferty">
@@ -5681,7 +5681,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_researchers" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Chih-Jen Lin" label="Chih-Jen Lin">
@@ -5729,7 +5729,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_researchers" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Steve Omohundro" label="Steve Omohundro">
@@ -5801,7 +5801,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_researchers" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bernhard Schölkopf" label="Bernhard Schölkopf">
@@ -5945,7 +5945,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Burst error" label="Burst error">
@@ -5985,7 +5985,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Examples of Markov chains" label="Examples of Markov chains">
@@ -6057,7 +6057,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Generalized filtering" label="Generalized filtering">
@@ -6065,7 +6065,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Mark V. Shaney" label="Mark V. Shaney">
@@ -6089,7 +6089,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Language model" label="Language model">
@@ -6113,7 +6113,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Markov chain Monte Carlo" label="Markov chain Monte Carlo">
@@ -6129,7 +6129,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Markov chain geostatistics" label="Markov chain geostatistics">
@@ -6169,7 +6169,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Markov switching multifractal" label="Markov switching multifractal">
@@ -6177,7 +6177,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Maximum-entropy Markov model" label="Maximum-entropy Markov model">
@@ -6185,7 +6185,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Population process" label="Population process">
@@ -6193,7 +6193,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Path dependence" label="Path dependence">
@@ -6225,7 +6225,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Snakes and Ladders" label="Snakes and Ladders">
@@ -6257,7 +6257,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Quantum Markov chain" label="Quantum Markov chain">
@@ -6265,7 +6265,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stochastic matrix" label="Stochastic matrix">
@@ -6273,7 +6273,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Transiogram" label="Transiogram">
@@ -6329,7 +6329,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Dominance-based rough set approach" label="Dominance-based rough set approach">
@@ -6401,7 +6401,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Local outlier factor" label="Local outlier factor">
@@ -6417,7 +6417,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Non-negative matrix factorization" label="Non-negative matrix factorization">
@@ -6425,7 +6425,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Minimum redundancy feature selection" label="Minimum redundancy feature selection">
@@ -6433,7 +6433,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Manifold alignment" label="Manifold alignment">
@@ -6441,7 +6441,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multiple kernel learning" label="Multiple kernel learning">
@@ -6481,7 +6481,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Quadratic unconstrained binary optimization" label="Quadratic unconstrained binary optimization">
@@ -6489,7 +6489,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Randomized weighted majority algorithm" label="Randomized weighted majority algorithm">
@@ -6513,7 +6513,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="State–action–reward–state–action" label="State–action–reward–state–action">
@@ -6545,7 +6545,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Machine_learning_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Wake-sleep algorithm" label="Wake-sleep algorithm">
@@ -6601,7 +6601,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Datasets_in_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Speech recognition" label="Speech recognition">
@@ -6633,7 +6633,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Additive smoothing" label="Additive smoothing">
@@ -6641,7 +6641,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Apache OpenNLP" label="Apache OpenNLP">
@@ -6665,7 +6665,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Dissociated press" label="Dissociated press">
@@ -6689,7 +6689,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Katz's back-off model" label="Katz's back-off model">
@@ -6753,7 +6753,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Probabilistic context-free grammar" label="Probabilistic context-free grammar">
@@ -6809,7 +6809,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Trigram tagger" label="Trigram tagger">
@@ -6849,7 +6849,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Kernel_methods_for_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ranking SVM" label="Ranking SVM">
@@ -6865,7 +6865,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Kernel_methods_for_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Structured prediction" label="Structured prediction">
@@ -6881,7 +6881,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hebbian theory" label="Hebbian theory">
@@ -6889,7 +6889,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Vector quantization" label="Vector quantization">
@@ -6905,7 +6905,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Decision stump" label="Decision stump">
@@ -6921,7 +6921,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Decision tree model" label="Decision tree model">
@@ -6937,7 +6937,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Classification_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Incremental decision tree" label="Incremental decision tree">
@@ -7073,7 +7073,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hoshen–Kopelman algorithm" label="Hoshen–Kopelman algorithm">
@@ -7209,7 +7209,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="SUBCLU" label="SUBCLU">
@@ -7241,7 +7241,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Davies–Bouldin index" label="Davies–Bouldin index">
@@ -7289,7 +7289,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Rand index" label="Rand index">
@@ -7329,7 +7329,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Cluster_analysis" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="AlphaGo versus Lee Sedol" label="AlphaGo versus Lee Sedol">
@@ -7377,7 +7377,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="JOONE" label="JOONE">
@@ -7409,7 +7409,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="NeuroSolutions" label="NeuroSolutions">
@@ -7457,7 +7457,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="PSIPRED" label="PSIPRED">
@@ -7465,7 +7465,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Artificial_neural_networks" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Prisma (app)" label="Prisma (app)">
@@ -7489,7 +7489,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Prior Scientific" label="Prior Scientific">
@@ -7561,7 +7561,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Datasets_in_machine_learning" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Overhead Imagery Research Data Set" label="Overhead Imagery Research Data Set">
@@ -7649,7 +7649,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Evolutionary_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Fitness proportionate selection" label="Fitness proportionate selection">
@@ -7897,7 +7897,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Evolutionary_algorithms" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Harmony search" label="Harmony search">
@@ -7953,7 +7953,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Exploratory factor analysis" label="Exploratory factor analysis">
@@ -8001,7 +8001,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Functional principal component analysis" label="Functional principal component analysis">
@@ -8009,7 +8009,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multiple factor analysis" label="Multiple factor analysis">
@@ -8017,7 +8017,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Dimension_reduction" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Repertory grid" label="Repertory grid">
@@ -8025,7 +8025,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="GENERAL_SHARED" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Q methodology" label="Q methodology">
@@ -8129,7 +8129,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Markov logic network" label="Markov logic network">
@@ -8161,7 +8161,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hierarchical hidden Markov model" label="Hierarchical hidden Markov model">
@@ -8185,7 +8185,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cache language model" label="Cache language model">
@@ -8209,7 +8209,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_natural_language_processing" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kneser–Ney smoothing" label="Kneser–Ney smoothing">
@@ -8233,7 +8233,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ancestral graph" label="Ancestral graph">
@@ -8265,7 +8265,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="M-separation" label="M-separation">
@@ -8273,7 +8273,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Graphical models for protein structure" label="Graphical models for protein structure">
@@ -8281,7 +8281,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Generalized distributive law" label="Generalized distributive law">
@@ -8433,7 +8433,7 @@
           <attvalue for="0" value="true" />
           <attvalue for="1" value="false" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Propensity score matching" label="Propensity score matching">
@@ -8577,7 +8577,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Artificial precision" label="Artificial precision">
@@ -8657,7 +8657,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multivariate kernel density estimation" label="Multivariate kernel density estimation">
@@ -8681,7 +8681,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Plug-in principle" label="Plug-in principle">
@@ -8705,7 +8705,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="List of fields of application of statistics" label="List of fields of application of statistics">
@@ -8729,7 +8729,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Chemometrics" label="Chemometrics">
@@ -8737,7 +8737,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cheminformatics" label="Cheminformatics">
@@ -8817,7 +8817,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Psychological statistics" label="Psychological statistics">
@@ -8825,7 +8825,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Psychometrics" label="Psychometrics">
@@ -8833,7 +8833,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Quantitative marketing research" label="Quantitative marketing research">
@@ -8849,7 +8849,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Quantitative psychology" label="Quantitative psychology">
@@ -8897,7 +8897,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="List of academic statistical associations" label="List of academic statistical associations">
@@ -8945,7 +8945,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Comparison of statistics journals" label="Comparison of statistics journals">
@@ -8969,7 +8969,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Glossary of probability and statistics" label="Glossary of probability and statistics">
@@ -9001,7 +9001,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="List of statistics journals" label="List of statistics journals">
@@ -9081,7 +9081,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="List of probability distributions" label="List of probability distributions">
@@ -9097,7 +9097,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="List of national and international statistical services" label="List of national and international statistical services">
@@ -9185,7 +9185,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics-related_lists" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistician" label="Statistician">
@@ -9233,7 +9233,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="CumFreq" label="CumFreq">
@@ -9329,7 +9329,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="PS Power and Sample Size" label="PS Power and Sample Size">
@@ -9545,7 +9545,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Algebraic statistics" label="Algebraic statistics">
@@ -9553,7 +9553,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Big O in probability notation" label="Big O in probability notation">
@@ -9593,7 +9593,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Decoupling (probability)" label="Decoupling (probability)">
@@ -9617,7 +9617,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Directional statistics" label="Directional statistics">
@@ -9705,7 +9705,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pivotal quantity" label="Pivotal quantity">
@@ -9713,7 +9713,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical interference" label="Statistical interference">
@@ -9721,7 +9721,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical model" label="Statistical model">
@@ -9729,7 +9729,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical population" label="Statistical population">
@@ -9753,7 +9753,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Lancichinetti–Fortunato–Radicchi benchmark" label="Lancichinetti–Fortunato–Radicchi benchmark">
@@ -9761,7 +9761,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Risk-limiting audit" label="Risk-limiting audit">
@@ -9817,7 +9817,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_profession_and_organizations" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Formal epistemology" label="Formal epistemology">
@@ -9985,7 +9985,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Analysis of rhythmic variance" label="Analysis of rhythmic variance">
@@ -10001,7 +10001,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Backus–Gilbert method" label="Backus–Gilbert method">
@@ -10009,7 +10009,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bayesian average" label="Bayesian average">
@@ -10137,7 +10137,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Component analysis (statistics)" label="Component analysis (statistics)">
@@ -10193,7 +10193,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Constraint (information theory)" label="Constraint (information theory)">
@@ -10241,7 +10241,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Convergent cross mapping" label="Convergent cross mapping">
@@ -10281,7 +10281,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Decile" label="Decile">
@@ -10433,7 +10433,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Extensions of Fisher's method" label="Extensions of Fisher's method">
@@ -10681,7 +10681,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kish grid" label="Kish grid">
@@ -10713,7 +10713,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Lexis ratio" label="Lexis ratio">
@@ -10745,7 +10745,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Line-intercept sampling" label="Line-intercept sampling">
@@ -10793,7 +10793,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="MINQUE" label="MINQUE">
@@ -10809,7 +10809,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Method of support" label="Method of support">
@@ -10849,7 +10849,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Natural population growth" label="Natural population growth">
@@ -10873,7 +10873,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Newcastle–Ottawa scale" label="Newcastle–Ottawa scale">
@@ -10945,7 +10945,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ordered probit" label="Ordered probit">
@@ -10961,7 +10961,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Orthogonal signal correction" label="Orthogonal signal correction">
@@ -11081,7 +11081,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Proxy (statistics)" label="Proxy (statistics)">
@@ -11097,7 +11097,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Quasi-identifier" label="Quasi-identifier">
@@ -11169,7 +11169,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Regression diagnostic" label="Regression diagnostic">
@@ -11193,7 +11193,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="The Review of Economics and Statistics" label="The Review of Economics and Statistics">
@@ -11225,7 +11225,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Scale analysis (statistics)" label="Scale analysis (statistics)">
@@ -11289,7 +11289,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Shrinkage (statistics)" label="Shrinkage (statistics)">
@@ -11321,7 +11321,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Smearing retransformation" label="Smearing retransformation">
@@ -11417,7 +11417,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stimulus–response model" label="Stimulus–response model">
@@ -11609,7 +11609,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Weighted geometric mean" label="Weighted geometric mean">
@@ -11617,7 +11617,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Wait list control group" label="Wait list control group">
@@ -11657,7 +11657,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Weighted median" label="Weighted median">
@@ -11665,7 +11665,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Zero-order process (statistics)" label="Zero-order process (statistics)">
@@ -12009,7 +12009,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="D. Raghavarao" label="D. Raghavarao">
@@ -12121,7 +12121,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Andrew Gelman" label="Andrew Gelman">
@@ -12825,7 +12825,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Rosedith Sitgreaves" label="Rosedith Sitgreaves">
@@ -13001,7 +13001,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Richard Loree Anderson" label="Richard Loree Anderson">
@@ -13073,7 +13073,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Martin Bland" label="Martin Bland">
@@ -13521,7 +13521,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Peter G. Moore" label="Peter G. Moore">
@@ -13617,7 +13617,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="John W. Pratt" label="John W. Pratt">
@@ -13681,7 +13681,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Andrew Samson" label="Andrew Samson">
@@ -13881,7 +13881,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statisticians" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gérard Ben Arous" label="Gérard Ben Arous">
@@ -14177,7 +14177,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Automatic summarization" label="Automatic summarization">
@@ -14201,7 +14201,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bibliomining" label="Bibliomining">
@@ -14217,7 +14217,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Concept mining" label="Concept mining">
@@ -14233,7 +14233,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Evolutionary data mining" label="Evolutionary data mining">
@@ -14257,7 +14257,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Optimal matching" label="Optimal matching">
@@ -14265,7 +14265,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="PatientsLikeMe" label="PatientsLikeMe">
@@ -14289,7 +14289,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sequential pattern mining" label="Sequential pattern mining">
@@ -14329,7 +14329,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Wiener connector" label="Wiener connector">
@@ -14337,7 +14337,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Algorithms for calculating variance" label="Algorithms for calculating variance">
@@ -14345,7 +14345,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Banburismus" label="Banburismus">
@@ -14401,7 +14401,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Metropolis–Hastings algorithm" label="Metropolis–Hastings algorithm">
@@ -14409,7 +14409,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Levenberg–Marquardt algorithm" label="Levenberg–Marquardt algorithm">
@@ -14449,7 +14449,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Wang and Landau algorithm" label="Wang and Landau algorithm">
@@ -14553,7 +14553,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Event generator" label="Event generator">
@@ -14577,7 +14577,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kinetic Monte Carlo" label="Kinetic Monte Carlo">
@@ -14593,7 +14593,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Metropolis-adjusted Langevin algorithm" label="Metropolis-adjusted Langevin algorithm">
@@ -14609,7 +14609,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Monte Carlo tree search" label="Monte Carlo tree search">
@@ -14617,7 +14617,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multicanonical ensemble" label="Multicanonical ensemble">
@@ -14657,7 +14657,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Simulated annealing" label="Simulated annealing">
@@ -14689,7 +14689,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Volumetric path tracing" label="Volumetric path tracing">
@@ -14713,7 +14713,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Slice sampling" label="Slice sampling">
@@ -14721,7 +14721,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Computational_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gibbs sampling" label="Gibbs sampling">
@@ -14729,7 +14729,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Construction of an irreducible Markov chain in the Ising model" label="Construction of an irreducible Markov chain in the Ising model">
@@ -14737,7 +14737,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Markov_models" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Parallel tempering" label="Parallel tempering">
@@ -14785,7 +14785,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Geotargeting" label="Geotargeting">
@@ -14809,7 +14809,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pedometric mapping" label="Pedometric mapping">
@@ -14817,7 +14817,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ricardo A. Olea" label="Ricardo A. Olea">
@@ -14873,7 +14873,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="C+-probability" label="C+-probability">
@@ -14881,7 +14881,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="CIT Program Tumor Identity Cards" label="CIT Program Tumor Identity Cards">
@@ -14889,7 +14889,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cohen's h" label="Cohen's h">
@@ -14905,7 +14905,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Complex systems biology" label="Complex systems biology">
@@ -14913,7 +14913,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Diagnostic odds ratio" label="Diagnostic odds ratio">
@@ -14977,7 +14977,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Risk ratio" label="Risk ratio">
@@ -15017,7 +15017,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="StatPlus" label="StatPlus">
@@ -15073,7 +15073,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Idealised population" label="Idealised population">
@@ -15137,7 +15137,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Methods engineering" label="Methods engineering">
@@ -15185,7 +15185,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Weibull modulus" label="Weibull modulus">
@@ -15193,7 +15193,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Reliability block diagram" label="Reliability block diagram">
@@ -15257,7 +15257,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Environmental protection expenditure accounts" label="Environmental protection expenditure accounts">
@@ -15273,7 +15273,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Index of Leading Environmental Indicators" label="Index of Leading Environmental Indicators">
@@ -15289,7 +15289,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Lincoln index" label="Lincoln index">
@@ -15313,7 +15313,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sustainability measurement" label="Sustainability measurement">
@@ -15425,7 +15425,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Asymmetric simple exclusion process" label="Asymmetric simple exclusion process">
@@ -15433,7 +15433,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="BBGKY hierarchy" label="BBGKY hierarchy">
@@ -15489,7 +15489,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bohr–van Leeuwen theorem" label="Bohr–van Leeuwen theorem">
@@ -15577,7 +15577,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Chapman–Enskog theory" label="Chapman–Enskog theory">
@@ -15625,7 +15625,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Coupling constant" label="Coupling constant">
@@ -15761,7 +15761,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Dulong–Petit law" label="Dulong–Petit law">
@@ -15881,7 +15881,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gas in a box" label="Gas in a box">
@@ -15969,7 +15969,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Green–Kubo relations" label="Green–Kubo relations">
@@ -15985,7 +15985,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ginzburg criterion" label="Ginzburg criterion">
@@ -16065,7 +16065,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Henry adsorption constant" label="Henry adsorption constant">
@@ -16153,7 +16153,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kardar–Parisi–Zhang equation" label="Kardar–Parisi–Zhang equation">
@@ -16185,7 +16185,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kirkwood–Buff solution theory" label="Kirkwood–Buff solution theory">
@@ -16225,7 +16225,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Langevin equation" label="Langevin equation">
@@ -16473,7 +16473,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Morris method" label="Morris method">
@@ -16489,7 +16489,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Order and disorder" label="Order and disorder">
@@ -16553,7 +16553,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Ornstein–Zernike equation" label="Ornstein–Zernike equation">
@@ -16633,7 +16633,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Primon gas" label="Primon gas">
@@ -16649,7 +16649,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Q-Gaussian distribution" label="Q-Gaussian distribution">
@@ -16817,7 +16817,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Semilinear response" label="Semilinear response">
@@ -16857,7 +16857,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Spin model" label="Spin model">
@@ -16873,7 +16873,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical weight" label="Statistical weight">
@@ -16913,7 +16913,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Symmetry breaking of escaping ants" label="Symmetry breaking of escaping ants">
@@ -17017,7 +17017,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Topological entropy in physics" label="Topological entropy in physics">
@@ -17185,7 +17185,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Zimm–Bragg model" label="Zimm–Bragg model">
@@ -17769,7 +17769,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_profession_and_organizations" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Super Crunchers" label="Super Crunchers">
@@ -18017,7 +18017,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_profession_and_organizations" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Voorburg group" label="Voorburg group">
@@ -18057,7 +18057,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="List of charting software" label="List of charting software">
@@ -18145,7 +18145,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gnumeric" label="Gnumeric">
@@ -18281,7 +18281,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="MagicPlot" label="MagicPlot">
@@ -18697,7 +18697,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_software" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Speakeasy (computational environment)" label="Speakeasy (computational environment)">
@@ -18777,7 +18777,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="NCSS (statistical software)" label="NCSS (statistical software)">
@@ -18913,7 +18913,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Philosophy_of_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bayesian statistics" label="Bayesian statistics">
@@ -18945,7 +18945,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Aumann's agreement theorem" label="Aumann's agreement theorem">
@@ -18969,7 +18969,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bayesian approaches to brain function" label="Bayesian approaches to brain function">
@@ -18977,7 +18977,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Chain rule (probability)" label="Chain rule (probability)">
@@ -18985,7 +18985,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Conjugate prior" label="Conjugate prior">
@@ -18993,7 +18993,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cromwell's rule" label="Cromwell's rule">
@@ -19009,7 +19009,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Coherence (statistics)" label="Coherence (statistics)">
@@ -19089,7 +19089,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hyperparameter" label="Hyperparameter">
@@ -19137,7 +19137,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Marginal likelihood" label="Marginal likelihood">
@@ -19153,7 +19153,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Odds ratio" label="Odds ratio">
@@ -19193,7 +19193,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bayesian probability" label="Bayesian probability">
@@ -19257,7 +19257,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Boole's inequality" label="Boole's inequality">
@@ -19313,7 +19313,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Jensen's inequality" label="Jensen's inequality">
@@ -19321,7 +19321,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kullback's inequality" label="Kullback's inequality">
@@ -19353,7 +19353,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Edgeworth series" label="Edgeworth series">
@@ -19369,7 +19369,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kirkwood approximation" label="Kirkwood approximation">
@@ -19505,7 +19505,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Asymptotic theory (statistics)" label="Asymptotic theory (statistics)">
@@ -19689,7 +19689,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Conditional entropy" label="Conditional entropy">
@@ -19777,7 +19777,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Fano's inequality" label="Fano's inequality">
@@ -19825,7 +19825,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Generalized entropy index" label="Generalized entropy index">
@@ -19833,7 +19833,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Grammatical Man" label="Grammatical Man">
@@ -19881,7 +19881,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="IEEE Information Theory Society" label="IEEE Information Theory Society">
@@ -19889,7 +19889,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Identity channel" label="Identity channel">
@@ -19953,7 +19953,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Information dimension" label="Information dimension">
@@ -19969,7 +19969,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Information diagram" label="Information diagram">
@@ -20041,7 +20041,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Jakobson's functions of language" label="Jakobson's functions of language">
@@ -20049,7 +20049,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kelly criterion" label="Kelly criterion">
@@ -20073,7 +20073,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Logic of information" label="Logic of information">
@@ -20137,7 +20137,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Lovász number" label="Lovász number">
@@ -20145,7 +20145,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Metcalfe's law" label="Metcalfe's law">
@@ -20169,7 +20169,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Maximal information coefficient" label="Maximal information coefficient">
@@ -20177,7 +20177,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Modulo-N code" label="Modulo-N code">
@@ -20185,7 +20185,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multi-user MIMO" label="Multi-user MIMO">
@@ -20233,7 +20233,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Name collision" label="Name collision">
@@ -20257,7 +20257,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Nevanlinna Prize" label="Nevanlinna Prize">
@@ -20273,7 +20273,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Network performance" label="Network performance">
@@ -20305,7 +20305,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Operator grammar" label="Operator grammar">
@@ -20345,7 +20345,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pinsker's inequality" label="Pinsker's inequality">
@@ -20393,7 +20393,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Principle of least privilege" label="Principle of least privilege">
@@ -20401,7 +20401,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Quantum computing" label="Quantum computing">
@@ -20433,7 +20433,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Rényi entropy" label="Rényi entropy">
@@ -20473,7 +20473,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Shannon–Hartley theorem" label="Shannon–Hartley theorem">
@@ -20545,7 +20545,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Spatiotemporal pattern" label="Spatiotemporal pattern">
@@ -20553,7 +20553,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Structural information theory" label="Structural information theory">
@@ -20593,7 +20593,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="A Symbolic Analysis of Relay and Switching Circuits" label="A Symbolic Analysis of Relay and Switching Circuits">
@@ -20625,7 +20625,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Throughput" label="Throughput">
@@ -20657,7 +20657,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Unicity distance" label="Unicity distance">
@@ -20665,7 +20665,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Typical set" label="Typical set">
@@ -20769,7 +20769,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gompertz–Makeham law of mortality" label="Gompertz–Makeham law of mortality">
@@ -20809,7 +20809,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Law of the unconscious statistician" label="Law of the unconscious statistician">
@@ -20833,7 +20833,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Law of total expectation" label="Law of total expectation">
@@ -20865,7 +20865,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Power law" label="Power law">
@@ -20873,7 +20873,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pareto principle" label="Pareto principle">
@@ -20897,7 +20897,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Long tail" label="Long tail">
@@ -20921,7 +20921,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Safety in numbers" label="Safety in numbers">
@@ -20937,7 +20937,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Zipf's law" label="Zipf's law">
@@ -21065,7 +21065,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Completely randomized design" label="Completely randomized design">
@@ -21081,7 +21081,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Control function (econometrics)" label="Control function (econometrics)">
@@ -21137,7 +21137,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Inference" label="Inference">
@@ -21153,7 +21153,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Philosophy_of_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical hypothesis testing" label="Statistical hypothesis testing">
@@ -21169,7 +21169,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Philosophy_of_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Maximum a posteriori estimation" label="Maximum a posteriori estimation">
@@ -21257,7 +21257,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Gambler's fallacy" label="Gambler's fallacy">
@@ -21297,7 +21297,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Will Rogers phenomenon" label="Will Rogers phenomenon">
@@ -21329,7 +21329,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Statistical randomness" label="Statistical randomness">
@@ -21353,7 +21353,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Exchangeable random variables" label="Exchangeable random variables">
@@ -21473,7 +21473,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Probability interpretations" label="Probability interpretations">
@@ -21513,7 +21513,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Equipossibility" label="Equipossibility">
@@ -21537,7 +21537,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Knightian uncertainty" label="Knightian uncertainty">
@@ -21593,7 +21593,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Principle of indifference" label="Principle of indifference">
@@ -21649,7 +21649,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Berry–Esseen theorem" label="Berry–Esseen theorem">
@@ -21657,7 +21657,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bochner's theorem" label="Bochner's theorem">
@@ -21681,7 +21681,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Continuous mapping theorem" label="Continuous mapping theorem">
@@ -21705,7 +21705,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Donsker's theorem" label="Donsker's theorem">
@@ -21833,7 +21833,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stein's lemma" label="Stein's lemma">
@@ -21857,7 +21857,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Anscombe's quartet" label="Anscombe's quartet">
@@ -21905,7 +21905,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Barber–Johnson diagram" label="Barber–Johnson diagram">
@@ -21961,7 +21961,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Choropleth map" label="Choropleth map">
@@ -21993,7 +21993,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Correlation diagram" label="Correlation diagram">
@@ -22001,7 +22001,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Data visualization" label="Data visualization">
@@ -22033,7 +22033,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Double mass analysis" label="Double mass analysis">
@@ -22089,7 +22089,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Galbraith plot" label="Galbraith plot">
@@ -22129,7 +22129,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Log–log plot" label="Log–log plot">
@@ -22153,7 +22153,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Nelson rules" label="Nelson rules">
@@ -22161,7 +22161,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Multi-vari chart" label="Multi-vari chart">
@@ -22177,7 +22177,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Normal probability plot" label="Normal probability plot">
@@ -22289,7 +22289,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="William Playfair" label="William Playfair">
@@ -22313,7 +22313,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Probability plot" label="Probability plot">
@@ -22337,7 +22337,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Rank abundance curve" label="Rank abundance curve">
@@ -22393,7 +22393,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Smoothing" label="Smoothing">
@@ -22425,7 +22425,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stem-and-leaf display" label="Stem-and-leaf display">
@@ -22465,7 +22465,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="U-chart" label="U-chart">
@@ -22617,7 +22617,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Coverage error" label="Coverage error">
@@ -22665,7 +22665,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Infrastructure bias" label="Infrastructure bias">
@@ -22705,7 +22705,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Inherent bias" label="Inherent bias">
@@ -22801,7 +22801,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Rock–paper–scissors" label="Rock–paper–scissors">
@@ -22825,7 +22825,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sampling design" label="Sampling design">
@@ -22833,7 +22833,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sampling error" label="Sampling error">
@@ -22849,7 +22849,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sampling risk" label="Sampling risk">
@@ -22945,7 +22945,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="All-pairs testing" label="All-pairs testing">
@@ -23041,7 +23041,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Choice set" label="Choice set">
@@ -23105,7 +23105,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Consecutive case series" label="Consecutive case series">
@@ -23209,7 +23209,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Fractional factorial design" label="Fractional factorial design">
@@ -23473,7 +23473,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Plackett–Burman design" label="Plackett–Burman design">
@@ -23529,7 +23529,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Pocock boundary" label="Pocock boundary">
@@ -23681,7 +23681,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Stepped-wedge trial" label="Stepped-wedge trial">
@@ -23721,7 +23721,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Functional data analysis" label="Functional data analysis">
@@ -23753,7 +23753,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Weighting" label="Weighting">
@@ -23761,7 +23761,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Berndt–Hall–Hall–Hausman algorithm" label="Berndt–Hall–Hall–Hausman algorithm">
@@ -23769,7 +23769,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bessel's correction" label="Bessel's correction">
@@ -23777,7 +23777,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Best linear unbiased prediction" label="Best linear unbiased prediction">
@@ -23785,7 +23785,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Chebyshev center" label="Chebyshev center">
@@ -23809,7 +23809,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Crowd counting" label="Crowd counting">
@@ -23841,7 +23841,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Indirect Inference" label="Indirect Inference">
@@ -23865,7 +23865,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Inverse-variance weighting" label="Inverse-variance weighting">
@@ -23889,7 +23889,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Minimum distance estimation" label="Minimum distance estimation">
@@ -23905,7 +23905,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Small area estimation" label="Small area estimation">
@@ -23913,7 +23913,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sample mean and covariance" label="Sample mean and covariance">
@@ -23945,7 +23945,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Bartlett's test" label="Bartlett's test">
@@ -24025,7 +24025,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Closed testing procedure" label="Closed testing procedure">
@@ -24073,7 +24073,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Applied_statistics" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Cramér–von Mises criterion" label="Cramér–von Mises criterion">
@@ -24081,7 +24081,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Dunnett's test" label="Dunnett's test">
@@ -24089,7 +24089,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="F-test" label="F-test">
@@ -24153,7 +24153,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hartley's test" label="Hartley's test">
@@ -24265,7 +24265,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Wilks' theorem" label="Wilks' theorem">
@@ -24329,7 +24329,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Page's trend test" label="Page's trend test">
@@ -24361,7 +24361,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="One-way analysis of variance" label="One-way analysis of variance">
@@ -24393,7 +24393,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Score test" label="Score test">
@@ -24409,7 +24409,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Sargan–Hansen test" label="Sargan–Hansen test">
@@ -24505,7 +24505,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Tukey–Duckworth test" label="Tukey–Duckworth test">
@@ -24737,7 +24737,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="National Asian American Survey" label="National Asian American Survey">
@@ -24785,7 +24785,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Categorical variable" label="Categorical variable">
@@ -24793,7 +24793,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Censoring (statistics)" label="Censoring (statistics)">
@@ -24841,7 +24841,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Life table" label="Life table">
@@ -24849,7 +24849,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Inter-rater reliability" label="Inter-rater reliability">
@@ -24921,7 +24921,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Realization (probability)" label="Realization (probability)">
@@ -25057,7 +25057,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="SDMX" label="SDMX">
@@ -25089,7 +25089,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Convention concerning Statistics of Wages and Hours of Work, 1938" label="Convention concerning Statistics of Wages and Hours of Work, 1938">
@@ -25137,7 +25137,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Anscombe transform" label="Anscombe transform">
@@ -25145,7 +25145,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_methods" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Rounding" label="Rounding">
@@ -25153,7 +25153,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Winsorizing" label="Winsorizing">
@@ -25169,7 +25169,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Variance-stabilizing transformation" label="Variance-stabilizing transformation">
@@ -25313,7 +25313,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_data" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Template:Probability-stub" label="Template:Probability-stub">
@@ -25401,7 +25401,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Diffusion process" label="Diffusion process">
@@ -25513,7 +25513,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hoeffding's lemma" label="Hoeffding's lemma">
@@ -25537,7 +25537,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Hunt process" label="Hunt process">
@@ -25561,7 +25561,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Kazamaki's condition" label="Kazamaki's condition">
@@ -25569,7 +25569,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="La Relance" label="La Relance">
@@ -25641,7 +25641,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistics_stubs" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Offered load" label="Offered load">
@@ -25801,7 +25801,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Total variation distance of probability measures" label="Total variation distance of probability measures">
@@ -25993,7 +25993,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="LSE approach to econometrics" label="LSE approach to econometrics">
@@ -26025,7 +26025,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="Statistical_theory" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Single-equation methods (econometrics)" label="Single-equation methods (econometrics)">
@@ -26049,7 +26049,7 @@
           <attvalue for="0" value="false" />
           <attvalue for="1" value="true" />
           <attvalue for="2" value="GENERAL_ST" />
-          <attvalue for="3" value="notCG" />
+          <attvalue for="3" value="-1G" />
         </attvalues>
       </node>
       <node id="Truncated regression model" label="Truncated regression model">
