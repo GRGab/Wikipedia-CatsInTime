@@ -27,11 +27,30 @@ for path in paths_lsa:
     gs_lsa.append(nx.read_gexf(path))
 
 ###############################################################################
-##### Información básica y Overlap entre ML y ST
+##### Información básica
 ###############################################################################
 
-orders, sizes = [], []
-for g in gs_hip:
-    orders.append(g.order())
-    sizes.append(g.size())
+print('===============================')
+print('Redes de hipervínculos (dirigidas)')
+print('===============================')
+for g, date in zip(gs_hip, dates):
+    print('-------------------------------')
+    print(date)
+    print('-------------------------------')
     graph_summary(g)
+print('===============================')
+print('Redes de LSA (no dirigidas)')
+print('===============================')
+for g, date in zip(gs_lsa, dates):
+    print('-------------------------------')
+    print(date)
+    print('-------------------------------')
+    graph_summary(g)
+
+# Resultado guardado en datos_sumarios_MLyStats.txt
+# (no puedo correr graph_summary en mi laptop)
+
+###############################################################################
+##### Overlap entre ML y ST
+###############################################################################
+
