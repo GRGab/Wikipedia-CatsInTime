@@ -139,3 +139,37 @@ for g, date in zip(gs_lsa, dates):
 # como ST y ML a la vez y ahora están marcadas solo como ST, aumenta la
 # conectividad intracluster para las páginas ST y eso disminuye el valor de la modularidad
 # Es una hipótesis
+
+# Eso anterior está mal, porque ST, ML no son cosas que cambien con el tiempo
+# Lo único que cambia es si cada nodo está o no en ese snapshot
+
+
+###############################################################################
+##### Diferencia entre LSA e Hipervínculos en función del tiempo
+###############################################################################
+
+for i in range(len(dates)):
+    print(dates[i])
+    # Soluciono "inconsistent shapes":
+    g, h = gs_hip[i], gs_lsa[i]
+    common_nodes = set(g.nodes).intersection(set(h.nodes))
+    g = g.subgraph(common_nodes)
+    h = h.subgraph(common_nodes)
+    # Convierto el g de hip a no dirigida para poder comparar justamente
+    g = nx.Graph(g)
+    # Comparo
+    A = nx.adjacency_matrix(g, nodelist=common_nodes).todok()
+    B = nx.adjacency_matrix(h, nodelist=common_nodes).todok()
+    C = (A - B).todok()
+    acc = 0
+    for val in C.values():
+        acc += abs(val)
+    n = g.order() # == h.order()
+    possible_links = n * (n-1) / 2
+    print(acc / possible_links)
+
+# Resultados
+## 2015: 0.02328076691913803
+## 2016: 0.022591212913793558
+## 2017: 0.022759670324737
+## 2018: 0.022272190401973573
