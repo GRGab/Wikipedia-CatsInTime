@@ -148,6 +148,7 @@ for g, date in zip(gs_lsa, dates):
 ##### Diferencia entre LSA e Hipervínculos en función del tiempo
 ###############################################################################
 
+# DEPRECATED
 for i in range(len(dates)):
     print(dates[i])
     # Soluciono "inconsistent shapes":
@@ -166,10 +167,57 @@ for i in range(len(dates)):
         acc += abs(val)
     n = g.order() # == h.order()
     possible_links = n * (n-1) / 2
+    print(acc)
     print(acc / possible_links)
-
 # Resultados
 ## 2015: 0.02328076691913803
 ## 2016: 0.022591212913793558
 ## 2017: 0.022759670324737
 ## 2018: 0.022272190401973573
+
+
+for i in range(len(dates)):
+    print('----------------')
+    print(dates[i])
+    print('----------------')
+    g, h = gs_hip[i], gs_lsa[i]
+    g = nx.Graph(g)
+    common_edges = set(g.edges).intersection(set(h.edges))
+    print(len(common_edges))
+    print(g.size())
+    print(h.size())
+    print(len(common_edges) / g.size())
+    print(len(common_edges) / h.size())
+
+## ----------------
+## 2015
+## ----------------
+## Edges comunes: 2420
+## Edges de g_hip: 39458
+## Edges de g_lsa: 28124
+## Comunes sobre total g_hip: 0.06133103553145116
+## Comunes sobre total g_lsa: 0.08604750391125018
+## ----------------
+## 2016
+## ----------------
+## Edges comunes: 2607
+## Edges de g_hip: 41061
+## Edges de g_lsa: 30751
+## Comunes sobre total g_hip: 0.06349090377730693
+## Comunes sobre total g_lsa: 0.08477773080550226
+## ----------------
+## 2017
+## ----------------
+## Edges comunes: 2615
+## Edges de g_hip: 44075
+## Edges de g_lsa: 32619
+## Comunes sobre total g_hip: 0.05933068633011911
+## Comunes sobre total g_lsa: 0.08016800024525583
+## ----------------
+## 2018
+## ----------------
+## Edges comunes: 2562
+## Edges de g_hip: 47232
+## Edges de g_lsa: 39537
+## Comunes sobre total g_hip: 0.05424288617886179
+## Comunes sobre total g_lsa: 0.06480006070263297
