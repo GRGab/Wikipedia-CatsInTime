@@ -91,7 +91,15 @@ def agregar_nacimiento(g, dates):
                 dictattr['nacimiento_{}'.format(dates[i])] = True
             else:
                 dictattr['nacimiento_{}'.format(dates[i])] = False
-
+                
+    for edge, dictattr in dict(g.edges).items():
+           dictattr['nacimiento_{}'.format(dates[0])] = False
+           for i in range(1, len(dates)):
+               if (dictattr['Existe_{}'.format(dates[i-1])] == False
+               and dictattr['Existe_{}'.format(dates[i])] == True):
+                   dictattr['nacimiento_{}'.format(dates[i])] = True
+               else:
+                   dictattr['nacimiento_{}'.format(dates[i])] = False
 for g in [g_hip, g_lsa]:
     agregar_nacimiento(g, dates)
 
