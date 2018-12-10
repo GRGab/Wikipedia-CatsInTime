@@ -24,16 +24,9 @@ with open(osjoin(path_datos_global, 'children_MLyStats.json'), 'r') as fp:
 edges = childrendict_to_edgelist(children)
 edges = [(e1[9:].replace('_', ''), e2[9:].replace('_', ' '))
          for e1, e2 in edges]
-g = nx.DiGraph(edges)
+g_cat = nx.DiGraph(edges)
 
-nx.write_gexf(g, osjoin(path_git, 'Grafos_guardados', 'grafo_cats.gexf'))
-
-from networkx.drawing.nx_agraph import write_dot, graphviz_layout
-plt.title('draw_networkx')
-pos = graphviz_layout(g, prog='dot')
-nx.draw(g, pos, with_labels=False, arrows=True)
-plt.savefig('nx_test.png')
-
+# nx.write_gexf(g, osjoin(path_git, 'Grafos_guardados', 'grafo_cats.gexf'))
 ###############################################################################
 ##### Importar grafos
 ###############################################################################
@@ -49,6 +42,14 @@ names_lsa = ['MLyStats_LSA_26dim_q0.005_{}-10-1.gexf'.format(i) for i in dates]
 paths_lsa = [osjoin(path_git, 'Grafos_guardados', name) for name in names_lsa]
 for path in paths_lsa:
     gs_lsa.append(nx.read_gexf(path))
+
+#### Chequear que la asignación de categorías constituye una partición
+# from networkx.algorithms.community.community_utils import is_partition
+# G = gs_hip[3]
+# cats = set(nx.get_node_attributes(G, 'category').values())
+# partition = [[x for x,d in dict(G.nodes).items() if d['category']==cat]
+#              for cat in cats]
+# is_partition(G, partition)
 
 ###############################################################################
 ##### Información básica
