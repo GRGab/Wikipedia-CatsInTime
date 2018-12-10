@@ -246,6 +246,10 @@ def enrich_mapping_MLyStats(g, snapshot_data, category_info):
                 if any(d in cat_dict[nodo] for d in descendants):
                     dict_nodo['category'] = cat
                     break
+                    # Importante: acá se asigna el nodo a la primera categoría
+                    # que se encuentre. Esto introduce una arbitrariedad en el
+                    # método de asignación de categorías que no es capturada
+                    # por la función category_mapping_helper().
             else: # nodo no corresponde a ningún cat
                 if nodo in names_ml and nodo not in names_st:
                     dict_nodo['category'] = 'GENERAL_ML'
