@@ -134,9 +134,9 @@ def agregar_colores(g, attribute, palette):
         partition.append([x for x,v in attr_dict.items() if v == cluster])
     partition = sorted(partition, key=len, reverse=True)
     # Asigno los colores de la paleta a los clusters más grandes
-    for cluster, color in zip(partition, palette):
+    for cluster, rgba_dict in zip(partition, palette):
         for node in cluster:
-            g.nodes[node]['color'] = color
+            g.nodes[node]['viz'] = {'color': rgba_dict}
 
 # Prueba rápida
 g_hip = nx.read_gexf(osjoin(path_git, 'Grafos_guardados', 'g_hip_mergeado.gexf'))
