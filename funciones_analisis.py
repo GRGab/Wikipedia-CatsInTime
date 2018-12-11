@@ -3,6 +3,16 @@ from collections import deque
 
 #### Funciones sumario ####
 
+def average_degrees(g, verbose=False):
+    if nx.is_directed(g):
+        kav = sum(dict(g.in_degree).values()) / g.order()
+    else:
+        kav = sum(dict(g.degree).values()) / g.order()
+        # También, kav = 2 * g.size() / g.order() (handshaking lemma)
+    if verbose:
+        print('k_av =', kav)
+    return kav
+
 def extremal_degrees(g, verbose=False):
     k_min = min(k for (nodo, k) in g.degree)
     k_max = max(k for (nodo, k) in g.degree)
@@ -30,6 +40,7 @@ def graph_summary(g):
     print('Densidad: {:.3g}'.format(nx.density(g)))
     print('Clustering medio: {:.3g}'.format(nx.average_clustering(g)))
     print('Transitividad: {:.3g}'.format(nx.transitivity(g)))
+    average_degrees(g, verbose=True)
     extremal_degrees(g, verbose=True)
 
 # Medio que esto no sirve para nada pero me costó codearlo y me da pena
