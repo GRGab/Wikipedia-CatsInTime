@@ -138,16 +138,25 @@ def agregar_colores(g, attribute, palette):
         for node in cluster:
             g.nodes[node]['viz'] = {'color': rgba_dict}
 
-# Prueba rápida
-g_hip = nx.read_gexf(osjoin(path_git, 'Grafos_guardados', 'g_hip_mergeado.gexf'))
-paleta = [
-    {'r': 255, 'g': 0, 'b': 0, 'a': 1},
-    {'r': 0, 'g': 255, 'b': 0, 'a': 1},
-    {'r': 0, 'g': 0, 'b': 255, 'a': 1}
-]
-g_hip_coloreado = g_hip.copy()
-agregar_colores(g_hip_coloreado, 'infomap_2018', paleta)
-nx.write_gexf(g_hip_coloreado, osjoin(path_git, 'Grafos_guardados', 'g_hip_mergeado_coloreado.gexf'))
+### Prueba rápida / Ejemplo de cómo usar
+# g_hip = nx.read_gexf(osjoin(path_git, 'Grafos_guardados', 'g_hip_mergeado.gexf'))
+# paleta = [
+#     {'r': 255, 'g': 0, 'b': 0, 'a': 1},
+#     {'r': 0, 'g': 255, 'b': 0, 'a': 1},
+#     {'r': 0, 'g': 0, 'b': 255, 'a': 1}
+# ]
+# g_hip_coloreado = g_hip.copy()
+# agregar_colores(g_hip_coloreado, 'infomap_2018', paleta)
+# nx.write_gexf(g_hip_coloreado, osjoin(path_git, 'Grafos_guardados', 'g_hip_mergeado_coloreado.gexf'))
+
+###############################################################################
+###############################################################################
+###############################################################################
+#~#~#~# ACÁ DEFINIR LA PALETA, APLICARLA A g_hip, g_lsa Y LUEGO EXPORTAR CON EL
+#~#~#~# CÓDIGO DE LA SECCIÓN DE ABAJO
+###############################################################################
+###############################################################################
+###############################################################################
 
 ###############################################################################
 ##### Exportar
