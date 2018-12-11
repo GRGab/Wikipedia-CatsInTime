@@ -69,13 +69,27 @@ def rellenar_con_false(g, attrs_nodos, attrs_edges):
         for attr in attrs_edges:
             if attr not in dictattr.keys():
                 dictattr[attr] = False
+
+def rellenar_con_numero(g, attrs_nodos, attrs_edges, numero):
+    for nodo, dictattr in dict(g.nodes).items():
+        for attr in attrs_nodos:
+            if attr not in dictattr.keys():
+                dictattr[attr] = numero
+    for edge, dictattr in dict(g.edges).items():
+        for attr in attrs_edges:
+            if attr not in dictattr.keys():
+                dictattr[attr] = numero
+
 attrs_nodos = (['Existe_{}'.format(date) for date in dates]
-               +['infomap_{}'.format(date) for date in dates]
                +['category_{}'.format(date) for date in dates])
 attrs_edges = ['Existe_{}'.format(date) for date in dates]
 
 rellenar_con_false(g_hip, attrs_nodos, attrs_edges)
 rellenar_con_false(g_lsa, attrs_nodos, attrs_edges)
+
+atributos_infomap = ['infomap_{}'.format(date) for date in dates]
+rellenar_con_numero(g_hip, atributos_infomap, [], -2)
+rellenar_con_numero(g_lsa, atributos_infomap, [], -2)
 
 ###############################################################################
 ##### agregar nacimiento
